@@ -1,0 +1,3136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IMSBIZZModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="BatchId" />
+          </Key>
+          <Property Name="BatchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsMainBranch" Type="bit" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchAddress" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CountyId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="City" Type="nvarchar" MaxLength="200" />
+          <Property Name="Pincode" Type="nvarchar" MaxLength="200" />
+          <Property Name="TelephoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="CityId" Type="nvarchar" MaxLength="200" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="200" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="500" />
+          <Property Name="GSTIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelephoneNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ownername" Type="nvarchar" MaxLength="200" />
+          <Property Name="OwnerAddress" Type="nvarchar" MaxLength="1000" />
+          <Property Name="OwnerMobileNo" Type="nvarchar" MaxLength="200" />
+          <Property Name="OwnerEmailId" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CurrencyName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CurrencySymbol" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="CurrencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar(max)" />
+          <Property Name="CurrencyCode" Type="nvarchar(max)" />
+          <Property Name="CurrencySymbol" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ELMAH_Error">
+          <Key>
+            <PropertyRef Name="ErrorId" />
+            <PropertyRef Name="Application" />
+            <PropertyRef Name="Host" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="User" />
+            <PropertyRef Name="StatusCode" />
+            <PropertyRef Name="TimeUtc" />
+            <PropertyRef Name="Sequence" />
+            <PropertyRef Name="AllXml" />
+          </Key>
+          <Property Name="ErrorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Application" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Host" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Source" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="User" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StatusCode" Type="int" Nullable="false" />
+          <Property Name="TimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="Sequence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AllXml" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLoId" />
+          </Key>
+          <Property Name="ErrorLoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="ErrorType" Type="nvarchar" MaxLength="100" />
+          <Property Name="ErrorMsg" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FinancialYear">
+          <Key>
+            <PropertyRef Name="FinancialYearId" />
+          </Key>
+          <Property Name="FinancialYearId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="EndDate" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IsNew" Type="bit" />
+        </EntityType>
+        <EntityType Name="Godown">
+          <Key>
+            <PropertyRef Name="GodownId" />
+          </Key>
+          <Property Name="GodownId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="GodownName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GodownAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="PartyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartyAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="GSTINNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="PartyType" Type="nvarchar" MaxLength="20" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="350" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="500" />
+          <Property Name="HSNCode" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="GodownId" Type="int" />
+          <Property Name="RackId" Type="int" />
+          <Property Name="PurchasPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SalesPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ReorderLevel" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseId" />
+          </Key>
+          <Property Name="PurchaseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartyId" Type="int" />
+          <Property Name="FinancialyearId" Type="int" />
+          <Property Name="PoNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="PoDate" Type="datetime" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentModeId" Type="int" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="OtherExpenses" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PurchaseDetails">
+          <Key>
+            <PropertyRef Name="PurchaseDetailsId" />
+          </Key>
+          <Property Name="PurchaseDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseId" Type="bigint" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="BatchId" Type="int" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DicountAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PurchasePaymentDetials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseId" Type="bigint" />
+          <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TaxAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PaidAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GivenAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PurchasePaymentDetialsHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchasePaymentId" Type="int" />
+          <Property Name="PurchaseId" Type="int" />
+          <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TaxAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PaidAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GivenAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PurchaseReturn">
+          <Key>
+            <PropertyRef Name="PurchaseReturnId" />
+          </Key>
+          <Property Name="PurchaseReturnId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="PurchaseId" Type="bigint" />
+          <Property Name="FinancialyearId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="PartyId" Type="int" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentmodeId" Type="int" />
+          <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PurchaseReturnDetails">
+          <Key>
+            <PropertyRef Name="PurchaseReturnDetailsId" />
+          </Key>
+          <Property Name="PurchaseReturnDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BatchId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PurchaseReturnId" Type="bigint" />
+          <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PurchaseTaxGroupId" Type="int" />
+        </EntityType>
+        <EntityType Name="PurchaseTaxGroup">
+          <Key>
+            <PropertyRef Name="PurchaseTaxGroupId" />
+          </Key>
+          <Property Name="PurchaseTaxGroupId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="TaxGroupId" Type="int" />
+          <Property Name="PurchaseId" Type="bigint" />
+          <Property Name="TotalTaxPercentage" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BatchId" Type="int" />
+        </EntityType>
+        <EntityType Name="PurchaseTaxgroupDetails">
+          <Key>
+            <PropertyRef Name="PurchaseTaxgroupDetailsId" />
+          </Key>
+          <Property Name="PurchaseTaxgroupDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseTaxGroupId" Type="int" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="TaxPercentage" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Rack">
+          <Key>
+            <PropertyRef Name="RackId" />
+          </Key>
+          <Property Name="RackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RackName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="GodownId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaxType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Batch_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Batch_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Batch" Type="Self.Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+          <End Role="Branch1" Type="Self.Branch" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Branch1">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialYear_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="FinancialYear" Type="Self.FinancialYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="FinancialYear">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialYear_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="FinancialYear" Type="Self.FinancialYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="FinancialYear">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Godown_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Godown" Type="Self.Godown" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Godown">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Party" Type="Self.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Party" Type="Self.Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Godown">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rack">
+          <End Role="Rack" Type="Self.Rack" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rack">
+              <PropertyRef Name="RackId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="RackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_FinancialYear">
+          <End Role="FinancialYear" Type="Self.FinancialYear" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialYear">
+              <PropertyRef Name="FinancialYearId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="FinancialyearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Party">
+          <End Role="Party" Type="Self.Party" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseDetails">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+          <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseDetails">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="PurchaseDetails">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasePaymentDetials_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+          <End Role="PurchasePaymentDetials" Type="Self.PurchasePaymentDetials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchasePaymentDetials">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="PurchaseReturn" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="PurchaseReturn" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_FinancialYear">
+          <End Role="FinancialYear" Type="Self.FinancialYear" Multiplicity="0..1" />
+          <End Role="PurchaseReturn" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialYear">
+              <PropertyRef Name="FinancialYearId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="FinancialyearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Party">
+          <End Role="Party" Type="Self.Party" Multiplicity="0..1" />
+          <End Role="PurchaseReturn" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+          <End Role="PurchaseReturn" Type="Self.PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="PurchaseReturnDetails" Type="Self.PurchaseReturnDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetails">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="PurchaseReturnDetails" Type="Self.PurchaseReturnDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="PurchaseReturnDetails" Type="Self.PurchaseReturnDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetails">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+          <End Role="PurchaseTaxGroup" Type="Self.PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="PurchaseTaxGroup" Type="Self.PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Purchase">
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+          <End Role="PurchaseTaxGroup" Type="Self.PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_TaxGroup">
+          <End Role="TaxGroup" Type="Self.TaxGroup" Multiplicity="0..1" />
+          <End Role="PurchaseTaxGroup" Type="Self.PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="TaxGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rack_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Rack" Type="Self.Rack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Rack">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rack_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Rack" Type="Self.Rack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Rack">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxType_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="TaxType">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxType_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="TaxType" Type="Self.TaxType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="TaxType">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Unit">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Unit">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompany_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="UserCompany" Type="Self.UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompany_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="UserCompany" Type="Self.UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IMSBIZZModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinancialYear" EntityType="Self.FinancialYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Godown" EntityType="Self.Godown" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchasePaymentDetials" EntityType="Self.PurchasePaymentDetials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchasePaymentDetialsHistory" EntityType="Self.PurchasePaymentDetialsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseReturn" EntityType="Self.PurchaseReturn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseReturnDetails" EntityType="Self.PurchaseReturnDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseTaxGroup" EntityType="Self.PurchaseTaxGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseTaxgroupDetails" EntityType="Self.PurchaseTaxgroupDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rack" EntityType="Self.Rack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxGroup" EntityType="Self.TaxGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxType" EntityType="Self.TaxType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ELMAH_Error" EntityType="Self.ELMAH_Error" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ELMAH_Error].[ErrorId] AS [ErrorId], 
+    [ELMAH_Error].[Application] AS [Application], 
+    [ELMAH_Error].[Host] AS [Host], 
+    [ELMAH_Error].[Type] AS [Type], 
+    [ELMAH_Error].[Source] AS [Source], 
+    [ELMAH_Error].[Message] AS [Message], 
+    [ELMAH_Error].[User] AS [User], 
+    [ELMAH_Error].[StatusCode] AS [StatusCode], 
+    [ELMAH_Error].[TimeUtc] AS [TimeUtc], 
+    [ELMAH_Error].[Sequence] AS [Sequence], 
+    [ELMAH_Error].[AllXml] AS [AllXml]
+    FROM [dbo].[ELMAH_Error] AS [ELMAH_Error]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Batch_Branch" Association="Self.FK_Batch_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Batch_Company" Association="Self.FK_Batch_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Batch" EntitySet="Batch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Branch" Association="Self.FK_Branch_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Branch1" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Company" Association="Self.FK_Branch_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Country" Association="Self.FK_Branch_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialYear_Branch" Association="Self.FK_FinancialYear_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="FinancialYear" EntitySet="FinancialYear" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialYear_Company" Association="Self.FK_FinancialYear_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="FinancialYear" EntitySet="FinancialYear" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Godown_Company" Association="Self.FK_Godown_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Godown" EntitySet="Godown" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Branch" Association="Self.FK_Party_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Company" Association="Self.FK_Party_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Party" EntitySet="Party" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Branch" Association="Self.FK_Product_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Company" Association="Self.FK_Product_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Godown" Association="Self.FK_Product_Godown">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rack" Association="Self.FK_Product_Rack">
+            <End Role="Rack" EntitySet="Rack" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Branch" Association="Self.FK_Purchase_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Company" Association="Self.FK_Purchase_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_FinancialYear" Association="Self.FK_Purchase_FinancialYear">
+            <End Role="FinancialYear" EntitySet="FinancialYear" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Party" Association="Self.FK_Purchase_Party">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Batch" Association="Self.FK_PurchaseDetails_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Product" Association="Self.FK_PurchaseDetails_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Purchase" Association="Self.FK_PurchaseDetails_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Unit" Association="Self.FK_PurchaseDetails_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasePaymentDetials_Purchase" Association="Self.FK_PurchasePaymentDetials_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchasePaymentDetials" EntitySet="PurchasePaymentDetials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Branch" Association="Self.FK_PurchaseReturn_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Company" Association="Self.FK_PurchaseReturn_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_FinancialYear" Association="Self.FK_PurchaseReturn_FinancialYear">
+            <End Role="FinancialYear" EntitySet="FinancialYear" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Party" Association="Self.FK_PurchaseReturn_Party">
+            <End Role="Party" EntitySet="Party" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Purchase" Association="Self.FK_PurchaseReturn_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Batch" Association="Self.FK_PurchaseReturnDetails_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="PurchaseReturnDetails" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Product" Association="Self.FK_PurchaseReturnDetails_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PurchaseReturnDetails" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Unit" Association="Self.FK_PurchaseReturnDetails_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="PurchaseReturnDetails" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Batch" Association="Self.FK_PurchaseTaxGroup_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Product" Association="Self.FK_PurchaseTaxGroup_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Purchase" Association="Self.FK_PurchaseTaxGroup_Purchase">
+            <End Role="Purchase" EntitySet="Purchase" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_TaxGroup" Association="Self.FK_PurchaseTaxGroup_TaxGroup">
+            <End Role="TaxGroup" EntitySet="TaxGroup" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rack_Branch" Association="Self.FK_Rack_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Rack" EntitySet="Rack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rack_Company" Association="Self.FK_Rack_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Rack" EntitySet="Rack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxType_Branch" Association="Self.FK_TaxType_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="TaxType" EntitySet="TaxType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxType_Company" Association="Self.FK_TaxType_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="TaxType" EntitySet="TaxType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_Branch" Association="Self.FK_Unit_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Unit" EntitySet="Unit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_Company" Association="Self.FK_Unit_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Unit" EntitySet="Unit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompany_AspNetUsers" Association="Self.FK_UserCompany_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserCompany" EntitySet="UserCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompany_Company" Association="Self.FK_UserCompany_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UserCompany" EntitySet="UserCompany" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IMSBIZZModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IMSBIZZEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="IMSBIZZModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="IMSBIZZModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="IMSBIZZModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="IMSBIZZModel.AspNetUser" />
+          <EntitySet Name="Batches" EntityType="IMSBIZZModel.Batch" />
+          <EntitySet Name="Branches" EntityType="IMSBIZZModel.Branch" />
+          <EntitySet Name="Categories" EntityType="IMSBIZZModel.Category" />
+          <EntitySet Name="Companies" EntityType="IMSBIZZModel.Company" />
+          <EntitySet Name="Countries" EntityType="IMSBIZZModel.Country" />
+          <EntitySet Name="Currencies" EntityType="IMSBIZZModel.Currency" />
+          <EntitySet Name="ErrorLogs" EntityType="IMSBIZZModel.ErrorLog" />
+          <EntitySet Name="FinancialYears" EntityType="IMSBIZZModel.FinancialYear" />
+          <EntitySet Name="Godowns" EntityType="IMSBIZZModel.Godown" />
+          <EntitySet Name="Parties" EntityType="IMSBIZZModel.Party" />
+          <EntitySet Name="Products" EntityType="IMSBIZZModel.Product" />
+          <EntitySet Name="Purchases" EntityType="IMSBIZZModel.Purchase" />
+          <EntitySet Name="PurchaseDetails" EntityType="IMSBIZZModel.PurchaseDetail" />
+          <EntitySet Name="PurchasePaymentDetials" EntityType="IMSBIZZModel.PurchasePaymentDetial" />
+          <EntitySet Name="PurchasePaymentDetialsHistories" EntityType="IMSBIZZModel.PurchasePaymentDetialsHistory" />
+          <EntitySet Name="PurchaseReturns" EntityType="IMSBIZZModel.PurchaseReturn" />
+          <EntitySet Name="PurchaseReturnDetails" EntityType="IMSBIZZModel.PurchaseReturnDetail" />
+          <EntitySet Name="PurchaseTaxGroups" EntityType="IMSBIZZModel.PurchaseTaxGroup" />
+          <EntitySet Name="PurchaseTaxgroupDetails" EntityType="IMSBIZZModel.PurchaseTaxgroupDetail" />
+          <EntitySet Name="Racks" EntityType="IMSBIZZModel.Rack" />
+          <EntitySet Name="TaxGroups" EntityType="IMSBIZZModel.TaxGroup" />
+          <EntitySet Name="TaxTypes" EntityType="IMSBIZZModel.TaxType" />
+          <EntitySet Name="Units" EntityType="IMSBIZZModel.Unit" />
+          <EntitySet Name="UserCompanies" EntityType="IMSBIZZModel.UserCompany" />
+          <EntitySet Name="ELMAH_Error" EntityType="IMSBIZZModel.ELMAH_Error" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="IMSBIZZModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="IMSBIZZModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompany_AspNetUsers" Association="IMSBIZZModel.FK_UserCompany_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserCompany" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Batch_Branch" Association="IMSBIZZModel.FK_Batch_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Batch_Company" Association="IMSBIZZModel.FK_Batch_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Batch" EntitySet="Batches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Batch" Association="IMSBIZZModel.FK_PurchaseDetails_Batch">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Batch" Association="IMSBIZZModel.FK_PurchaseReturnDetails_Batch">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="PurchaseReturnDetail" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Batch" Association="IMSBIZZModel.FK_PurchaseTaxGroup_Batch">
+            <End Role="Batch" EntitySet="Batches" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Branch" Association="IMSBIZZModel.FK_Branch_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Branch1" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Company" Association="IMSBIZZModel.FK_Branch_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Country" Association="IMSBIZZModel.FK_Branch_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialYear_Branch" Association="IMSBIZZModel.FK_FinancialYear_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="FinancialYear" EntitySet="FinancialYears" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Branch" Association="IMSBIZZModel.FK_Party_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Branch" Association="IMSBIZZModel.FK_Product_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Godown" Association="IMSBIZZModel.FK_Product_Godown">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Branch" Association="IMSBIZZModel.FK_Purchase_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Branch" Association="IMSBIZZModel.FK_PurchaseReturn_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rack_Branch" Association="IMSBIZZModel.FK_Rack_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Rack" EntitySet="Racks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxType_Branch" Association="IMSBIZZModel.FK_TaxType_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="TaxType" EntitySet="TaxTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_Branch" Association="IMSBIZZModel.FK_Unit_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="IMSBIZZModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinancialYear_Company" Association="IMSBIZZModel.FK_FinancialYear_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="FinancialYear" EntitySet="FinancialYears" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Godown_Company" Association="IMSBIZZModel.FK_Godown_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Godown" EntitySet="Godowns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Party_Company" Association="IMSBIZZModel.FK_Party_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Party" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Company" Association="IMSBIZZModel.FK_Product_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Company" Association="IMSBIZZModel.FK_Purchase_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Company" Association="IMSBIZZModel.FK_PurchaseReturn_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rack_Company" Association="IMSBIZZModel.FK_Rack_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Rack" EntitySet="Racks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaxType_Company" Association="IMSBIZZModel.FK_TaxType_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="TaxType" EntitySet="TaxTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_Company" Association="IMSBIZZModel.FK_Unit_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Unit" EntitySet="Units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompany_Company" Association="IMSBIZZModel.FK_UserCompany_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="UserCompany" EntitySet="UserCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_FinancialYear" Association="IMSBIZZModel.FK_Purchase_FinancialYear">
+            <End Role="FinancialYear" EntitySet="FinancialYears" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_FinancialYear" Association="IMSBIZZModel.FK_PurchaseReturn_FinancialYear">
+            <End Role="FinancialYear" EntitySet="FinancialYears" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Party" Association="IMSBIZZModel.FK_Purchase_Party">
+            <End Role="Party" EntitySet="Parties" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Party" Association="IMSBIZZModel.FK_PurchaseReturn_Party">
+            <End Role="Party" EntitySet="Parties" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rack" Association="IMSBIZZModel.FK_Product_Rack">
+            <End Role="Rack" EntitySet="Racks" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Product" Association="IMSBIZZModel.FK_PurchaseDetails_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Product" Association="IMSBIZZModel.FK_PurchaseReturnDetails_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PurchaseReturnDetail" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Product" Association="IMSBIZZModel.FK_PurchaseTaxGroup_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Purchase" Association="IMSBIZZModel.FK_PurchaseDetails_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchasePaymentDetials_Purchase" Association="IMSBIZZModel.FK_PurchasePaymentDetials_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchasePaymentDetial" EntitySet="PurchasePaymentDetials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturn_Purchase" Association="IMSBIZZModel.FK_PurchaseReturn_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseReturn" EntitySet="PurchaseReturns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_Purchase" Association="IMSBIZZModel.FK_PurchaseTaxGroup_Purchase">
+            <End Role="Purchase" EntitySet="Purchases" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetails_Unit" Association="IMSBIZZModel.FK_PurchaseDetails_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseReturnDetails_Unit" Association="IMSBIZZModel.FK_PurchaseReturnDetails_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="PurchaseReturnDetail" EntitySet="PurchaseReturnDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseTaxGroup_TaxGroup" Association="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup">
+            <End Role="TaxGroup" EntitySet="TaxGroups" />
+            <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="IMSBIZZModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="IMSBIZZModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="IMSBIZZModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="IMSBIZZModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="IMSBIZZModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="IMSBIZZModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="UserCompanies" Relationship="IMSBIZZModel.FK_UserCompany_AspNetUsers" FromRole="AspNetUser" ToRole="UserCompany" />
+          <NavigationProperty Name="AspNetRoles" Relationship="IMSBIZZModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="BatchId" />
+          </Key>
+          <Property Name="BatchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Batch_Branch" FromRole="Batch" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Batch_Company" FromRole="Batch" ToRole="Company" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Batch" FromRole="Batch" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="Batch" ToRole="PurchaseReturnDetail" />
+          <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Batch" FromRole="Batch" ToRole="PurchaseTaxGroup" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsMainBranch" Type="Boolean" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CountyId" Type="Int32" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Pincode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Batches" Relationship="IMSBIZZModel.FK_Batch_Branch" FromRole="Branch" ToRole="Batch" />
+          <NavigationProperty Name="Branch1" Relationship="IMSBIZZModel.FK_Branch_Branch" FromRole="Branch" ToRole="Branch1" />
+          <NavigationProperty Name="Branch2" Relationship="IMSBIZZModel.FK_Branch_Branch" FromRole="Branch1" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Branch_Company" FromRole="Branch" ToRole="Company" />
+          <NavigationProperty Name="Country" Relationship="IMSBIZZModel.FK_Branch_Country" FromRole="Branch" ToRole="Country" />
+          <NavigationProperty Name="FinancialYears" Relationship="IMSBIZZModel.FK_FinancialYear_Branch" FromRole="Branch" ToRole="FinancialYear" />
+          <NavigationProperty Name="Parties" Relationship="IMSBIZZModel.FK_Party_Branch" FromRole="Branch" ToRole="Party" />
+          <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Branch" FromRole="Branch" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="IMSBIZZModel.FK_Product_Godown" FromRole="Branch" ToRole="Product" />
+          <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Branch" FromRole="Branch" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Branch" FromRole="Branch" ToRole="PurchaseReturn" />
+          <NavigationProperty Name="Racks" Relationship="IMSBIZZModel.FK_Rack_Branch" FromRole="Branch" ToRole="Rack" />
+          <NavigationProperty Name="TaxTypes" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="Branch" ToRole="TaxType" />
+          <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Branch" FromRole="Branch" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="CityId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GSTIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Ownername" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerMobileNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerEmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Batches" Relationship="IMSBIZZModel.FK_Batch_Company" FromRole="Company" ToRole="Batch" />
+          <NavigationProperty Name="Branches" Relationship="IMSBIZZModel.FK_Branch_Company" FromRole="Company" ToRole="Branch" />
+          <NavigationProperty Name="FinancialYears" Relationship="IMSBIZZModel.FK_FinancialYear_Company" FromRole="Company" ToRole="FinancialYear" />
+          <NavigationProperty Name="Godowns" Relationship="IMSBIZZModel.FK_Godown_Company" FromRole="Company" ToRole="Godown" />
+          <NavigationProperty Name="Parties" Relationship="IMSBIZZModel.FK_Party_Company" FromRole="Company" ToRole="Party" />
+          <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Company" FromRole="Company" ToRole="Product" />
+          <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Company" FromRole="Company" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Company" FromRole="Company" ToRole="PurchaseReturn" />
+          <NavigationProperty Name="Racks" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Company" ToRole="Rack" />
+          <NavigationProperty Name="TaxTypes" Relationship="IMSBIZZModel.FK_TaxType_Company" FromRole="Company" ToRole="TaxType" />
+          <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Company" FromRole="Company" ToRole="Unit" />
+          <NavigationProperty Name="UserCompanies" Relationship="IMSBIZZModel.FK_UserCompany_Company" FromRole="Company" ToRole="UserCompany" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencySymbol" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branches" Relationship="IMSBIZZModel.FK_Branch_Country" FromRole="Country" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="CurrencyId" />
+          </Key>
+          <Property Name="CurrencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencySymbol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLoId" />
+          </Key>
+          <Property Name="ErrorLoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="ErrorType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FinancialYear">
+          <Key>
+            <PropertyRef Name="FinancialYearId" />
+          </Key>
+          <Property Name="FinancialYearId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EndDate" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsNew" Type="Boolean" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_FinancialYear_Branch" FromRole="FinancialYear" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_FinancialYear_Company" FromRole="FinancialYear" ToRole="Company" />
+          <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_FinancialYear" FromRole="FinancialYear" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_FinancialYear" FromRole="FinancialYear" ToRole="PurchaseReturn" />
+        </EntityType>
+        <EntityType Name="Godown">
+          <Key>
+            <PropertyRef Name="GodownId" />
+          </Key>
+          <Property Name="GodownId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="GodownName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GodownAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Godown_Company" FromRole="Godown" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Party">
+          <Key>
+            <PropertyRef Name="PartyId" />
+          </Key>
+          <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="PartyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GSTINNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PartyType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Party_Branch" FromRole="Party" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Party_Company" FromRole="Party" ToRole="Company" />
+          <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Party" FromRole="Party" ToRole="Purchase" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Party" FromRole="Party" ToRole="PurchaseReturn" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HSNCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="GodownId" Type="Int32" />
+          <Property Name="RackId" Type="Int32" />
+          <Property Name="PurchasPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalesPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReorderLevel" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Product_Branch" FromRole="Product" ToRole="Branch" />
+          <NavigationProperty Name="Branch1" Relationship="IMSBIZZModel.FK_Product_Godown" FromRole="Product" ToRole="Branch" />
+          <NavigationProperty Name="Category" Relationship="IMSBIZZModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Product_Company" FromRole="Product" ToRole="Company" />
+          <NavigationProperty Name="Rack" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Product" ToRole="Rack" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Product" FromRole="Product" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="Product" ToRole="PurchaseReturnDetail" />
+          <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Product" FromRole="Product" ToRole="PurchaseTaxGroup" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="PurchaseId" />
+          </Key>
+          <Property Name="PurchaseId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartyId" Type="Int32" />
+          <Property Name="FinancialyearId" Type="Int32" />
+          <Property Name="PoNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PoDate" Type="DateTime" Precision="3" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentModeId" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherExpenses" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Purchase_Branch" FromRole="Purchase" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Purchase_Company" FromRole="Purchase" ToRole="Company" />
+          <NavigationProperty Name="FinancialYear" Relationship="IMSBIZZModel.FK_Purchase_FinancialYear" FromRole="Purchase" ToRole="FinancialYear" />
+          <NavigationProperty Name="Party" Relationship="IMSBIZZModel.FK_Purchase_Party" FromRole="Purchase" ToRole="Party" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Purchase" FromRole="Purchase" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="PurchasePaymentDetials" Relationship="IMSBIZZModel.FK_PurchasePaymentDetials_Purchase" FromRole="Purchase" ToRole="PurchasePaymentDetial" />
+          <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Purchase" FromRole="Purchase" ToRole="PurchaseReturn" />
+          <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Purchase" FromRole="Purchase" ToRole="PurchaseTaxGroup" />
+        </EntityType>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="PurchaseDetailsId" />
+          </Key>
+          <Property Name="PurchaseDetailsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseId" Type="Int64" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="BatchId" Type="Int32" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DicountAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseDetails_Batch" FromRole="PurchaseDetail" ToRole="Batch" />
+          <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseDetails_Product" FromRole="PurchaseDetail" ToRole="Product" />
+          <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchaseDetails_Purchase" FromRole="PurchaseDetail" ToRole="Purchase" />
+          <NavigationProperty Name="Unit" Relationship="IMSBIZZModel.FK_PurchaseDetails_Unit" FromRole="PurchaseDetail" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="PurchasePaymentDetial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseId" Type="Int64" />
+          <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaidAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GivenAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchasePaymentDetials_Purchase" FromRole="PurchasePaymentDetial" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="PurchasePaymentDetialsHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchasePaymentId" Type="Int32" />
+          <Property Name="PurchaseId" Type="Int32" />
+          <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaidAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GivenAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BalanceAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PurchaseReturn">
+          <Key>
+            <PropertyRef Name="PurchaseReturnId" />
+          </Key>
+          <Property Name="PurchaseReturnId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="PurchaseId" Type="Int64" />
+          <Property Name="FinancialyearId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="PartyId" Type="Int32" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentmodeId" Type="Int32" />
+          <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_PurchaseReturn_Branch" FromRole="PurchaseReturn" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_PurchaseReturn_Company" FromRole="PurchaseReturn" ToRole="Company" />
+          <NavigationProperty Name="FinancialYear" Relationship="IMSBIZZModel.FK_PurchaseReturn_FinancialYear" FromRole="PurchaseReturn" ToRole="FinancialYear" />
+          <NavigationProperty Name="Party" Relationship="IMSBIZZModel.FK_PurchaseReturn_Party" FromRole="PurchaseReturn" ToRole="Party" />
+          <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchaseReturn_Purchase" FromRole="PurchaseReturn" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="PurchaseReturnDetail">
+          <Key>
+            <PropertyRef Name="PurchaseReturnDetailsId" />
+          </Key>
+          <Property Name="PurchaseReturnDetailsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BatchId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PurchaseReturnId" Type="Int64" />
+          <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PurchaseTaxGroupId" Type="Int32" />
+          <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="PurchaseReturnDetail" ToRole="Batch" />
+          <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="PurchaseReturnDetail" ToRole="Product" />
+          <NavigationProperty Name="Unit" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Unit" FromRole="PurchaseReturnDetail" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="PurchaseTaxGroup">
+          <Key>
+            <PropertyRef Name="PurchaseTaxGroupId" />
+          </Key>
+          <Property Name="PurchaseTaxGroupId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="TaxGroupId" Type="Int32" />
+          <Property Name="PurchaseId" Type="Int64" />
+          <Property Name="TotalTaxPercentage" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BatchId" Type="Int32" />
+          <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Batch" FromRole="PurchaseTaxGroup" ToRole="Batch" />
+          <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Product" FromRole="PurchaseTaxGroup" ToRole="Product" />
+          <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Purchase" FromRole="PurchaseTaxGroup" ToRole="Purchase" />
+          <NavigationProperty Name="TaxGroup" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup" FromRole="PurchaseTaxGroup" ToRole="TaxGroup" />
+        </EntityType>
+        <EntityType Name="PurchaseTaxgroupDetail">
+          <Key>
+            <PropertyRef Name="PurchaseTaxgroupDetailsId" />
+          </Key>
+          <Property Name="PurchaseTaxgroupDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseTaxGroupId" Type="Int32" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="TaxPercentage" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Rack">
+          <Key>
+            <PropertyRef Name="RackId" />
+          </Key>
+          <Property Name="RackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RackName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="GodownId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Rack_Branch" FromRole="Rack" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Rack" ToRole="Company" />
+          <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Rack" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TaxGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup" FromRole="TaxGroup" ToRole="PurchaseTaxGroup" />
+        </EntityType>
+        <EntityType Name="TaxType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="TaxType" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_TaxType_Company" FromRole="TaxType" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Unit_Branch" FromRole="Unit" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Unit_Company" FromRole="Unit" ToRole="Company" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Unit" FromRole="Unit" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Unit" FromRole="Unit" ToRole="PurchaseReturnDetail" />
+        </EntityType>
+        <EntityType Name="UserCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="IMSBIZZModel.FK_UserCompany_AspNetUsers" FromRole="UserCompany" ToRole="AspNetUser" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_UserCompany_Company" FromRole="UserCompany" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="ELMAH_Error">
+          <Key>
+            <PropertyRef Name="ErrorId" />
+            <PropertyRef Name="Application" />
+            <PropertyRef Name="Host" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Source" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="User" />
+            <PropertyRef Name="StatusCode" />
+            <PropertyRef Name="TimeUtc" />
+            <PropertyRef Name="Sequence" />
+            <PropertyRef Name="AllXml" />
+          </Key>
+          <Property Name="ErrorId" Type="Guid" Nullable="false" />
+          <Property Name="Application" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Host" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCode" Type="Int32" Nullable="false" />
+          <Property Name="TimeUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AllXml" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="IMSBIZZModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="IMSBIZZModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="IMSBIZZModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="IMSBIZZModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompany_AspNetUsers">
+          <End Type="IMSBIZZModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.UserCompany" Role="UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Batch_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Batch_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Batch">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Batch">
+          <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Batch">
+          <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturnDetail" Role="PurchaseReturnDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetail">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Batch">
+          <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseTaxGroup" Role="PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="BatchId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="IMSBIZZModel.Branch" Role="Branch1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Branch1">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Country">
+          <End Type="IMSBIZZModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="CountyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialYear_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.FinancialYear" Role="FinancialYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="FinancialYear">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Godown">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturn" Role="PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rack_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Rack" Role="Rack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Rack">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxType_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.TaxType" Role="TaxType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="TaxType">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Unit" Role="Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Unit">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Type="IMSBIZZModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinancialYear_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.FinancialYear" Role="FinancialYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="FinancialYear">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Godown_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Godown" Role="Godown" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Godown">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Party_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Party" Role="Party" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Party">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturn" Role="PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rack_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Rack" Role="Rack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Rack">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaxType_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.TaxType" Role="TaxType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="TaxType">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Unit" Role="Unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Unit">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompany_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.UserCompany" Role="UserCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="UserCompany">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_FinancialYear">
+          <End Type="IMSBIZZModel.FinancialYear" Role="FinancialYear" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialYear">
+              <PropertyRef Name="FinancialYearId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="FinancialyearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_FinancialYear">
+          <End Type="IMSBIZZModel.FinancialYear" Role="FinancialYear" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturn" Role="PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinancialYear">
+              <PropertyRef Name="FinancialYearId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="FinancialyearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Party">
+          <End Type="IMSBIZZModel.Party" Role="Party" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Party">
+          <End Type="IMSBIZZModel.Party" Role="Party" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturn" Role="PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Party">
+              <PropertyRef Name="PartyId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="PartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rack">
+          <End Type="IMSBIZZModel.Rack" Role="Rack" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rack">
+              <PropertyRef Name="RackId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="RackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Product">
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Product">
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturnDetail" Role="PurchaseReturnDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Product">
+          <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseTaxGroup" Role="PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Purchase">
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchasePaymentDetials_Purchase">
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchasePaymentDetial" Role="PurchasePaymentDetial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchasePaymentDetial">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturn_Purchase">
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturn" Role="PurchaseReturn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseReturn">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_Purchase">
+          <End Type="IMSBIZZModel.Purchase" Role="Purchase" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseTaxGroup" Role="PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchase">
+              <PropertyRef Name="PurchaseId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="PurchaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetails_Unit">
+          <End Type="IMSBIZZModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseReturnDetails_Unit">
+          <End Type="IMSBIZZModel.Unit" Role="Unit" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseReturnDetail" Role="PurchaseReturnDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="PurchaseReturnDetail">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseTaxGroup_TaxGroup">
+          <End Type="IMSBIZZModel.TaxGroup" Role="TaxGroup" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.PurchaseTaxGroup" Role="PurchaseTaxGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="PurchaseTaxGroup">
+              <PropertyRef Name="TaxGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="IMSBIZZModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="IMSBIZZModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IMSBIZZModelStoreContainer" CdmEntityContainer="IMSBIZZEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="IMSBIZZModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="IMSBIZZModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="IMSBIZZModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IMSBIZZModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Batches">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Batch">
+              <MappingFragment StoreEntitySet="Batch">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountyId" ColumnName="CountyId" />
+                <ScalarProperty Name="BranchAddress" ColumnName="BranchAddress" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="IsMainBranch" ColumnName="IsMainBranch" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OwnerEmailId" ColumnName="OwnerEmailId" />
+                <ScalarProperty Name="OwnerMobileNo" ColumnName="OwnerMobileNo" />
+                <ScalarProperty Name="OwnerAddress" ColumnName="OwnerAddress" />
+                <ScalarProperty Name="Ownername" ColumnName="Ownername" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+                <ScalarProperty Name="GSTIN" ColumnName="GSTIN" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="IMSBIZZModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ErrorMsg" ColumnName="ErrorMsg" />
+                <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="ErrorLoId" ColumnName="ErrorLoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinancialYears">
+            <EntityTypeMapping TypeName="IMSBIZZModel.FinancialYear">
+              <MappingFragment StoreEntitySet="FinancialYear">
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="FinancialYearId" ColumnName="FinancialYearId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Godowns">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Godown">
+              <MappingFragment StoreEntitySet="Godown">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="GodownAddress" ColumnName="GodownAddress" />
+                <ScalarProperty Name="GodownName" ColumnName="GodownName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="GodownId" ColumnName="GodownId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parties">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Party">
+              <MappingFragment StoreEntitySet="Party">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PartyType" ColumnName="PartyType" />
+                <ScalarProperty Name="GSTINNo" ColumnName="GSTINNo" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="PartyAddress" ColumnName="PartyAddress" />
+                <ScalarProperty Name="PartyName" ColumnName="PartyName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+                <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+                <ScalarProperty Name="PurchasPrice" ColumnName="PurchasPrice" />
+                <ScalarProperty Name="RackId" ColumnName="RackId" />
+                <ScalarProperty Name="GodownId" ColumnName="GodownId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="HSNCode" ColumnName="HSNCode" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AttachmentUrl" ColumnName="AttachmentUrl" />
+                <ScalarProperty Name="OtherExpenses" ColumnName="OtherExpenses" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="PoDate" ColumnName="PoDate" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="FinancialyearId" ColumnName="FinancialyearId" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseDetails">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseDetail">
+              <MappingFragment StoreEntitySet="PurchaseDetails">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="DicountAmnt" ColumnName="DicountAmnt" />
+                <ScalarProperty Name="TaxAmnt" ColumnName="TaxAmnt" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+                <ScalarProperty Name="PurchaseDetailsId" ColumnName="PurchaseDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchasePaymentDetials">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetial">
+              <MappingFragment StoreEntitySet="PurchasePaymentDetials">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="FromTable" ColumnName="FromTable" />
+                <ScalarProperty Name="BalanceAmnt" ColumnName="BalanceAmnt" />
+                <ScalarProperty Name="GivenAmnt" ColumnName="GivenAmnt" />
+                <ScalarProperty Name="PaidAmnt" ColumnName="PaidAmnt" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchasePaymentDetialsHistories">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetialsHistory">
+              <MappingFragment StoreEntitySet="PurchasePaymentDetialsHistory">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="FromTable" ColumnName="FromTable" />
+                <ScalarProperty Name="BalanceAmnt" ColumnName="BalanceAmnt" />
+                <ScalarProperty Name="GivenAmnt" ColumnName="GivenAmnt" />
+                <ScalarProperty Name="PaidAmnt" ColumnName="PaidAmnt" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+                <ScalarProperty Name="PurchasePaymentId" ColumnName="PurchasePaymentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseReturns">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturn">
+              <MappingFragment StoreEntitySet="PurchaseReturn">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AttachmentUrl" ColumnName="AttachmentUrl" />
+                <ScalarProperty Name="PaymentmodeId" ColumnName="PaymentmodeId" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FinancialyearId" ColumnName="FinancialyearId" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="PurchaseReturnId" ColumnName="PurchaseReturnId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseReturnDetails">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturnDetail">
+              <MappingFragment StoreEntitySet="PurchaseReturnDetails">
+                <ScalarProperty Name="PurchaseTaxGroupId" ColumnName="PurchaseTaxGroupId" />
+                <ScalarProperty Name="DiscountAmnt" ColumnName="DiscountAmnt" />
+                <ScalarProperty Name="PurchaseReturnId" ColumnName="PurchaseReturnId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TaxAmnt" ColumnName="TaxAmnt" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="PurchaseReturnDetailsId" ColumnName="PurchaseReturnDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseTaxGroups">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseTaxGroup">
+              <MappingFragment StoreEntitySet="PurchaseTaxGroup">
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="TotalTaxPercentage" ColumnName="TotalTaxPercentage" />
+                <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+                <ScalarProperty Name="TaxGroupId" ColumnName="TaxGroupId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PurchaseTaxGroupId" ColumnName="PurchaseTaxGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseTaxgroupDetails">
+            <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseTaxgroupDetail">
+              <MappingFragment StoreEntitySet="PurchaseTaxgroupDetails">
+                <ScalarProperty Name="TaxPercentage" ColumnName="TaxPercentage" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="PurchaseTaxGroupId" ColumnName="PurchaseTaxGroupId" />
+                <ScalarProperty Name="PurchaseTaxgroupDetailsId" ColumnName="PurchaseTaxgroupDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racks">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Rack">
+              <MappingFragment StoreEntitySet="Rack">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GodownId" ColumnName="GodownId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="RackName" ColumnName="RackName" />
+                <ScalarProperty Name="RackId" ColumnName="RackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxGroups">
+            <EntityTypeMapping TypeName="IMSBIZZModel.TaxGroup">
+              <MappingFragment StoreEntitySet="TaxGroup">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxTypes">
+            <EntityTypeMapping TypeName="IMSBIZZModel.TaxType">
+              <MappingFragment StoreEntitySet="TaxType">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="IMSBIZZModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCompanies">
+            <EntityTypeMapping TypeName="IMSBIZZModel.UserCompany">
+              <MappingFragment StoreEntitySet="UserCompany">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ELMAH_Error">
+            <EntityTypeMapping TypeName="IMSBIZZModel.ELMAH_Error">
+              <MappingFragment StoreEntitySet="ELMAH_Error">
+                <ScalarProperty Name="AllXml" ColumnName="AllXml" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="TimeUtc" ColumnName="TimeUtc" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Application" ColumnName="Application" />
+                <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="IMSBIZZModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

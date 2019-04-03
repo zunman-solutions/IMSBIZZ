@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7141977C-3357-461E-B236-4901B3813844}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IMSBIZZ.DAL</RootNamespace>
+    <AssemblyName>IMSBIZZ.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBModel\AspNetRole.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\AspNetUser.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\AspNetUserClaim.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\AspNetUserLogin.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Batch.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Branch.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Category.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Company.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Country.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Currency.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ELMAH_Error.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ErrorLog.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\FinancialYear.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Godown.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\IMSBIZZModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSBIZZModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\IMSBIZZModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\IMSBIZZModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMSBIZZModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Party.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Product.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Purchase.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchaseDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchasePaymentDetial.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchasePaymentDetialsHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchaseReturn.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchaseReturnDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchaseTaxGroup.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PurchaseTaxgroupDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Rack.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\TaxGroup.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\TaxType.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Unit.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\UserCompany.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IService\IPurchaseService.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\IGenericReporsitory.cs" />
+    <Compile Include="Service\PurchaseService.cs" />
+    <Compile Include="UnitofWork\IUnitOfWork .cs" />
+    <Compile Include="UnitofWork\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="DBModel\IMSBIZZModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IMSBIZZModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DBModel\IMSBIZZModel.edmx.diagram">
+      <DependentUpon>IMSBIZZModel.edmx</DependentUpon>
+    </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\IMSBIZZ.DAL.csproj.CoreCompileInputs.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModel\IMSBIZZModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMSBIZZModel.edmx</DependentUpon>
+      <LastGenOutput>IMSBIZZModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel\IMSBIZZModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IMSBIZZModel.edmx</DependentUpon>
+      <LastGenOutput>IMSBIZZModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
