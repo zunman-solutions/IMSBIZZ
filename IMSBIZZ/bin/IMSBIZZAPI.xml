@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IMSBIZZ</name>
+    </assembly>
+    <members>
+        <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController">
+            <summary>
+            Tax Group Api Controller
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController.#ctor(IMSBIZZ.DAL.IService.ITaxGroupService)">
+            <summary>
+            Constructor to inject TaxGroup Service
+            </summary>
+            <param name="taxGroupService">TaxGroup Service Instance</param>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController.GetAllTaxGroups(System.Int32,System.Int32)">
+            <summary>
+             Get All TaxGroupes by company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController.GetTaxGroupById(System.Int32)">
+            <summary>
+            Get TaxGroup by TaxGroup Id
+            </summary>
+            <param name="TaxGroupId">TaxGroup Id filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController.GetTaxGroupByCompanyBranch(System.Int32,System.Int32)">
+            <summary>
+            Get TaxGroup Details by Company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController.GetAllTaxGroupsPercentage(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get All Grpup Taxes 
+            </summary>
+            <param name="companyId">Filter by Company Id</param>
+            <param name="branchId">Filter By Branch Id</param>
+            <param name="productId">Filter by Product Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController">
+            <summary>
+            Batch Api Controller
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController.#ctor(IMSBIZZ.DAL.IService.IBatchService)">
+            <summary>
+            Constructor to inject Batch Service
+            </summary>
+            <param name="batchService">Batch Service Instance</param>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController.GetAllBatches(System.Int32,System.Int32)">
+            <summary>
+             Get All Batches by company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController.GetBatchesById(System.Int32)">
+            <summary>
+            Get Batch by Batch Id
+            </summary>
+            <param name="batchId">Batch Id filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController.GetBatchByCompanyBranch(System.Int32,System.Int32)">
+            <summary>
+            Get Batch Details by Company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController">
+            <summary>
+            Product Api Controller
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController.#ctor(IMSBIZZ.DAL.IService.IProductService)">
+            <summary>
+            Constructor to inject Product Service
+            </summary>
+            <param name="productService"></param>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController.GetAllProducts(System.Int32,System.Int32)">
+            <summary>
+            Get All Products By Company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController.GetProductById(System.Int32)">
+            <summary>
+            Get Product Details By Product Id
+            </summary>
+            <param name="productId">Product id filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController.GetProductByCompanyBranch(System.Int32,System.Int32)">
+            <summary>
+            Get Product Details by Company and Branch
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.PartyAPIController">
+            <summary>
+            Party Api Controller
+            </summary>
+        </member>
+        <member name="T:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController">
+            <summary>
+            Purchase Api Controller
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.#ctor(IMSBIZZ.DAL.IService.IPurchaseService,IMSBIZZ.DAL.IService.IStockService)">
+            <summary>
+            Purchase Api Constructor
+            </summary>
+            <param name="purchaseService">Purchase Service Injiection</param>
+            <param name="stockService">Stock Service Injection</param>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.GetPurchase">
+            <summary>
+            Get All Purchases
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.SavePurchase(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
+            <summary>
+            Save Purchase 
+            </summary>
+            <param name="purchaseServiceViewModel">ViewModel Used to Pass data for purchase</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.ValidateProductBatch(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
+            <summary>
+            Validate Product Batch as per Batch, Purchase Rate and Tax Group
+            </summary>
+            <param name="purchaseServiceViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseController.#ctor(IMSBIZZ.DAL.IService.IPurchaseService,IMSBIZZ.DAL.IService.IStockService)">
+            <summary>
+            
+            </summary>
+            <param name="purchaseService"></param>
+            <param name="stockService"></param>
+        </member>
+        <member name="T:IMSBIZZ.Areas.PurchaseArea.PurchaseAreaRegistration">
+            <summary>
+            Purchase Area Registration 
+            </summary>
+        </member>
+        <member name="P:IMSBIZZ.Areas.PurchaseArea.PurchaseAreaRegistration.AreaName">
+            <summary>
+            Area Name
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.PurchaseAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
+            <summary>
+            Register here your Area Route
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:IMSBIZZ.MvcApplication">
+            <summary>
+            MVC Application Global setting
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.MvcApplication.Application_Start">
+            <summary>
+            Application Start For Start up registration 
+            </summary>
+        </member>
+    </members>
+</doc>

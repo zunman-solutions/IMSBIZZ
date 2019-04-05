@@ -272,6 +272,14 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="ModifiedOn" Type="datetime" />
   </EntityType>
+  <EntityType Name="ProductTaxGroup">
+    <Key>
+      <PropertyRef Name="ProductTaxGroupId" />
+    </Key>
+    <Property Name="ProductTaxGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
+  </EntityType>
   <EntityType Name="Purchase">
     <Key>
       <PropertyRef Name="PurchaseId" />
@@ -280,7 +288,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="PartyId" Type="int" />
     <Property Name="FinancialyearId" Type="int" />
     <Property Name="PoNo" Type="nvarchar" MaxLength="100" />
-    <Property Name="Po_Date" Type="smalldatetime" />
+    <Property Name="PoDate" Type="datetime" />
     <Property Name="CompanyId" Type="int" />
     <Property Name="BranchId" Type="int" />
     <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
@@ -301,15 +309,58 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="PurchaseId" Type="bigint" />
     <Property Name="ProductId" Type="int" />
     <Property Name="BatchId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
     <Property Name="UnitId" Type="int" />
+    <Property Name="PurchaseRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
     <Property Name="DicountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PurchaseDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseDetailsId" Type="bigint" Nullable="false" />
+    <Property Name="PurchaseId" Type="bigint" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="PurchaseRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DicountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PurchaseHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseId" Type="bigint" Nullable="false" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="PoNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="PoDate" Type="datetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentModeId" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="OtherExpenses" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
   </EntityType>
   <EntityType Name="PurchasePaymentDetials">
     <Key>
@@ -364,6 +415,10 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="PaymentmodeId" Type="int" />
     <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
   </EntityType>
   <EntityType Name="PurchaseReturnDetails">
     <Key>
@@ -379,10 +434,42 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="PurchaseReturnId" Type="bigint" />
     <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseTaxGroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="PurchaseReturnDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseReturnDetailsId" Type="bigint" Nullable="false" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseReturnId" Type="bigint" />
+    <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseTaxGroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="PurchaseReturnHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PurchaseReturnId" Type="bigint" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="PurchaseId" Type="bigint" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentmodeId" Type="int" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
   </EntityType>
   <EntityType Name="PurchaseTaxGroup">
     <Key>
@@ -400,7 +487,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       <PropertyRef Name="PurchaseTaxgroupDetailsId" />
     </Key>
     <Property Name="PurchaseTaxgroupDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PurchaseTaxGroupId" Type="int" />
+    <Property Name="PurchaseTaxGroupId" Type="bigint" />
     <Property Name="TypeId" Type="int" />
     <Property Name="TaxPercentage" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
@@ -419,6 +506,37 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="ModifiedOn" Type="datetime" />
   </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StockHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StockId" Type="int" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
   <EntityType Name="TaxGroup">
     <Key>
       <PropertyRef Name="GroupId" />
@@ -432,6 +550,15 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TaxGroupWithTaxType">
+    <Key>
+      <PropertyRef Name="TaxGroupWithTaxTypeId" />
+    </Key>
+    <Property Name="TaxGroupWithTaxTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaxGroupId" Type="int" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="TaxPercentage" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="TaxType">
     <Key>
@@ -705,6 +832,30 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductTaxGroup_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductTaxGroup" Type="Self.ProductTaxGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductTaxGroup">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductTaxGroup_TaxGroup">
+    <End Role="TaxGroup" Type="Self.TaxGroup" Multiplicity="0..1" />
+    <End Role="ProductTaxGroup" Type="Self.ProductTaxGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="ProductTaxGroup">
+        <PropertyRef Name="TaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Purchase_Branch">
     <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
     <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
@@ -786,6 +937,18 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       </Principal>
       <Dependent Role="PurchaseDetails">
         <PropertyRef Name="PurchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseDetails_TaxGroup">
+    <End Role="TaxGroup" Type="Self.TaxGroup" Multiplicity="0..1" />
+    <End Role="PurchaseDetails" Type="Self.PurchaseDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="PurchaseDetails">
+        <PropertyRef Name="TaxGroupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -957,6 +1120,18 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PurchaseTaxgroupDetails_PurchaseTaxGroup">
+    <End Role="PurchaseTaxGroup" Type="Self.PurchaseTaxGroup" Multiplicity="0..1" />
+    <End Role="PurchaseTaxgroupDetails" Type="Self.PurchaseTaxgroupDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseTaxGroup">
+        <PropertyRef Name="PurchaseTaxGroupId" />
+      </Principal>
+      <Dependent Role="PurchaseTaxgroupDetails">
+        <PropertyRef Name="PurchaseTaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Rack_Branch">
     <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
     <End Role="Rack" Type="Self.Rack" Multiplicity="*" />
@@ -978,6 +1153,78 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       </Principal>
       <Dependent Role="Rack">
         <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Batch">
+    <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Branch">
+    <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxGroupWithTaxType_TaxGroup">
+    <End Role="TaxGroup" Type="Self.TaxGroup" Multiplicity="0..1" />
+    <End Role="TaxGroupWithTaxType" Type="Self.TaxGroupWithTaxType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="TaxGroupWithTaxType">
+        <PropertyRef Name="TaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxGroupWithTaxType_TaxType">
+    <End Role="TaxType" Type="Self.TaxType" Multiplicity="0..1" />
+    <End Role="TaxGroupWithTaxType" Type="Self.TaxGroupWithTaxType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="TaxGroupWithTaxType">
+        <PropertyRef Name="TypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1070,16 +1317,24 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <EntitySet Name="Godown" EntityType="Self.Godown" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTaxGroup" EntityType="Self.ProductTaxGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseDetailsHistory" EntityType="Self.PurchaseDetailsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseHistory" EntityType="Self.PurchaseHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchasePaymentDetials" EntityType="Self.PurchasePaymentDetials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchasePaymentDetialsHistory" EntityType="Self.PurchasePaymentDetialsHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseReturn" EntityType="Self.PurchaseReturn" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseReturnDetails" EntityType="Self.PurchaseReturnDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseReturnDetailsHistory" EntityType="Self.PurchaseReturnDetailsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseReturnHistory" EntityType="Self.PurchaseReturnHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseTaxGroup" EntityType="Self.PurchaseTaxGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseTaxgroupDetails" EntityType="Self.PurchaseTaxgroupDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rack" EntityType="Self.Rack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockHistory" EntityType="Self.StockHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxGroup" EntityType="Self.TaxGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaxGroupWithTaxType" EntityType="Self.TaxGroupWithTaxType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxType" EntityType="Self.TaxType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="dbo" store:Type="Tables" />
@@ -1174,6 +1429,14 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       <End Role="Rack" EntitySet="Rack" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProductTaxGroup_Product" Association="Self.FK_ProductTaxGroup_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductTaxGroup" EntitySet="ProductTaxGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductTaxGroup_TaxGroup" Association="Self.FK_ProductTaxGroup_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroup" />
+      <End Role="ProductTaxGroup" EntitySet="ProductTaxGroup" />
+    </AssociationSet>
     <AssociationSet Name="FK_Purchase_Branch" Association="Self.FK_Purchase_Branch">
       <End Role="Branch" EntitySet="Branch" />
       <End Role="Purchase" EntitySet="Purchase" />
@@ -1200,6 +1463,10 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     </AssociationSet>
     <AssociationSet Name="FK_PurchaseDetails_Purchase" Association="Self.FK_PurchaseDetails_Purchase">
       <End Role="Purchase" EntitySet="Purchase" />
+      <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseDetails_TaxGroup" Association="Self.FK_PurchaseDetails_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroup" />
       <End Role="PurchaseDetails" EntitySet="PurchaseDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_PurchaseDetails_Unit" Association="Self.FK_PurchaseDetails_Unit">
@@ -1258,6 +1525,10 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       <End Role="TaxGroup" EntitySet="TaxGroup" />
       <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
     </AssociationSet>
+    <AssociationSet Name="FK_PurchaseTaxgroupDetails_PurchaseTaxGroup" Association="Self.FK_PurchaseTaxgroupDetails_PurchaseTaxGroup">
+      <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroup" />
+      <End Role="PurchaseTaxgroupDetails" EntitySet="PurchaseTaxgroupDetails" />
+    </AssociationSet>
     <AssociationSet Name="FK_Rack_Branch" Association="Self.FK_Rack_Branch">
       <End Role="Branch" EntitySet="Branch" />
       <End Role="Rack" EntitySet="Rack" />
@@ -1265,6 +1536,30 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <AssociationSet Name="FK_Rack_Company" Association="Self.FK_Rack_Company">
       <End Role="Company" EntitySet="Company" />
       <End Role="Rack" EntitySet="Rack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Batch" Association="Self.FK_Stock_Batch">
+      <End Role="Batch" EntitySet="Batch" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Branch" Association="Self.FK_Stock_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Company" Association="Self.FK_Stock_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Product" Association="Self.FK_Stock_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxGroupWithTaxType_TaxGroup" Association="Self.FK_TaxGroupWithTaxType_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroup" />
+      <End Role="TaxGroupWithTaxType" EntitySet="TaxGroupWithTaxType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxGroupWithTaxType_TaxType" Association="Self.FK_TaxGroupWithTaxType_TaxType">
+      <End Role="TaxType" EntitySet="TaxType" />
+      <End Role="TaxGroupWithTaxType" EntitySet="TaxGroupWithTaxType" />
     </AssociationSet>
     <AssociationSet Name="FK_TaxType_Branch" Association="Self.FK_TaxType_Branch">
       <End Role="Branch" EntitySet="Branch" />

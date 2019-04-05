@@ -9,7 +9,7 @@ namespace IMSBIZZ.Helper
     public class ElmahErrorAttribute : ExceptionFilterAttribute
     {
         public override void OnException(System.Web.Http.Filters.HttpActionExecutedContext actionExecutedContext)
-        {          
+        {
             if (actionExecutedContext.Exception != null)
             {
                 var exception = GetExtendedException(actionExecutedContext.Exception);
@@ -47,10 +47,10 @@ namespace IMSBIZZ.Helper
         }
     }
 
-    public class ElmahExtendedException    : Exception
+    public class ElmahExtendedException : Exception
     {
         public ElmahExtendedException(string message, Exception e) : base(message, e) { }
 
-        
+
     }
 }

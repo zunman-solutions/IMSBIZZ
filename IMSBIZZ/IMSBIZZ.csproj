@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\IMSBIZZAPI.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,9 @@
       <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,6 +138,12 @@
     </Reference>
     <Reference Include="Unity.ServiceLocation, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.2.0\lib\net47\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.3.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.3.0\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -217,12 +227,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\TaxGroupAPIController.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\BatchAPIController.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\ProductAPIController.cs" />
+    <Compile Include="Areas\MasterArea\MasterAreaRegistration.cs" />
+    <Compile Include="Areas\MasterArea\Models\StockViewModels\StockViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Controllers\PurchaseAPIController.cs" />
+    <Compile Include="Areas\PurchaseArea\Controllers\PurchaseController.cs" />
+    <Compile Include="Areas\PurchaseArea\Mapper\PurchaseMapper.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchaseServiceViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\PurchaseAreaAreaRegistration.cs" />
+    <Compile Include="Areas\SaleArea\SaleAreaRegistration.cs" />
+    <Compile Include="Areas\SettingArea\SettingAreaRegistration.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\PartyAPIController.cs" />
     <Compile Include="Helper\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -241,30 +264,29 @@
     <Compile Include="Helper\NumbersToWords.cs" />
     <Compile Include="Helper\PasswordEncryptionDecryption.cs" />
     <Compile Include="Helper\PhotoManager.cs" />
-    <Compile Include="Mapper\PurchaseMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\StockMapper.cs" />
     <Compile Include="Models\AccountViewModel\AccountViewModels.cs" />
     <Compile Include="Models\AccountViewModel\IdentityModels.cs" />
     <Compile Include="Models\AccountViewModel\ManageViewModels.cs" />
-    <Compile Include="Models\MasterViewModel\BatchViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\BranchViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\CategoryViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\CompanyViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\CountryViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\CurrencyViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\FinancialyearViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\GodownViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\PartyViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\ProductViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\RackViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\TaxGroupViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\TaxTypeViewModel.cs" />
-    <Compile Include="Models\MasterViewModel\UnitViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurcaseServiceViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurchasePaymentDetailViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurchaseDetailViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurchaseTaxgroupDetailViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurchaseTaxGroupViewModel.cs" />
-    <Compile Include="Models\PurchaseViewModels\PurchaseViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\BatchViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\BranchViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\CategoryViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\CompanyViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\CountryViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\CurrencyViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\FinancialyearViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\GodownViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\PartyViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\ProductViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\RackViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\TaxGroupViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\TaxTypeViewModel.cs" />
+    <Compile Include="Areas\MasterArea\Models\MasterViewModel\UnitViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchasePaymentDetailViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchaseDetailViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchaseTaxgroupDetailViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchaseTaxGroupViewModel.cs" />
+    <Compile Include="Areas\PurchaseArea\Models\PurchaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -4304,6 +4326,10 @@
     <Content Include="Scripts\Homeasst\fonts\themify.eot" />
     <Content Include="Scripts\Homeasst\fonts\themify.ttf" />
     <Content Include="Scripts\Homeasst\fonts\themify.woff" />
+    <Content Include="Areas\PurchaseArea\Views\web.config" />
+    <Content Include="Areas\SaleArea\Views\web.config" />
+    <Content Include="Areas\MasterArea\Views\web.config" />
+    <Content Include="Areas\SettingArea\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Homeasst\css\animate.css" />
     <Content Include="Scripts\Homeasst\css\bootstrap.min.css" />
@@ -4424,6 +4450,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\MasterArea\Views\Shared\" />
+    <Folder Include="Areas\PurchaseArea\Views\Purchase\" />
+    <Folder Include="Areas\PurchaseArea\Views\Shared\" />
+    <Folder Include="Areas\SaleArea\Controllers\" />
+    <Folder Include="Areas\SaleArea\Models\" />
+    <Folder Include="Areas\SaleArea\Views\Shared\" />
+    <Folder Include="Areas\SettingArea\Controllers\" />
+    <Folder Include="Areas\SettingArea\Models\" />
+    <Folder Include="Areas\SettingArea\Views\Shared\" />
+    <Folder Include="Mapper\" />
     <Folder Include="Views\Registration\" />
   </ItemGroup>
   <ItemGroup>

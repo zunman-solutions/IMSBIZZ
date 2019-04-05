@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.Application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,15 +10,24 @@ using System.Web.Routing;
 
 namespace IMSBIZZ
 {
+   /// <summary>
+   /// MVC Application Global setting
+   /// </summary>
     public class MvcApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Application Start For Start up registration 
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+      
     }
 }

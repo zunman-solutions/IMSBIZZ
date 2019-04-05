@@ -17,9 +17,11 @@ namespace IMSBIZZ.DAL.DBModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            this.ProductTaxGroups = new HashSet<ProductTaxGroup>();
             this.PurchaseDetails = new HashSet<PurchaseDetail>();
             this.PurchaseReturnDetails = new HashSet<PurchaseReturnDetail>();
             this.PurchaseTaxGroups = new HashSet<PurchaseTaxGroup>();
+            this.Stocks = new HashSet<Stock>();
         }
     
         public int ProductId { get; set; }
@@ -47,10 +49,14 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual Company Company { get; set; }
         public virtual Rack Rack { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductTaxGroup> ProductTaxGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseReturnDetail> PurchaseReturnDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseTaxGroup> PurchaseTaxGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }

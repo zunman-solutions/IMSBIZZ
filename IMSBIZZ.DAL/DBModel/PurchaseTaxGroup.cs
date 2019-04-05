@@ -14,6 +14,12 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class PurchaseTaxGroup
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PurchaseTaxGroup()
+        {
+            this.PurchaseTaxgroupDetails = new HashSet<PurchaseTaxgroupDetail>();
+        }
+    
         public long PurchaseTaxGroupId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> TaxGroupId { get; set; }
@@ -25,5 +31,7 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual Product Product { get; set; }
         public virtual Purchase Purchase { get; set; }
         public virtual TaxGroup TaxGroup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseTaxgroupDetail> PurchaseTaxgroupDetails { get; set; }
     }
 }

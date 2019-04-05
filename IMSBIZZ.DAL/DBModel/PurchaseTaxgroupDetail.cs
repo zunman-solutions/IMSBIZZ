@@ -15,8 +15,10 @@ namespace IMSBIZZ.DAL.DBModel
     public partial class PurchaseTaxgroupDetail
     {
         public int PurchaseTaxgroupDetailsId { get; set; }
-        public Nullable<int> PurchaseTaxGroupId { get; set; }
+        public Nullable<long> PurchaseTaxGroupId { get; set; }
         public Nullable<int> TypeId { get; set; }
         public Nullable<decimal> TaxPercentage { get; set; }
+    
+        public virtual PurchaseTaxGroup PurchaseTaxGroup { get; set; }
     }
 }

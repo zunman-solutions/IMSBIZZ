@@ -40,16 +40,24 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<Godown> Godowns { get; set; }
         public virtual DbSet<Party> Parties { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductTaxGroup> ProductTaxGroups { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual DbSet<PurchaseDetailsHistory> PurchaseDetailsHistories { get; set; }
+        public virtual DbSet<PurchaseHistory> PurchaseHistories { get; set; }
         public virtual DbSet<PurchasePaymentDetial> PurchasePaymentDetials { get; set; }
         public virtual DbSet<PurchasePaymentDetialsHistory> PurchasePaymentDetialsHistories { get; set; }
         public virtual DbSet<PurchaseReturn> PurchaseReturns { get; set; }
         public virtual DbSet<PurchaseReturnDetail> PurchaseReturnDetails { get; set; }
+        public virtual DbSet<PurchaseReturnDetailsHistory> PurchaseReturnDetailsHistories { get; set; }
+        public virtual DbSet<PurchaseReturnHistory> PurchaseReturnHistories { get; set; }
         public virtual DbSet<PurchaseTaxGroup> PurchaseTaxGroups { get; set; }
         public virtual DbSet<PurchaseTaxgroupDetail> PurchaseTaxgroupDetails { get; set; }
         public virtual DbSet<Rack> Racks { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<StockHistory> StockHistories { get; set; }
         public virtual DbSet<TaxGroup> TaxGroups { get; set; }
+        public virtual DbSet<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<UserCompany> UserCompanies { get; set; }

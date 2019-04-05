@@ -135,3 +135,7 @@ D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\bin\Microsoft.CodeDom.Provide
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\obj\Debug\IMSBIZZ.csproj.CopyComplete
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\obj\Debug\IMSBIZZ.dll
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\obj\Debug\IMSBIZZ.pdb
+D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\bin\Unity.WebApi.dll
+D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\bin\Swashbuckle.Core.dll
+D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\bin\WebActivatorEx.dll
+D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ\bin\IMSBIZZAPI.xml

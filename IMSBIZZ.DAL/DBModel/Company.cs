@@ -26,6 +26,7 @@ namespace IMSBIZZ.DAL.DBModel
             this.Purchases = new HashSet<Purchase>();
             this.PurchaseReturns = new HashSet<PurchaseReturn>();
             this.Racks = new HashSet<Rack>();
+            this.Stocks = new HashSet<Stock>();
             this.TaxTypes = new HashSet<TaxType>();
             this.Units = new HashSet<Unit>();
             this.UserCompanies = new HashSet<UserCompany>();
@@ -75,6 +76,8 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<PurchaseReturn> PurchaseReturns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rack> Racks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock> Stocks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaxType> TaxTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

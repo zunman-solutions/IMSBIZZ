@@ -1,4 +1,3 @@
-D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csprojAssemblyReference.cache
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csproj.CoreCompileInputs.cache
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\bin\Debug\IMSBIZZ.DAL.dll.config
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\bin\Debug\IMSBIZZ.DAL.dll
@@ -10,3 +9,4 @@ D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\bin\Debug\EntityFramework
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csproj.CopyComplete
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.dll
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.pdb
+D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csprojAssemblyReference.cache

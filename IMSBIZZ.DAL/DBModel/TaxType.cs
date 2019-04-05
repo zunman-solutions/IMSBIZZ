@@ -14,6 +14,12 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class TaxType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TaxType()
+        {
+            this.TaxGroupWithTaxTypes = new HashSet<TaxGroupWithTaxType>();
+        }
+    
         public int TypeId { get; set; }
         public string TypeName { get; set; }
         public Nullable<int> CompanyId { get; set; }
@@ -26,5 +32,7 @@ namespace IMSBIZZ.DAL.DBModel
     
         public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
     }
 }

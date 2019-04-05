@@ -250,6 +250,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ProductTaxGroups">
+      <EntityTypeMapping TypeName="IMSBIZZModel.ProductTaxGroup">
+        <MappingFragment StoreEntitySet="ProductTaxGroup">
+          <ScalarProperty Name="TaxGroupId" ColumnName="TaxGroupId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductTaxGroupId" ColumnName="ProductTaxGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Purchases">
       <EntityTypeMapping TypeName="IMSBIZZModel.Purchase">
         <MappingFragment StoreEntitySet="Purchase">
@@ -264,7 +273,7 @@
           <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
           <ScalarProperty Name="BranchId" ColumnName="BranchId" />
           <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-          <ScalarProperty Name="Po_Date" ColumnName="Po_Date" />
+          <ScalarProperty Name="PoDate" ColumnName="PoDate" />
           <ScalarProperty Name="PoNo" ColumnName="PoNo" />
           <ScalarProperty Name="FinancialyearId" ColumnName="FinancialyearId" />
           <ScalarProperty Name="PartyId" ColumnName="PartyId" />
@@ -275,19 +284,64 @@
     <EntitySetMapping Name="PurchaseDetails">
       <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseDetail">
         <MappingFragment StoreEntitySet="PurchaseDetails">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
           <ScalarProperty Name="DicountAmnt" ColumnName="DicountAmnt" />
+          <ScalarProperty Name="TaxPercent" ColumnName="TaxPercent" />
           <ScalarProperty Name="TaxAmnt" ColumnName="TaxAmnt" />
+          <ScalarProperty Name="SaleRate" ColumnName="SaleRate" />
+          <ScalarProperty Name="PurchaseRate" ColumnName="PurchaseRate" />
           <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="TaxGroupId" ColumnName="TaxGroupId" />
           <ScalarProperty Name="BatchId" ColumnName="BatchId" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
           <ScalarProperty Name="PurchaseDetailsId" ColumnName="PurchaseDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseDetailsHistories">
+      <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseDetailsHistory">
+        <MappingFragment StoreEntitySet="PurchaseDetailsHistory">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DiscountPercent" ColumnName="DiscountPercent" />
+          <ScalarProperty Name="DicountAmnt" ColumnName="DicountAmnt" />
+          <ScalarProperty Name="TaxPercent" ColumnName="TaxPercent" />
+          <ScalarProperty Name="TaxAmnt" ColumnName="TaxAmnt" />
+          <ScalarProperty Name="SaleRate" ColumnName="SaleRate" />
+          <ScalarProperty Name="PurchaseRate" ColumnName="PurchaseRate" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="TaxGroupId" ColumnName="TaxGroupId" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="PurchaseDetailsId" ColumnName="PurchaseDetailsId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseHistories">
+      <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseHistory">
+        <MappingFragment StoreEntitySet="PurchaseHistory">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AttachmentUrl" ColumnName="AttachmentUrl" />
+          <ScalarProperty Name="OtherExpenses" ColumnName="OtherExpenses" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="PaymentModeId" ColumnName="PaymentModeId" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="PoDate" ColumnName="PoDate" />
+          <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+          <ScalarProperty Name="FinancialyearId" ColumnName="FinancialyearId" />
+          <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -335,6 +389,10 @@
     <EntitySetMapping Name="PurchaseReturns">
       <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturn">
         <MappingFragment StoreEntitySet="PurchaseReturn">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="AttachmentUrl" ColumnName="AttachmentUrl" />
           <ScalarProperty Name="PaymentmodeId" ColumnName="PaymentmodeId" />
           <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
@@ -351,10 +409,6 @@
     <EntitySetMapping Name="PurchaseReturnDetails">
       <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturnDetail">
         <MappingFragment StoreEntitySet="PurchaseReturnDetails">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="PurchaseTaxGroupId" ColumnName="PurchaseTaxGroupId" />
           <ScalarProperty Name="DiscountAmnt" ColumnName="DiscountAmnt" />
           <ScalarProperty Name="PurchaseReturnId" ColumnName="PurchaseReturnId" />
@@ -365,6 +419,44 @@
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="BatchId" ColumnName="BatchId" />
           <ScalarProperty Name="PurchaseReturnDetailsId" ColumnName="PurchaseReturnDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseReturnDetailsHistories">
+      <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturnDetailsHistory">
+        <MappingFragment StoreEntitySet="PurchaseReturnDetailsHistory">
+          <ScalarProperty Name="PurchaseTaxGroupId" ColumnName="PurchaseTaxGroupId" />
+          <ScalarProperty Name="DiscountAmnt" ColumnName="DiscountAmnt" />
+          <ScalarProperty Name="PurchaseReturnId" ColumnName="PurchaseReturnId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TaxAmnt" ColumnName="TaxAmnt" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="PurchaseReturnDetailsId" ColumnName="PurchaseReturnDetailsId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseReturnHistories">
+      <EntityTypeMapping TypeName="IMSBIZZModel.PurchaseReturnHistory">
+        <MappingFragment StoreEntitySet="PurchaseReturnHistory">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AttachmentUrl" ColumnName="AttachmentUrl" />
+          <ScalarProperty Name="PaymentmodeId" ColumnName="PaymentmodeId" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FinancialyearId" ColumnName="FinancialyearId" />
+          <ScalarProperty Name="PurchaseId" ColumnName="PurchaseId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="PurchaseReturnId" ColumnName="PurchaseReturnId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -406,6 +498,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="IMSBIZZModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockHistories">
+      <EntityTypeMapping TypeName="IMSBIZZModel.StockHistory">
+        <MappingFragment StoreEntitySet="StockHistory">
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TaxGroups">
       <EntityTypeMapping TypeName="IMSBIZZModel.TaxGroup">
         <MappingFragment StoreEntitySet="TaxGroup">
@@ -418,6 +543,16 @@
           <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxGroupWithTaxTypes">
+      <EntityTypeMapping TypeName="IMSBIZZModel.TaxGroupWithTaxType">
+        <MappingFragment StoreEntitySet="TaxGroupWithTaxType">
+          <ScalarProperty Name="TaxPercentage" ColumnName="TaxPercentage" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TaxGroupId" ColumnName="TaxGroupId" />
+          <ScalarProperty Name="TaxGroupWithTaxTypeId" ColumnName="TaxGroupWithTaxTypeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

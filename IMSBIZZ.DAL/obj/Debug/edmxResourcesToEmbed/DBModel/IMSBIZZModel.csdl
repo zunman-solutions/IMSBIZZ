@@ -16,16 +16,24 @@
     <EntitySet Name="Godowns" EntityType="IMSBIZZModel.Godown" />
     <EntitySet Name="Parties" EntityType="IMSBIZZModel.Party" />
     <EntitySet Name="Products" EntityType="IMSBIZZModel.Product" />
+    <EntitySet Name="ProductTaxGroups" EntityType="IMSBIZZModel.ProductTaxGroup" />
     <EntitySet Name="Purchases" EntityType="IMSBIZZModel.Purchase" />
     <EntitySet Name="PurchaseDetails" EntityType="IMSBIZZModel.PurchaseDetail" />
+    <EntitySet Name="PurchaseDetailsHistories" EntityType="IMSBIZZModel.PurchaseDetailsHistory" />
+    <EntitySet Name="PurchaseHistories" EntityType="IMSBIZZModel.PurchaseHistory" />
     <EntitySet Name="PurchasePaymentDetials" EntityType="IMSBIZZModel.PurchasePaymentDetial" />
     <EntitySet Name="PurchasePaymentDetialsHistories" EntityType="IMSBIZZModel.PurchasePaymentDetialsHistory" />
     <EntitySet Name="PurchaseReturns" EntityType="IMSBIZZModel.PurchaseReturn" />
     <EntitySet Name="PurchaseReturnDetails" EntityType="IMSBIZZModel.PurchaseReturnDetail" />
+    <EntitySet Name="PurchaseReturnDetailsHistories" EntityType="IMSBIZZModel.PurchaseReturnDetailsHistory" />
+    <EntitySet Name="PurchaseReturnHistories" EntityType="IMSBIZZModel.PurchaseReturnHistory" />
     <EntitySet Name="PurchaseTaxGroups" EntityType="IMSBIZZModel.PurchaseTaxGroup" />
     <EntitySet Name="PurchaseTaxgroupDetails" EntityType="IMSBIZZModel.PurchaseTaxgroupDetail" />
     <EntitySet Name="Racks" EntityType="IMSBIZZModel.Rack" />
+    <EntitySet Name="Stocks" EntityType="IMSBIZZModel.Stock" />
+    <EntitySet Name="StockHistories" EntityType="IMSBIZZModel.StockHistory" />
     <EntitySet Name="TaxGroups" EntityType="IMSBIZZModel.TaxGroup" />
+    <EntitySet Name="TaxGroupWithTaxTypes" EntityType="IMSBIZZModel.TaxGroupWithTaxType" />
     <EntitySet Name="TaxTypes" EntityType="IMSBIZZModel.TaxType" />
     <EntitySet Name="Units" EntityType="IMSBIZZModel.Unit" />
     <EntitySet Name="UserCompanies" EntityType="IMSBIZZModel.UserCompany" />
@@ -61,6 +69,10 @@
     <AssociationSet Name="FK_PurchaseTaxGroup_Batch" Association="IMSBIZZModel.FK_PurchaseTaxGroup_Batch">
       <End Role="Batch" EntitySet="Batches" />
       <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Batch" Association="IMSBIZZModel.FK_Stock_Batch">
+      <End Role="Batch" EntitySet="Batches" />
+      <End Role="Stock" EntitySet="Stocks" />
     </AssociationSet>
     <AssociationSet Name="FK_Branch_Branch" Association="IMSBIZZModel.FK_Branch_Branch">
       <End Role="Branch" EntitySet="Branches" />
@@ -102,6 +114,10 @@
       <End Role="Branch" EntitySet="Branches" />
       <End Role="Rack" EntitySet="Racks" />
     </AssociationSet>
+    <AssociationSet Name="FK_Stock_Branch" Association="IMSBIZZModel.FK_Stock_Branch">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
     <AssociationSet Name="FK_TaxType_Branch" Association="IMSBIZZModel.FK_TaxType_Branch">
       <End Role="Branch" EntitySet="Branches" />
       <End Role="TaxType" EntitySet="TaxTypes" />
@@ -142,6 +158,10 @@
       <End Role="Company" EntitySet="Companies" />
       <End Role="Rack" EntitySet="Racks" />
     </AssociationSet>
+    <AssociationSet Name="FK_Stock_Company" Association="IMSBIZZModel.FK_Stock_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
     <AssociationSet Name="FK_TaxType_Company" Association="IMSBIZZModel.FK_TaxType_Company">
       <End Role="Company" EntitySet="Companies" />
       <End Role="TaxType" EntitySet="TaxTypes" />
@@ -174,6 +194,10 @@
       <End Role="Rack" EntitySet="Racks" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProductTaxGroup_Product" Association="IMSBIZZModel.FK_ProductTaxGroup_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductTaxGroup" EntitySet="ProductTaxGroups" />
+    </AssociationSet>
     <AssociationSet Name="FK_PurchaseDetails_Product" Association="IMSBIZZModel.FK_PurchaseDetails_Product">
       <End Role="Product" EntitySet="Products" />
       <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
@@ -185,6 +209,14 @@
     <AssociationSet Name="FK_PurchaseTaxGroup_Product" Association="IMSBIZZModel.FK_PurchaseTaxGroup_Product">
       <End Role="Product" EntitySet="Products" />
       <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Product" Association="IMSBIZZModel.FK_Stock_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductTaxGroup_TaxGroup" Association="IMSBIZZModel.FK_ProductTaxGroup_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroups" />
+      <End Role="ProductTaxGroup" EntitySet="ProductTaxGroups" />
     </AssociationSet>
     <AssociationSet Name="FK_PurchaseDetails_Purchase" Association="IMSBIZZModel.FK_PurchaseDetails_Purchase">
       <End Role="Purchase" EntitySet="Purchases" />
@@ -202,6 +234,10 @@
       <End Role="Purchase" EntitySet="Purchases" />
       <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
     </AssociationSet>
+    <AssociationSet Name="FK_PurchaseDetails_TaxGroup" Association="IMSBIZZModel.FK_PurchaseDetails_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroups" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+    </AssociationSet>
     <AssociationSet Name="FK_PurchaseDetails_Unit" Association="IMSBIZZModel.FK_PurchaseDetails_Unit">
       <End Role="Unit" EntitySet="Units" />
       <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
@@ -213,6 +249,18 @@
     <AssociationSet Name="FK_PurchaseTaxGroup_TaxGroup" Association="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup">
       <End Role="TaxGroup" EntitySet="TaxGroups" />
       <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseTaxgroupDetails_PurchaseTaxGroup" Association="IMSBIZZModel.FK_PurchaseTaxgroupDetails_PurchaseTaxGroup">
+      <End Role="PurchaseTaxGroup" EntitySet="PurchaseTaxGroups" />
+      <End Role="PurchaseTaxgroupDetail" EntitySet="PurchaseTaxgroupDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxGroupWithTaxType_TaxGroup" Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxGroup">
+      <End Role="TaxGroup" EntitySet="TaxGroups" />
+      <End Role="TaxGroupWithTaxType" EntitySet="TaxGroupWithTaxTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxGroupWithTaxType_TaxType" Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType">
+      <End Role="TaxType" EntitySet="TaxTypes" />
+      <End Role="TaxGroupWithTaxType" EntitySet="TaxGroupWithTaxTypes" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="IMSBIZZModel.AspNetUserRoles">
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
@@ -287,6 +335,7 @@
     <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Batch" FromRole="Batch" ToRole="PurchaseDetail" />
     <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="Batch" ToRole="PurchaseReturnDetail" />
     <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Batch" FromRole="Batch" ToRole="PurchaseTaxGroup" />
+    <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Batch" FromRole="Batch" ToRole="Stock" />
   </EntityType>
   <EntityType Name="Branch">
     <Key>
@@ -322,6 +371,7 @@
     <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Branch" FromRole="Branch" ToRole="Purchase" />
     <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Branch" FromRole="Branch" ToRole="PurchaseReturn" />
     <NavigationProperty Name="Racks" Relationship="IMSBIZZModel.FK_Rack_Branch" FromRole="Branch" ToRole="Rack" />
+    <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Branch" FromRole="Branch" ToRole="Stock" />
     <NavigationProperty Name="TaxTypes" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="Branch" ToRole="TaxType" />
     <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Branch" FromRole="Branch" ToRole="Unit" />
   </EntityType>
@@ -378,6 +428,7 @@
     <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Company" FromRole="Company" ToRole="Purchase" />
     <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Company" FromRole="Company" ToRole="PurchaseReturn" />
     <NavigationProperty Name="Racks" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Company" ToRole="Rack" />
+    <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Company" FromRole="Company" ToRole="Stock" />
     <NavigationProperty Name="TaxTypes" Relationship="IMSBIZZModel.FK_TaxType_Company" FromRole="Company" ToRole="TaxType" />
     <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Company" FromRole="Company" ToRole="Unit" />
     <NavigationProperty Name="UserCompanies" Relationship="IMSBIZZModel.FK_UserCompany_Company" FromRole="Company" ToRole="UserCompany" />
@@ -508,9 +559,21 @@
     <NavigationProperty Name="Category" Relationship="IMSBIZZModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
     <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Product_Company" FromRole="Product" ToRole="Company" />
     <NavigationProperty Name="Rack" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Product" ToRole="Rack" />
+    <NavigationProperty Name="ProductTaxGroups" Relationship="IMSBIZZModel.FK_ProductTaxGroup_Product" FromRole="Product" ToRole="ProductTaxGroup" />
     <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Product" FromRole="Product" ToRole="PurchaseDetail" />
     <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="Product" ToRole="PurchaseReturnDetail" />
     <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Product" FromRole="Product" ToRole="PurchaseTaxGroup" />
+    <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Product" FromRole="Product" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="ProductTaxGroup">
+    <Key>
+      <PropertyRef Name="ProductTaxGroupId" />
+    </Key>
+    <Property Name="ProductTaxGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_ProductTaxGroup_Product" FromRole="ProductTaxGroup" ToRole="Product" />
+    <NavigationProperty Name="TaxGroup" Relationship="IMSBIZZModel.FK_ProductTaxGroup_TaxGroup" FromRole="ProductTaxGroup" ToRole="TaxGroup" />
   </EntityType>
   <EntityType Name="Purchase">
     <Key>
@@ -520,7 +583,7 @@
     <Property Name="PartyId" Type="Int32" />
     <Property Name="FinancialyearId" Type="Int32" />
     <Property Name="PoNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Po_Date" Type="DateTime" Precision="0" />
+    <Property Name="PoDate" Type="DateTime" Precision="3" />
     <Property Name="CompanyId" Type="Int32" />
     <Property Name="BranchId" Type="Int32" />
     <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -549,19 +612,63 @@
     <Property Name="PurchaseId" Type="Int64" />
     <Property Name="ProductId" Type="Int32" />
     <Property Name="BatchId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
     <Property Name="UnitId" Type="Int32" />
+    <Property Name="PurchaseRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="DicountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseDetails_Batch" FromRole="PurchaseDetail" ToRole="Batch" />
     <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseDetails_Product" FromRole="PurchaseDetail" ToRole="Product" />
     <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchaseDetails_Purchase" FromRole="PurchaseDetail" ToRole="Purchase" />
+    <NavigationProperty Name="TaxGroup" Relationship="IMSBIZZModel.FK_PurchaseDetails_TaxGroup" FromRole="PurchaseDetail" ToRole="TaxGroup" />
     <NavigationProperty Name="Unit" Relationship="IMSBIZZModel.FK_PurchaseDetails_Unit" FromRole="PurchaseDetail" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PurchaseDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseDetailsId" Type="Int64" Nullable="false" />
+    <Property Name="PurchaseId" Type="Int64" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="PurchaseRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DicountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PurchaseHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseId" Type="Int64" Nullable="false" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="PoNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PoDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentModeId" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherExpenses" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PurchasePaymentDetial">
     <Key>
@@ -617,6 +724,10 @@
     <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PaymentmodeId" Type="Int32" />
     <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_PurchaseReturn_Branch" FromRole="PurchaseReturn" ToRole="Branch" />
     <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_PurchaseReturn_Company" FromRole="PurchaseReturn" ToRole="Company" />
     <NavigationProperty Name="FinancialYear" Relationship="IMSBIZZModel.FK_PurchaseReturn_FinancialYear" FromRole="PurchaseReturn" ToRole="FinancialYear" />
@@ -637,13 +748,45 @@
     <Property Name="PurchaseReturnId" Type="Int64" />
     <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseTaxGroupId" Type="Int32" />
-    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="PurchaseReturnDetail" ToRole="Batch" />
     <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="PurchaseReturnDetail" ToRole="Product" />
     <NavigationProperty Name="Unit" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Unit" FromRole="PurchaseReturnDetail" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="PurchaseReturnDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseReturnDetailsId" Type="Int64" Nullable="false" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseReturnId" Type="Int64" />
+    <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseTaxGroupId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PurchaseReturnHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseReturnId" Type="Int64" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="PurchaseId" Type="Int64" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentmodeId" Type="Int32" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PurchaseTaxGroup">
     <Key>
@@ -659,15 +802,17 @@
     <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Product" FromRole="PurchaseTaxGroup" ToRole="Product" />
     <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Purchase" FromRole="PurchaseTaxGroup" ToRole="Purchase" />
     <NavigationProperty Name="TaxGroup" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup" FromRole="PurchaseTaxGroup" ToRole="TaxGroup" />
+    <NavigationProperty Name="PurchaseTaxgroupDetails" Relationship="IMSBIZZModel.FK_PurchaseTaxgroupDetails_PurchaseTaxGroup" FromRole="PurchaseTaxGroup" ToRole="PurchaseTaxgroupDetail" />
   </EntityType>
   <EntityType Name="PurchaseTaxgroupDetail">
     <Key>
       <PropertyRef Name="PurchaseTaxgroupDetailsId" />
     </Key>
     <Property Name="PurchaseTaxgroupDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PurchaseTaxGroupId" Type="Int32" />
+    <Property Name="PurchaseTaxGroupId" Type="Int64" />
     <Property Name="TypeId" Type="Int32" />
     <Property Name="TaxPercentage" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="PurchaseTaxGroup" Relationship="IMSBIZZModel.FK_PurchaseTaxgroupDetails_PurchaseTaxGroup" FromRole="PurchaseTaxgroupDetail" ToRole="PurchaseTaxGroup" />
   </EntityType>
   <EntityType Name="Rack">
     <Key>
@@ -687,6 +832,41 @@
     <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Rack" ToRole="Company" />
     <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Rack" ToRole="Product" />
   </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_Stock_Batch" FromRole="Stock" ToRole="Batch" />
+    <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Stock_Branch" FromRole="Stock" ToRole="Branch" />
+    <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Stock_Company" FromRole="Stock" ToRole="Company" />
+    <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_Stock_Product" FromRole="Stock" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="StockHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StockId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+  </EntityType>
   <EntityType Name="TaxGroup">
     <Key>
       <PropertyRef Name="GroupId" />
@@ -700,7 +880,21 @@
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ProductTaxGroups" Relationship="IMSBIZZModel.FK_ProductTaxGroup_TaxGroup" FromRole="TaxGroup" ToRole="ProductTaxGroup" />
+    <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_TaxGroup" FromRole="TaxGroup" ToRole="PurchaseDetail" />
     <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup" FromRole="TaxGroup" ToRole="PurchaseTaxGroup" />
+    <NavigationProperty Name="TaxGroupWithTaxTypes" Relationship="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxGroup" FromRole="TaxGroup" ToRole="TaxGroupWithTaxType" />
+  </EntityType>
+  <EntityType Name="TaxGroupWithTaxType">
+    <Key>
+      <PropertyRef Name="TaxGroupWithTaxTypeId" />
+    </Key>
+    <Property Name="TaxGroupWithTaxTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="TaxPercentage" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="TaxGroup" Relationship="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxGroup" FromRole="TaxGroupWithTaxType" ToRole="TaxGroup" />
+    <NavigationProperty Name="TaxType" Relationship="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType" FromRole="TaxGroupWithTaxType" ToRole="TaxType" />
   </EntityType>
   <EntityType Name="TaxType">
     <Key>
@@ -717,6 +911,7 @@
     <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="TaxType" ToRole="Branch" />
     <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_TaxType_Company" FromRole="TaxType" ToRole="Company" />
+    <NavigationProperty Name="TaxGroupWithTaxTypes" Relationship="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType" FromRole="TaxType" ToRole="TaxGroupWithTaxType" />
   </EntityType>
   <EntityType Name="Unit">
     <Key>
@@ -872,6 +1067,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Stock_Batch">
+    <End Type="IMSBIZZModel.Batch" Role="Batch" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Batch">
+        <PropertyRef Name="BatchId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="BatchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Branch_Branch">
     <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="1" />
     <End Type="IMSBIZZModel.Branch" Role="Branch1" Multiplicity="0..1" />
@@ -988,6 +1195,18 @@
         <PropertyRef Name="BranchId" />
       </Principal>
       <Dependent Role="Rack">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Branch">
+    <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="Stock">
         <PropertyRef Name="BranchId" />
       </Dependent>
     </ReferentialConstraint>
@@ -1112,6 +1331,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Stock_Company">
+    <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TaxType_Company">
     <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
     <End Type="IMSBIZZModel.TaxType" Role="TaxType" Multiplicity="*" />
@@ -1208,6 +1439,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProductTaxGroup_Product">
+    <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.ProductTaxGroup" Role="ProductTaxGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductTaxGroup">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PurchaseDetails_Product">
     <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
     <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
@@ -1241,6 +1484,30 @@
       </Principal>
       <Dependent Role="PurchaseTaxGroup">
         <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Product">
+    <End Type="IMSBIZZModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductTaxGroup_TaxGroup">
+    <End Type="IMSBIZZModel.TaxGroup" Role="TaxGroup" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.ProductTaxGroup" Role="ProductTaxGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="ProductTaxGroup">
+        <PropertyRef Name="TaxGroupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1292,6 +1559,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PurchaseDetails_TaxGroup">
+    <End Type="IMSBIZZModel.TaxGroup" Role="TaxGroup" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="TaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PurchaseDetails_Unit">
     <End Type="IMSBIZZModel.Unit" Role="Unit" Multiplicity="0..1" />
     <End Type="IMSBIZZModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
@@ -1325,6 +1604,42 @@
       </Principal>
       <Dependent Role="PurchaseTaxGroup">
         <PropertyRef Name="TaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseTaxgroupDetails_PurchaseTaxGroup">
+    <End Type="IMSBIZZModel.PurchaseTaxGroup" Role="PurchaseTaxGroup" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.PurchaseTaxgroupDetail" Role="PurchaseTaxgroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseTaxGroup">
+        <PropertyRef Name="PurchaseTaxGroupId" />
+      </Principal>
+      <Dependent Role="PurchaseTaxgroupDetail">
+        <PropertyRef Name="PurchaseTaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxGroupWithTaxType_TaxGroup">
+    <End Type="IMSBIZZModel.TaxGroup" Role="TaxGroup" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.TaxGroupWithTaxType" Role="TaxGroupWithTaxType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxGroup">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="TaxGroupWithTaxType">
+        <PropertyRef Name="TaxGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxGroupWithTaxType_TaxType">
+    <End Type="IMSBIZZModel.TaxType" Role="TaxType" Multiplicity="0..1" />
+    <End Type="IMSBIZZModel.TaxGroupWithTaxType" Role="TaxGroupWithTaxType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaxType">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="TaxGroupWithTaxType">
+        <PropertyRef Name="TypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

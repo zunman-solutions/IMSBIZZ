@@ -13,9 +13,10 @@ namespace IMSBIZZ.DAL.IService
          string includeProperties = "");
         IEnumerable<Purchase> GetAllPurchases();
         Purchase GetPurchaseById(int id);
-        void Add(Purchase benificiary);
-        void Update(Purchase benificiary);
+        void Add(Purchase purchase);
+        void Update(Purchase purchase);
         void Delete(int id);
-        void SaveChanges();        
+        void SaveChanges();
+        bool IsProductExist(int productId, int batchId, decimal saleRate, decimal purchaseRate, int taxGroupId);
     }
 }
