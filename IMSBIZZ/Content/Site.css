@@ -1,111 +1,31 @@
-﻿
-
-/* Set padding to keep content from hitting the edges */
-
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-
-/*.navbar-inverse .navbar-nav > li > a {
-      color: white;
-  cursor:pointer;
-  font-size:17px;
-  border:1px solid #DCDCDC;
-}
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: #57acc5;
-}*/
-.note
-{
-    text-align: center;
-    height: 80px;
-    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
-    color: #fff;
-    font-weight: bold;
-    line-height: 80px;
-}
-.with-nav-tabs.panel-primary .nav-tabs > li > a,
-.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
-    color: #fff;
-}
-.with-nav-tabs.panel-primary .nav-tabs > .open > a,
-.with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
-.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
-	color: #fff;
-	background-color: #3071a9;
-	border-color: transparent;
-}
-.with-nav-tabs.panel-primary .nav-tabs > li.active > a,
-.with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
-	color: #428bca;
-	background-color: #fff;
-	border-color: #428bca;
-	border-bottom-color: transparent;
-}
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu {
-    background-color: #428bca;
-    border-color: #3071a9;
-}
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
-    color: #fff;   
-}
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
-    background-color: #3071a9;
-}
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a,
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
-.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
-    background-color: #4a9fe9;
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
 }
 
-/*style form popup modal*/
-.button1 {
-    border-radius: 2px;
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
 }
-
-.button2 {
-    border-radius: 4px;
-}
-
-.button3 {
-    border-radius: 8px;
-}
-
-.button4 {
-    border-radius: 12px;
-}
-
-.button5 {
-    border-radius: 50%;
-}
-
-/*End style form popup modal*/
-
- 
-

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace adminlte.Controllers
+namespace IMSBIZZ.Areas.AdminLTETheme.Controllers
 {
     public class ChartsController : Controller
     {

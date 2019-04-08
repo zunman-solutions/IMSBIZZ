@@ -4,6 +4,11 @@
         <name>IMSBIZZ</name>
     </assembly>
     <members>
+        <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.GoDownAPIController">
+            <summary>
+            Batch Api Controller
+            </summary>
+        </member>
         <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.TaxGroupAPIController">
             <summary>
             Tax Group Api Controller

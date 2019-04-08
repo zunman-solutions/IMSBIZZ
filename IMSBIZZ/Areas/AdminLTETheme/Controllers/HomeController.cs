@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace adminlte.Controllers
+namespace IMSBIZZ.Areas.AdminLTETheme.Controllers
 {
-    public class HomeController : Controller
+    public class Home1Controller : Controller
     {
         public ActionResult Index()
         {
