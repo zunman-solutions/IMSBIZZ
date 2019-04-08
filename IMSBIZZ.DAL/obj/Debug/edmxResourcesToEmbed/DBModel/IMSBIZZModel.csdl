@@ -15,6 +15,7 @@
     <EntitySet Name="FinancialYears" EntityType="IMSBIZZModel.FinancialYear" />
     <EntitySet Name="Godowns" EntityType="IMSBIZZModel.Godown" />
     <EntitySet Name="Parties" EntityType="IMSBIZZModel.Party" />
+    <EntitySet Name="PaymentModes" EntityType="IMSBIZZModel.PaymentMode" />
     <EntitySet Name="Products" EntityType="IMSBIZZModel.Product" />
     <EntitySet Name="ProductTaxGroups" EntityType="IMSBIZZModel.ProductTaxGroup" />
     <EntitySet Name="Purchases" EntityType="IMSBIZZModel.Purchase" />
@@ -30,6 +31,18 @@
     <EntitySet Name="PurchaseTaxGroups" EntityType="IMSBIZZModel.PurchaseTaxGroup" />
     <EntitySet Name="PurchaseTaxgroupDetails" EntityType="IMSBIZZModel.PurchaseTaxgroupDetail" />
     <EntitySet Name="Racks" EntityType="IMSBIZZModel.Rack" />
+    <EntitySet Name="Sales" EntityType="IMSBIZZModel.Sale" />
+    <EntitySet Name="SaleDetails" EntityType="IMSBIZZModel.SaleDetail" />
+    <EntitySet Name="SaleDetailsHistories" EntityType="IMSBIZZModel.SaleDetailsHistory" />
+    <EntitySet Name="SaleHistories" EntityType="IMSBIZZModel.SaleHistory" />
+    <EntitySet Name="SalePaymentDetials" EntityType="IMSBIZZModel.SalePaymentDetial" />
+    <EntitySet Name="SalePaymentDetialsHistories" EntityType="IMSBIZZModel.SalePaymentDetialsHistory" />
+    <EntitySet Name="SaleReturns" EntityType="IMSBIZZModel.SaleReturn" />
+    <EntitySet Name="SaleReturnDetails" EntityType="IMSBIZZModel.SaleReturnDetail" />
+    <EntitySet Name="SaleReturnDetailsHistories" EntityType="IMSBIZZModel.SaleReturnDetailsHistory" />
+    <EntitySet Name="SaleReturnHistories" EntityType="IMSBIZZModel.SaleReturnHistory" />
+    <EntitySet Name="SaleTaxGroups" EntityType="IMSBIZZModel.SaleTaxGroup" />
+    <EntitySet Name="SaleTaxgroupDetails" EntityType="IMSBIZZModel.SaleTaxgroupDetail" />
     <EntitySet Name="Stocks" EntityType="IMSBIZZModel.Stock" />
     <EntitySet Name="StockHistories" EntityType="IMSBIZZModel.StockHistory" />
     <EntitySet Name="TaxGroups" EntityType="IMSBIZZModel.TaxGroup" />
@@ -266,6 +279,100 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <FunctionImport Name="CheckAccountValidity">
+      <Parameter Name="company_id" Mode="In" Type="Int32" />
+      <Parameter Name="user_id" Mode="In" Type="Int32" />
+      <Parameter Name="free_count" Mode="InOut" Type="Int32" />
+      <Parameter Name="Subscription_count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CommonReport">
+      <Parameter Name="ReportType" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="FilterIds" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ELMAH_GetErrorsXml" ReturnType="Collection(String)">
+      <Parameter Name="Application" Mode="In" Type="String" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="TotalCount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ELMAH_GetErrorXml" ReturnType="Collection(String)">
+      <Parameter Name="Application" Mode="In" Type="String" />
+      <Parameter Name="ErrorId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="ELMAH_LogError">
+      <Parameter Name="ErrorId" Mode="In" Type="Guid" />
+      <Parameter Name="Application" Mode="In" Type="String" />
+      <Parameter Name="Host" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Source" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="AllXml" Mode="In" Type="String" />
+      <Parameter Name="StatusCode" Mode="In" Type="Int32" />
+      <Parameter Name="TimeUtc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetBatchwiseQuantity" ReturnType="Collection(Decimal)">
+      <Parameter Name="batch_id" Mode="In" Type="Int32" />
+      <Parameter Name="product_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetReturnQuantity">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="For" Mode="In" Type="String" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InventoryReport">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="PartyId" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Last15DaysFinancialYear">
+      <Parameter Name="company_id" Mode="In" Type="Int32" />
+      <Parameter Name="days_flag" Mode="InOut" Type="Int32" />
+      <Parameter Name="enddays_flag" Mode="InOut" Type="Int32" />
+      <Parameter Name="s_date" Mode="In" Type="DateTime" />
+      <Parameter Name="days_left" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PaymentBalanceReport">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="PartyId" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ProductReOrderLevelForCompany">
+      <Parameter Name="company_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductReOrderLevelForCompanyBranch">
+      <Parameter Name="company_id" Mode="In" Type="Int32" />
+      <Parameter Name="branch_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PurchaseOrPurchaseReturnReport">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FromTable" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SaleOrPurchaseOrReturnReport">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FromTable" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SaleOrSaleReturnReport">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FromTable" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectProductTaxGroup">
+      <Parameter Name="groupId" Mode="In" Type="Int32" />
+      <Parameter Name="productId" Mode="In" Type="Int32" />
+      <Parameter Name="qty" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SelectPurcahseProductTaxGroup">
+      <Parameter Name="batchId" Mode="In" Type="Int32" />
+      <Parameter Name="productId" Mode="In" Type="Int32" />
+      <Parameter Name="qty" Mode="In" Type="Decimal" />
+      <Parameter Name="taxgroupId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AspNetRole">
     <Key>
@@ -397,8 +504,8 @@
     <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="CountryId" Type="Int32" />
     <Property Name="StateId" Type="Int32" />
     <Property Name="CityId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -532,6 +639,20 @@
     <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Party" FromRole="Party" ToRole="Purchase" />
     <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Party" FromRole="Party" ToRole="PurchaseReturn" />
   </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="PaymentModeId" />
+    </Key>
+    <Property Name="PaymentModeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="PaymentmodeName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductId" />
@@ -618,7 +739,7 @@
     <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="DicountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
@@ -742,11 +863,15 @@
     <Property Name="BatchId" Type="Int32" />
     <Property Name="ProductId" Type="Int32" />
     <Property Name="UnitId" Type="Int32" />
+    <Property Name="PurchaseRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseReturnId" Type="Int64" />
     <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseTaxGroupId" Type="Int32" />
     <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="PurchaseReturnDetail" ToRole="Batch" />
     <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="PurchaseReturnDetail" ToRole="Product" />
@@ -831,6 +956,213 @@
     <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Rack_Branch" FromRole="Rack" ToRole="Branch" />
     <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Rack" ToRole="Company" />
     <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Rack" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="SaleDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentModeId" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherExpenses" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleDetail">
+    <Key>
+      <PropertyRef Name="SaleDetailsId" />
+    </Key>
+    <Property Name="SaleDetailsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SaleDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleDetailsId" Type="Int64" Nullable="false" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="SaleRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DicountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SaleHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleId" Type="Int64" Nullable="false" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="SaleDate" Type="DateTime" Precision="3" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentModeId" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherExpenses" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SalePaymentDetial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GivenAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SalePaymentDetialsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalePaymentId" Type="Int64" Nullable="false" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GivenAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SaleReturn">
+    <Key>
+      <PropertyRef Name="SaleReturnId" />
+    </Key>
+    <Property Name="SaleReturnId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentmodeId" Type="Int32" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleReturnDetail">
+    <Key>
+      <PropertyRef Name="SaleReturnDetailsId" />
+    </Key>
+    <Property Name="SaleReturnDetailsId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleReturnId" Type="Int64" />
+    <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleTaxGroupId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SaleReturnDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleReturnDetailsId" Type="Int64" Nullable="false" />
+    <Property Name="BatchId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="TaxAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseReturnId" Type="Int64" />
+    <Property Name="DiscountAmnt" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SaleTaxGroupId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SaleReturnHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleReturnId" Type="Int64" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="FinancialyearId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="PartyId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentmodeId" Type="Int32" />
+    <Property Name="AttachmentUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleTaxGroup">
+    <Key>
+      <PropertyRef Name="SaleTaxGroupId" />
+    </Key>
+    <Property Name="SaleTaxGroupId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="TaxGroupId" Type="Int32" />
+    <Property Name="SaleId" Type="Int64" />
+    <Property Name="TotalTaxPercentage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BatchId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SaleTaxgroupDetail">
+    <Key>
+      <PropertyRef Name="SaleTaxgroupDetailsId" />
+    </Key>
+    <Property Name="SaleTaxgroupDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleTaxGroupId" Type="Int64" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="TaxPercentage" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Stock">
     <Key>

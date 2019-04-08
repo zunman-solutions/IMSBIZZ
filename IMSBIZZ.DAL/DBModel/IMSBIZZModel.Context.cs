@@ -12,6 +12,8 @@ namespace IMSBIZZ.DAL.DBModel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class IMSBIZZEntities : DbContext
     {
@@ -39,6 +41,7 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<FinancialYear> FinancialYears { get; set; }
         public virtual DbSet<Godown> Godowns { get; set; }
         public virtual DbSet<Party> Parties { get; set; }
+        public virtual DbSet<PaymentMode> PaymentModes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductTaxGroup> ProductTaxGroups { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
@@ -54,6 +57,18 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<PurchaseTaxGroup> PurchaseTaxGroups { get; set; }
         public virtual DbSet<PurchaseTaxgroupDetail> PurchaseTaxgroupDetails { get; set; }
         public virtual DbSet<Rack> Racks { get; set; }
+        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<SaleDetail> SaleDetails { get; set; }
+        public virtual DbSet<SaleDetailsHistory> SaleDetailsHistories { get; set; }
+        public virtual DbSet<SaleHistory> SaleHistories { get; set; }
+        public virtual DbSet<SalePaymentDetial> SalePaymentDetials { get; set; }
+        public virtual DbSet<SalePaymentDetialsHistory> SalePaymentDetialsHistories { get; set; }
+        public virtual DbSet<SaleReturn> SaleReturns { get; set; }
+        public virtual DbSet<SaleReturnDetail> SaleReturnDetails { get; set; }
+        public virtual DbSet<SaleReturnDetailsHistory> SaleReturnDetailsHistories { get; set; }
+        public virtual DbSet<SaleReturnHistory> SaleReturnHistories { get; set; }
+        public virtual DbSet<SaleTaxGroup> SaleTaxGroups { get; set; }
+        public virtual DbSet<SaleTaxgroupDetail> SaleTaxgroupDetails { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StockHistory> StockHistories { get; set; }
         public virtual DbSet<TaxGroup> TaxGroups { get; set; }
@@ -62,5 +77,306 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<UserCompany> UserCompanies { get; set; }
         public virtual DbSet<ELMAH_Error> ELMAH_Error { get; set; }
+    
+        public virtual int CheckAccountValidity(Nullable<int> company_id, Nullable<int> user_id, ObjectParameter free_count, ObjectParameter subscription_count)
+        {
+            var company_idParameter = company_id.HasValue ?
+                new ObjectParameter("company_id", company_id) :
+                new ObjectParameter("company_id", typeof(int));
+    
+            var user_idParameter = user_id.HasValue ?
+                new ObjectParameter("user_id", user_id) :
+                new ObjectParameter("user_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CheckAccountValidity", company_idParameter, user_idParameter, free_count, subscription_count);
+        }
+    
+        public virtual int CommonReport(string reportType, Nullable<int> companyId, string filterIds, Nullable<System.DateTime> createdOn, Nullable<System.DateTime> endDate)
+        {
+            var reportTypeParameter = reportType != null ?
+                new ObjectParameter("ReportType", reportType) :
+                new ObjectParameter("ReportType", typeof(string));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var filterIdsParameter = filterIds != null ?
+                new ObjectParameter("FilterIds", filterIds) :
+                new ObjectParameter("FilterIds", typeof(string));
+    
+            var createdOnParameter = createdOn.HasValue ?
+                new ObjectParameter("CreatedOn", createdOn) :
+                new ObjectParameter("CreatedOn", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CommonReport", reportTypeParameter, companyIdParameter, filterIdsParameter, createdOnParameter, endDateParameter);
+        }
+    
+        public virtual ObjectResult<string> ELMAH_GetErrorsXml(string application, Nullable<int> pageIndex, Nullable<int> pageSize, ObjectParameter totalCount)
+        {
+            var applicationParameter = application != null ?
+                new ObjectParameter("Application", application) :
+                new ObjectParameter("Application", typeof(string));
+    
+            var pageIndexParameter = pageIndex.HasValue ?
+                new ObjectParameter("PageIndex", pageIndex) :
+                new ObjectParameter("PageIndex", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("PageSize", pageSize) :
+                new ObjectParameter("PageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ELMAH_GetErrorsXml", applicationParameter, pageIndexParameter, pageSizeParameter, totalCount);
+        }
+    
+        public virtual ObjectResult<string> ELMAH_GetErrorXml(string application, Nullable<System.Guid> errorId)
+        {
+            var applicationParameter = application != null ?
+                new ObjectParameter("Application", application) :
+                new ObjectParameter("Application", typeof(string));
+    
+            var errorIdParameter = errorId.HasValue ?
+                new ObjectParameter("ErrorId", errorId) :
+                new ObjectParameter("ErrorId", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ELMAH_GetErrorXml", applicationParameter, errorIdParameter);
+        }
+    
+        public virtual int ELMAH_LogError(Nullable<System.Guid> errorId, string application, string host, string type, string source, string message, string user, string allXml, Nullable<int> statusCode, Nullable<System.DateTime> timeUtc)
+        {
+            var errorIdParameter = errorId.HasValue ?
+                new ObjectParameter("ErrorId", errorId) :
+                new ObjectParameter("ErrorId", typeof(System.Guid));
+    
+            var applicationParameter = application != null ?
+                new ObjectParameter("Application", application) :
+                new ObjectParameter("Application", typeof(string));
+    
+            var hostParameter = host != null ?
+                new ObjectParameter("Host", host) :
+                new ObjectParameter("Host", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("Type", type) :
+                new ObjectParameter("Type", typeof(string));
+    
+            var sourceParameter = source != null ?
+                new ObjectParameter("Source", source) :
+                new ObjectParameter("Source", typeof(string));
+    
+            var messageParameter = message != null ?
+                new ObjectParameter("Message", message) :
+                new ObjectParameter("Message", typeof(string));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("User", user) :
+                new ObjectParameter("User", typeof(string));
+    
+            var allXmlParameter = allXml != null ?
+                new ObjectParameter("AllXml", allXml) :
+                new ObjectParameter("AllXml", typeof(string));
+    
+            var statusCodeParameter = statusCode.HasValue ?
+                new ObjectParameter("StatusCode", statusCode) :
+                new ObjectParameter("StatusCode", typeof(int));
+    
+            var timeUtcParameter = timeUtc.HasValue ?
+                new ObjectParameter("TimeUtc", timeUtc) :
+                new ObjectParameter("TimeUtc", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELMAH_LogError", errorIdParameter, applicationParameter, hostParameter, typeParameter, sourceParameter, messageParameter, userParameter, allXmlParameter, statusCodeParameter, timeUtcParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> GetBatchwiseQuantity(Nullable<int> batch_id, Nullable<int> product_id)
+        {
+            var batch_idParameter = batch_id.HasValue ?
+                new ObjectParameter("batch_id", batch_id) :
+                new ObjectParameter("batch_id", typeof(int));
+    
+            var product_idParameter = product_id.HasValue ?
+                new ObjectParameter("product_id", product_id) :
+                new ObjectParameter("product_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("GetBatchwiseQuantity", batch_idParameter, product_idParameter);
+        }
+    
+        public virtual int GetReturnQuantity(Nullable<int> id, string @for, Nullable<int> productId, Nullable<int> companyId)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var forParameter = @for != null ?
+                new ObjectParameter("For", @for) :
+                new ObjectParameter("For", typeof(string));
+    
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("ProductId", productId) :
+                new ObjectParameter("ProductId", typeof(int));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetReturnQuantity", idParameter, forParameter, productIdParameter, companyIdParameter);
+        }
+    
+        public virtual int InventoryReport(Nullable<int> companyId, Nullable<int> partyId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
+        {
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var partyIdParameter = partyId.HasValue ?
+                new ObjectParameter("PartyId", partyId) :
+                new ObjectParameter("PartyId", typeof(int));
+    
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InventoryReport", companyIdParameter, partyIdParameter, startDateParameter, endDateParameter);
+        }
+    
+        public virtual int Last15DaysFinancialYear(Nullable<int> company_id, ObjectParameter days_flag, ObjectParameter enddays_flag, Nullable<System.DateTime> s_date, ObjectParameter days_left)
+        {
+            var company_idParameter = company_id.HasValue ?
+                new ObjectParameter("company_id", company_id) :
+                new ObjectParameter("company_id", typeof(int));
+    
+            var s_dateParameter = s_date.HasValue ?
+                new ObjectParameter("s_date", s_date) :
+                new ObjectParameter("s_date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Last15DaysFinancialYear", company_idParameter, days_flag, enddays_flag, s_dateParameter, days_left);
+        }
+    
+        public virtual int PaymentBalanceReport(Nullable<int> companyId, Nullable<int> partyId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
+        {
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var partyIdParameter = partyId.HasValue ?
+                new ObjectParameter("PartyId", partyId) :
+                new ObjectParameter("PartyId", typeof(int));
+    
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PaymentBalanceReport", companyIdParameter, partyIdParameter, startDateParameter, endDateParameter);
+        }
+    
+        public virtual int ProductReOrderLevelForCompany(Nullable<int> company_id)
+        {
+            var company_idParameter = company_id.HasValue ?
+                new ObjectParameter("company_id", company_id) :
+                new ObjectParameter("company_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProductReOrderLevelForCompany", company_idParameter);
+        }
+    
+        public virtual int ProductReOrderLevelForCompanyBranch(Nullable<int> company_id, Nullable<int> branch_id)
+        {
+            var company_idParameter = company_id.HasValue ?
+                new ObjectParameter("company_id", company_id) :
+                new ObjectParameter("company_id", typeof(int));
+    
+            var branch_idParameter = branch_id.HasValue ?
+                new ObjectParameter("branch_id", branch_id) :
+                new ObjectParameter("branch_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ProductReOrderLevelForCompanyBranch", company_idParameter, branch_idParameter);
+        }
+    
+        public virtual int PurchaseOrPurchaseReturnReport(Nullable<int> id, string fromTable)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var fromTableParameter = fromTable != null ?
+                new ObjectParameter("FromTable", fromTable) :
+                new ObjectParameter("FromTable", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PurchaseOrPurchaseReturnReport", idParameter, fromTableParameter);
+        }
+    
+        public virtual int SaleOrPurchaseOrReturnReport(Nullable<int> id, string fromTable)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var fromTableParameter = fromTable != null ?
+                new ObjectParameter("FromTable", fromTable) :
+                new ObjectParameter("FromTable", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SaleOrPurchaseOrReturnReport", idParameter, fromTableParameter);
+        }
+    
+        public virtual int SaleOrSaleReturnReport(Nullable<int> id, string fromTable)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var fromTableParameter = fromTable != null ?
+                new ObjectParameter("FromTable", fromTable) :
+                new ObjectParameter("FromTable", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SaleOrSaleReturnReport", idParameter, fromTableParameter);
+        }
+    
+        public virtual int SelectProductTaxGroup(Nullable<int> groupId, Nullable<int> productId, Nullable<decimal> qty)
+        {
+            var groupIdParameter = groupId.HasValue ?
+                new ObjectParameter("groupId", groupId) :
+                new ObjectParameter("groupId", typeof(int));
+    
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(int));
+    
+            var qtyParameter = qty.HasValue ?
+                new ObjectParameter("qty", qty) :
+                new ObjectParameter("qty", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SelectProductTaxGroup", groupIdParameter, productIdParameter, qtyParameter);
+        }
+    
+        public virtual int SelectPurcahseProductTaxGroup(Nullable<int> batchId, Nullable<int> productId, Nullable<decimal> qty, Nullable<int> taxgroupId)
+        {
+            var batchIdParameter = batchId.HasValue ?
+                new ObjectParameter("batchId", batchId) :
+                new ObjectParameter("batchId", typeof(int));
+    
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(int));
+    
+            var qtyParameter = qty.HasValue ?
+                new ObjectParameter("qty", qty) :
+                new ObjectParameter("qty", typeof(decimal));
+    
+            var taxgroupIdParameter = taxgroupId.HasValue ?
+                new ObjectParameter("taxgroupId", taxgroupId) :
+                new ObjectParameter("taxgroupId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SelectPurcahseProductTaxGroup", batchIdParameter, productIdParameter, qtyParameter, taxgroupIdParameter);
+        }
     }
 }

@@ -81,6 +81,15 @@
             <param name="branchId">Branch Id Filter</param>
             <returns></returns>
         </member>
+        <member name="M:IMSBIZZ.Areas.MasterArea.Controllers.BatchAPIController.GetBatchByProduct(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get Sale Monthy Count 
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+             <param name="productId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
         <member name="T:IMSBIZZ.Areas.MasterArea.Controllers.ProductAPIController">
             <summary>
             Product Api Controller
@@ -120,32 +129,34 @@
             Party Api Controller
             </summary>
         </member>
-        <member name="T:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController">
+        <member name="T:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseAPIController">
             <summary>
             Purchase Api Controller
             </summary>
         </member>
-        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.#ctor(IMSBIZZ.DAL.IService.IPurchaseService,IMSBIZZ.DAL.IService.IStockService)">
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseAPIController.#ctor(IMSBIZZ.DAL.IService.IPurchaseService,IMSBIZZ.DAL.IService.IStockService)">
             <summary>
             Purchase Api Constructor
             </summary>
             <param name="purchaseService">Purchase Service Injiection</param>
             <param name="stockService">Stock Service Injection</param>
         </member>
-        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.GetPurchase">
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseAPIController.GetPurchase(System.Int32,System.Int32)">
             <summary>
             Get All Purchases
             </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
             <returns></returns>
         </member>
-        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.SavePurchase(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseAPIController.SavePurchase(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
             <summary>
             Save Purchase 
             </summary>
             <param name="purchaseServiceViewModel">ViewModel Used to Pass data for purchase</param>
             <returns></returns>
         </member>
-        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.APIPurchaseController.ValidateProductBatch(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
+        <member name="M:IMSBIZZ.Areas.PurchaseArea.Controllers.PurchaseAPIController.ValidateProductBatch(IMSBIZZ.Areas.Purchase.Models.PurchaseServiceViewModel)">
             <summary>
             Validate Product Batch as per Batch, Purchase Rate and Tax Group
             </summary>
@@ -179,6 +190,91 @@
             Register here your Area Route
             </summary>
             <param name="context"></param>
+        </member>
+        <member name="T:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController">
+            <summary>
+            Report Api Controller
+            </summary>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.#ctor(IMSBIZZ.DAL.IService.IReportService)">
+            <summary>
+            Report Api Constructor
+            </summary>
+            <param name="purchaseService">Purchase Service Injiection</param>
+            <param name="stockService">Stock Service Injection</param>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.CustomerBalanceReport(System.Int32,System.Int32)">
+            <summary>
+            Get Customer Balance Report
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.GetCustomerInvoicesPreviosTransaction(System.Int32,System.Int32)">
+            <summary>
+            get customer invoices number of previous transaction
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.VendorBalanceReport(System.Int32,System.Int32)">
+            <summary>
+            Get Vendor Balance Report
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.GetVendorInvoicesPreviosTransaction(System.Int32,System.Int32)">
+            <summary>
+            Get customer invoices number of previous transaction
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.GetVendorInvoicesDetail(System.String,System.Int32,System.Int32)">
+            <summary>
+            Get customer invoices number of previous transaction
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+             /// <param name="invoiceNumber">Invoice Number Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.PurchaseMonthlyCount(System.Int32,System.Int32)">
+            <summary>
+            Get Purchase Monthy Count 
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.SaleMonthlyCount(System.Int32,System.Int32)">
+            <summary>
+            Get Sale Monthy Count 
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.PurchaseChartDetails(System.Int32,System.Int32)">
+            <summary>
+            Get Purchase Monthy Count 
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:IMSBIZZ.Areas.ReportArea.Controllers.ReportAPIController.SaleChartDetails(System.Int32,System.Int32)">
+            <summary>
+            Get Sale Monthy Count 
+            </summary>
+            <param name="companyId">Company Id Filter</param>
+            <param name="branchId">Branch Id Filter</param>
+            <returns></returns>
         </member>
         <member name="T:IMSBIZZ.MvcApplication">
             <summary>

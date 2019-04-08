@@ -16,6 +16,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Batch batch);
         void Update(Batch batch);
         void Delete(int id);
-        void SaveChanges();        
+        void SaveChanges();
+        IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters);
     }
 }

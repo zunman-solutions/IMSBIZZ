@@ -110,6 +110,9 @@
     <Compile Include="DBModel\Party.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\PaymentMode.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Product.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
@@ -155,6 +158,42 @@
     <Compile Include="DBModel\Rack.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\Sale.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleDetailsHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SalePaymentDetial.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SalePaymentDetialsHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleReturn.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleReturnDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleReturnDetailsHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleReturnHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleTaxGroup.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SaleTaxgroupDetail.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Stock.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
@@ -176,6 +215,7 @@
     <Compile Include="DBModel\UserCompany.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="IService\IMiscellaneous\IReportService.cs" />
     <Compile Include="IService\IMiscellaneous\IStoredProcedureService.cs" />
     <Compile Include="IService\IMiscellaneous\IMiscellaneousService.cs" />
     <Compile Include="IService\ITaxGroupService.cs" />
@@ -192,6 +232,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericReporsitory.cs" />
+    <Compile Include="Service\Miscellaneous\ReportService.cs" />
     <Compile Include="Service\Miscellaneous\StoredProcedureService.cs" />
     <Compile Include="Service\Miscellaneous\MiscellaneosService.cs" />
     <Compile Include="Service\TaxGroupService.cs" />

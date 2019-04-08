@@ -24,7 +24,7 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<decimal> SaleRate { get; set; }
         public Nullable<decimal> TaxAmnt { get; set; }
         public Nullable<decimal> TaxPercent { get; set; }
-        public Nullable<decimal> DicountAmnt { get; set; }
+        public Nullable<decimal> DiscountAmnt { get; set; }
         public Nullable<decimal> DiscountPercent { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<decimal> Amount { get; set; }

@@ -63,5 +63,23 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
             var batch = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
             return Request.CreateResponse(HttpStatusCode.OK, batch);
         }
+
+
+
+
+        /// <summary>
+        /// Get Sale Monthy Count 
+        /// </summary>
+        /// <param name="companyId">Company Id Filter</param>
+        /// <param name="branchId">Branch Id Filter</param>
+        ///  <param name="productId">Branch Id Filter</param>
+        /// <returns></returns>
+        [Route("GetBatchByProduct"), HttpGet]
+        public HttpResponseMessage GetBatchByProduct(int productId,int companyId, int branchId)
+        {
+            var purchase = _batchService.ExecWithRowQuery(@"select pd.BatchID,b.BatchName from PurchaseDetails pd inner join Batch  b on pd.BatchId = b.BatchId 
+Where pd.ProductId={0} AND b.CompanyId={1} AND b.BranchId ={2} AND  b.status=1  ", productId, companyId, branchId).ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, purchase);
+        }
     }
 }

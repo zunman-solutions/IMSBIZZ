@@ -9,4 +9,3 @@ D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\bin\Debug\EntityFramework
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csproj.CopyComplete
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.dll
 D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.pdb
-D:\VT Technologies\IMS MVC\IMSBIZZ\IMSBIZZ\IMSBIZZ.DAL\obj\Debug\IMSBIZZ.DAL.csprojAssemblyReference.cache

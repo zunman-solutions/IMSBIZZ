@@ -35,8 +35,8 @@ namespace IMSBIZZ.DAL.DBModel
         public int CompanyId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public string CompanyName { get; set; }
+        public string CompanyAddress { get; set; }
         public Nullable<int> CountryId { get; set; }
         public Nullable<int> StateId { get; set; }
         public string CityId { get; set; }

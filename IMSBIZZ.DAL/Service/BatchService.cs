@@ -42,7 +42,7 @@ namespace IMSBIZZ.DAL.Service
 
         public void Add(Batch batch)
         {
-           
+
             batchRepository.Add(batch);
         }
 
@@ -61,5 +61,9 @@ namespace IMSBIZZ.DAL.Service
             batchRepository.Delete(id);
         }
 
+       public IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters)
+        {
+            return batchRepository.ExecWithRowQuery(query, parameters);
+        }
     }
 }

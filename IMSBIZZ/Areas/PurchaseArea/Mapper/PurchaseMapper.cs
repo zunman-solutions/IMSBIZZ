@@ -56,7 +56,7 @@ namespace IMSBIZZ.Areas.Purchase.Mapper
                 purchaseDetails.BatchId = batchId;
                 purchaseDetails.UnitId = purchaseDetail.UnitId;
                 purchaseDetails.TaxAmnt = purchaseDetail.TaxAmnt;
-                purchaseDetails.DicountAmnt = purchaseDetail.DiscountAmnt;
+                purchaseDetails.DiscountAmnt = purchaseDetail.DiscountAmnt;
                 purchaseDetails.Quantity = qty;
                 purchaseDetails.Amount = purchaseDetail.Amount;
                 purchaseDetails.PurchaseRate = purchaseDetail.PurchaseRate;

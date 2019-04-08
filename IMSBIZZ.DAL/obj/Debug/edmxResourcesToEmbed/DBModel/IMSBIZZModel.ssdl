@@ -109,8 +109,8 @@
     <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
     <Property Name="LastName" Type="nvarchar" MaxLength="100" />
-    <Property Name="Name" Type="nvarchar" MaxLength="500" />
-    <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="1000" />
     <Property Name="CountryId" Type="int" />
     <Property Name="StateId" Type="int" />
     <Property Name="CityId" Type="nvarchar" MaxLength="200" />
@@ -249,6 +249,20 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="ModifiedOn" Type="datetime" />
   </EntityType>
+  <EntityType Name="PaymentMode">
+    <Key>
+      <PropertyRef Name="PaymentModeId" />
+    </Key>
+    <Property Name="PaymentModeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="PaymentmodeName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdateBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdateOn" Type="datetime" />
+  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductId" />
@@ -315,7 +329,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
     <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="DicountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
     <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
@@ -428,11 +442,15 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="BatchId" Type="int" />
     <Property Name="ProductId" Type="int" />
     <Property Name="UnitId" Type="int" />
+    <Property Name="PurchaseRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
     <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseReturnId" Type="bigint" />
     <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
     <Property Name="PurchaseTaxGroupId" Type="int" />
   </EntityType>
   <EntityType Name="PurchaseReturnDetailsHistory">
@@ -505,6 +523,213 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
     <Property Name="ModifiedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentModeId" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="OtherExpenses" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaleDetails">
+    <Key>
+      <PropertyRef Name="SaleDetailsId" />
+    </Key>
+    <Property Name="SaleDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SaleDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleDetailsId" Type="bigint" Nullable="false" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="SaleRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DicountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountPercent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SaleHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleId" Type="bigint" Nullable="false" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentModeId" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="OtherExpenses" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SalePaymentDetials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GivenAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SalePaymentDetialsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalePaymentId" Type="bigint" Nullable="false" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TaxAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiscountAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaidAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GivenAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SaleReturn">
+    <Key>
+      <PropertyRef Name="SaleReturnId" />
+    </Key>
+    <Property Name="SaleReturnId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentmodeId" Type="int" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaleReturnDetails">
+    <Key>
+      <PropertyRef Name="SaleReturnDetailsId" />
+    </Key>
+    <Property Name="SaleReturnDetailsId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleReturnId" Type="bigint" />
+    <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleTaxGroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="SaleReturnDetailsHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleReturnDetailsId" Type="bigint" Nullable="false" />
+    <Property Name="BatchId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="TaxAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PurchaseReturnId" Type="bigint" />
+    <Property Name="DiscountAmnt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleTaxGroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="SaleReturnHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleReturnId" Type="bigint" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="FinancialyearId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PartyId" Type="int" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentmodeId" Type="int" />
+    <Property Name="AttachmentUrl" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaleTaxGroup">
+    <Key>
+      <PropertyRef Name="SaleTaxGroupId" />
+    </Key>
+    <Property Name="SaleTaxGroupId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="TaxGroupId" Type="int" />
+    <Property Name="SaleId" Type="bigint" />
+    <Property Name="TotalTaxPercentage" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BatchId" Type="int" />
+  </EntityType>
+  <EntityType Name="SaleTaxgroupDetails">
+    <Key>
+      <PropertyRef Name="SaleTaxgroupDetailsId" />
+    </Key>
+    <Property Name="SaleTaxgroupDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleTaxGroupId" Type="bigint" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="TaxPercentage" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Stock">
     <Key>
@@ -1300,6 +1525,100 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CheckAccountValidity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="company_id" Type="int" Mode="In" />
+    <Parameter Name="user_id" Type="int" Mode="In" />
+    <Parameter Name="free_count" Type="int" Mode="InOut" />
+    <Parameter Name="Subscription_count" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="CommonReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ReportType" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="FilterIds" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="ELMAH_GetErrorsXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="TotalCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ELMAH_GetErrorXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="ErrorId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="ELMAH_LogError" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ErrorId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Application" Type="nvarchar" Mode="In" />
+    <Parameter Name="Host" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Source" Type="nvarchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar" Mode="In" />
+    <Parameter Name="User" Type="nvarchar" Mode="In" />
+    <Parameter Name="AllXml" Type="ntext" Mode="In" />
+    <Parameter Name="StatusCode" Type="int" Mode="In" />
+    <Parameter Name="TimeUtc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetBatchwiseQuantity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="batch_id" Type="int" Mode="In" />
+    <Parameter Name="product_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetReturnQuantity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="For" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InventoryReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="PartyId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="Last15DaysFinancialYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="company_id" Type="int" Mode="In" />
+    <Parameter Name="days_flag" Type="int" Mode="InOut" />
+    <Parameter Name="enddays_flag" Type="int" Mode="InOut" />
+    <Parameter Name="s_date" Type="smalldatetime" Mode="In" />
+    <Parameter Name="days_left" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="PaymentBalanceReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="PartyId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ProductReOrderLevelForCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="company_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ProductReOrderLevelForCompanyBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="company_id" Type="int" Mode="In" />
+    <Parameter Name="branch_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PurchaseOrPurchaseReturnReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FromTable" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SaleOrPurchaseOrReturnReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FromTable" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SaleOrSaleReturnReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FromTable" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductTaxGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupId" Type="int" Mode="In" />
+    <Parameter Name="productId" Type="int" Mode="In" />
+    <Parameter Name="qty" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SelectPurcahseProductTaxGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="batchId" Type="int" Mode="In" />
+    <Parameter Name="productId" Type="int" Mode="In" />
+    <Parameter Name="qty" Type="decimal" Mode="In" />
+    <Parameter Name="taxgroupId" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="IMSBIZZModelStoreContainer">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -1316,6 +1635,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <EntitySet Name="FinancialYear" EntityType="Self.FinancialYear" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Godown" EntityType="Self.Godown" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Party" EntityType="Self.Party" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMode" EntityType="Self.PaymentMode" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductTaxGroup" EntityType="Self.ProductTaxGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
@@ -1331,6 +1651,18 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
     <EntitySet Name="PurchaseTaxGroup" EntityType="Self.PurchaseTaxGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PurchaseTaxgroupDetails" EntityType="Self.PurchaseTaxgroupDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rack" EntityType="Self.Rack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleDetails" EntityType="Self.SaleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleDetailsHistory" EntityType="Self.SaleDetailsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleHistory" EntityType="Self.SaleHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalePaymentDetials" EntityType="Self.SalePaymentDetials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalePaymentDetialsHistory" EntityType="Self.SalePaymentDetialsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleReturn" EntityType="Self.SaleReturn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleReturnDetails" EntityType="Self.SaleReturnDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleReturnDetailsHistory" EntityType="Self.SaleReturnDetailsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleReturnHistory" EntityType="Self.SaleReturnHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleTaxGroup" EntityType="Self.SaleTaxGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleTaxgroupDetails" EntityType="Self.SaleTaxgroupDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StockHistory" EntityType="Self.StockHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxGroup" EntityType="Self.TaxGroup" Schema="dbo" store:Type="Tables" />
