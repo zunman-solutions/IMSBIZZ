@@ -59,8 +59,8 @@ namespace IMSBIZZ
               .Include(lteplugins + "iCheck/icheck.min.js")
               .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.js"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-            //            "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
 
             //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
             //            "~/Scripts/modernizr-*"));
