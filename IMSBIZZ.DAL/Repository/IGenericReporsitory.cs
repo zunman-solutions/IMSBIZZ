@@ -18,7 +18,7 @@ namespace IMSBIZZ.DAL.Interface
         IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
-        IEnumerable<TEntity> GetAll();
+        IQueryable<TEntity> GetAll();
         TEntity GetById(int id);
         void Add(TEntity obj);
         void Update(TEntity obj);
