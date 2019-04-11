@@ -24,6 +24,7 @@ namespace IMSBIZZ
             container.RegisterType<IStoredProcedureService, StoredProcedureService>();
             container.RegisterType<IRackService, RackService>();
             container.RegisterType<IPartyService, PartyService>();
+            container.RegisterType<IReportService, ReportService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

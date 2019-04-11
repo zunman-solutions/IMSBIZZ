@@ -1,4 +1,5 @@
 ﻿using IMSBIZZ.DAL.DBModel;
+using IMSBIZZ.DAL.DTO;
 using IMSBIZZ.DAL.IService;
 using IMSBIZZ.DAL.Repository;
 using System;
@@ -16,13 +17,13 @@ namespace IMSBIZZ.DAL.Service
     {
         private readonly IMSBIZZEntities _dbContext;
         private UnitOfWork unitOfWork;
-        private GenericRepository<Batch> storedProcedureRepository;
+        private GenericRepository<dynamic> storedProcedureRepository;
 
         public ReportService()
         {
             _dbContext = new IMSBIZZEntities();
             unitOfWork = new UnitOfWork(_dbContext);
-            storedProcedureRepository = unitOfWork.GenericRepository<Batch>();
+            storedProcedureRepository = unitOfWork.GenericRepository<dynamic>();
         } 
 
         public void SaveChanges()
@@ -30,14 +31,14 @@ namespace IMSBIZZ.DAL.Service
             unitOfWork.SaveChanges();
         }
 
-        public IEnumerable<Batch> ExecWithStoreProcedure(string proceudureName, params object[] parameters)
+        public IEnumerable<dynamic> ExecWithStoreProcedure(string proceudureName, params object[] parameters)
         {
-           return storedProcedureRepository.ExecWithStoreProcedure(proceudureName, parameters);
+            return storedProcedureRepository.ExecWithStoreProcedure(proceudureName, parameters);
         }
 
-        public IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters)
+        public IEnumerable<dynamic> ExecWithRowQuery(string query, params object[] parameters)
         {
-            throw new NotImplementedException();
+            return storedProcedureRepository.ExecWithRowQuery(query, parameters);
         }
     }
 }

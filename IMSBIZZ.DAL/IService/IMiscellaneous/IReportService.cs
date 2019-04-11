@@ -1,4 +1,5 @@
 ﻿using IMSBIZZ.DAL.DBModel;
+using IMSBIZZ.DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace IMSBIZZ.DAL.IService
     public interface IReportService
     {
         void SaveChanges();
-        IEnumerable<Batch> ExecWithStoreProcedure(string proceudureName, params object[] parameters);
-        IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters);
+        IEnumerable<dynamic> ExecWithStoreProcedure(string proceudureName, params object[] parameters);
+        IEnumerable<dynamic> ExecWithRowQuery(string query, params object[] parameters);
 
 
     }
