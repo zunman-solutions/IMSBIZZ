@@ -215,6 +215,18 @@
     <Compile Include="DBModel\UserCompany.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\CompanyWiseVendorPaymentDetailsDTO.cs" />
+    <Compile Include="DTO\CustomerBalanceReportDTO.cs" />
+    <Compile Include="DTO\CustomerInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="DTO\GetProductdetialsbygodownDTO.cs" />
+    <Compile Include="DTO\GodownProductsbyCompanyandbranchDTO.cs" />
+    <Compile Include="DTO\PurchaseChartDetailsDTO.cs" />
+    <Compile Include="DTO\PurchaseMonthlyCountDTO.cs" />
+    <Compile Include="DTO\SaleChartDetailsDTO.cs" />
+    <Compile Include="DTO\SaleMonthlyCountDTO.cs" />
+    <Compile Include="DTO\VendorBalanceReportDTO.cs" />
+    <Compile Include="DTO\VendorInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="IService\IGodownService.cs" />
     <Compile Include="IService\IMiscellaneous\IReportService.cs" />
     <Compile Include="IService\IMiscellaneous\IStoredProcedureService.cs" />
     <Compile Include="IService\IMiscellaneous\IMiscellaneousService.cs" />
@@ -232,6 +244,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericReporsitory.cs" />
+    <Compile Include="Service\GodownService.cs" />
     <Compile Include="Service\Miscellaneous\ReportService.cs" />
     <Compile Include="Service\Miscellaneous\StoredProcedureService.cs" />
     <Compile Include="Service\Miscellaneous\MiscellaneosService.cs" />
@@ -263,7 +276,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ namespace IMSBIZZ.DAL.IService
         void SaveChanges();
         IEnumerable<dynamic> ExecWithStoreProcedure(string proceudureName, params object[] parameters);
         IEnumerable<dynamic> ExecWithRowQuery(string query, params object[] parameters);
-
+        IEnumerable<GetProductdetialsbygodownDTO> GetProductDetialsByGodown(string query, params object[] parameters);
 
     }
 }

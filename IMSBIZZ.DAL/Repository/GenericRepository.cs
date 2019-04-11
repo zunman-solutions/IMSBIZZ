@@ -68,9 +68,9 @@ namespace IMSBIZZ.DAL.Repository
             }
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IQueryable<TEntity> GetAll()
         {
-            return entityTable.ToList();
+            return entityTable.AsQueryable();
         }
 
         public TEntity GetById(int id)

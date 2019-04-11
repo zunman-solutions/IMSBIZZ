@@ -228,10 +228,10 @@ AS
         /// </summary>
         /// <param name="godownId">Godown Id Filter</param>
         /// <returns></returns>
-        [Route("GetProductdetialsbygodown"), HttpGet]
-        public HttpResponseMessage GetProductdetialsbygodown(int godownId)
+        [Route("GetProductDetialsByGodown"), HttpGet]
+        public HttpResponseMessage GetProductDetialsByGodown(int godownId)
         {
-            var productdetails = _reportService.ExecWithRowQuery(@"SELECT g.GodownName,p.ProductName,p.ProductCode,p.HSNCode,s.Quantity,b.BatchName
+            var productdetails = _reportService.GetProductDetialsByGodown(@"SELECT g.GodownName,p.ProductName,p.ProductCode,p.HSNCode,s.Quantity,b.BatchName
 	                                                                    FROM 
 		                                                                    Godown AS g 
 		                                                                    INNER JOIN Product AS p ON g.GodownId=p.GodownId
@@ -242,7 +242,10 @@ AS
 		                                                                    g.GodownId={0}
 	                                                                    ORDER BY 
 		                                                                    g.GodownId DESC", godownId).ToList();
+            
+
             return Request.CreateResponse(HttpStatusCode.OK, productdetails);
+
         }
 
         /// <summary>
@@ -253,6 +256,7 @@ AS
         [Route("CompanyWiseVendorPaymentDetails"), HttpGet]
         public HttpResponseMessage CompanyWiseVendorPaymentDetails(int companyId)
         {
+            // create a new JSON object to write out
             var productdetails = _reportService.ExecWithRowQuery(@"SELECT 
 	                                                                  p.PartyName,pur.InvoiceNumber,pur.CreatedOn,ppd.PaidAmnt,BalanceAmnt,ppd.GrandTotal
 	                                                               FROM 
@@ -261,6 +265,7 @@ AS
                                                                       INNER JOIN Party AS p ON pur.PartyId = p.PartyId
 	                                                                WHERE 
 		                                                              pur.CompanyId={0}", companyId).ToList();
+
             return Request.CreateResponse(HttpStatusCode.OK, productdetails);
         }
     }

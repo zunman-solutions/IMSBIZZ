@@ -40,5 +40,10 @@ namespace IMSBIZZ.DAL.Service
         {
             return storedProcedureRepository.ExecWithRowQuery(query, parameters);
         }
+
+        public IEnumerable<GetProductdetialsbygodownDTO> GetProductDetialsByGodown(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<GetProductdetialsbygodownDTO>(query, parameters);
+        }
     }
 }
