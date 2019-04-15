@@ -45,5 +45,49 @@ namespace IMSBIZZ.DAL.Service
         {
             return _dbContext.Database.SqlQuery<GetProductdetialsbygodownDTO>(query, parameters);
         }
+        public IEnumerable<CompanyWiseVendorPaymentDetailsDTO> CompanyWiseVendorPaymentDetails(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<CompanyWiseVendorPaymentDetailsDTO>(query, parameters);
+        }
+        public IEnumerable<GodownProductsbyCompanyandbranchDTO> GodownProductsbyCompanyandbranch(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<GodownProductsbyCompanyandbranchDTO>(query, parameters);
+        }
+        public IEnumerable<SaleChartDetailsDTO> SaleChartDetails(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<SaleChartDetailsDTO>(query, parameters);
+        }
+        public IEnumerable<PurchaseChartDetailsDTO> PurchaseChartDetails(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<PurchaseChartDetailsDTO>(query, parameters);
+        }
+        public IEnumerable<SaleMonthlyCountDTO> SaleMonthlyCount(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<SaleMonthlyCountDTO>(query, parameters);
+        }
+        public IEnumerable<PurchaseMonthlyCountDTO> PurchaseMonthlyCount(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<PurchaseMonthlyCountDTO>(query, parameters);
+        }
+        public IEnumerable<VendorInvoicePreviousTransactionDTO> VendorInvoicesPreviosTransaction(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<VendorInvoicePreviousTransactionDTO>(query, parameters);
+        }
+        public IEnumerable<VendorBalanceReportDTO> VendorBalanceReport(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<VendorBalanceReportDTO>(query, parameters);
+        }
+        public IEnumerable<CustomerInvoicePreviousTransactionDTO> CustomerInvoicesPreviosTransaction(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<CustomerInvoicePreviousTransactionDTO>(query, parameters);
+        }
+        public IEnumerable<CustomerBalanceReportDTO> CustomerBalanceReport(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<CustomerBalanceReportDTO>(query, parameters);
+        }
+        public IEnumerable<GetVendorInvoicesDetailDTO> GetVendorInvoicesDetail(string query, params object[] parameters)
+        {
+            return _dbContext.Database.SqlQuery<GetVendorInvoicesDetailDTO>(query, parameters);
+        }
     }
 }

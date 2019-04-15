@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace IMSBIZZ.DAL.DTO
 {
-    class CompanyWiseVendorPaymentDetailsDTO
+    public class CompanyWiseVendorPaymentDetailsDTO
     {
-        public string GodownName { get; set; }
-        public string ProductName { get; set; }
-        public string ProductCode { get; set; }
-        public string HSNCode { get; set; }
-        public int Quantity { get; set; }
-        public string BatchName { get; set; }
+        public string PartyName { get; set; }
+        public string InvoiceNumber { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public decimal PaidAmnt { get; set; }
+        public decimal BalanceAmnt { get; set; }
+        public decimal GrandTotal { get; set; }
     }
 }

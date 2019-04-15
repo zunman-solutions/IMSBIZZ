@@ -194,12 +194,15 @@
     <Compile Include="DBModel\SaleTaxgroupDetail.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs" />
+    <Compile Include="DBModel\sp_helpdiagrams_Result.cs" />
     <Compile Include="DBModel\Stock.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\StockHistory.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\sysdiagram.cs" />
     <Compile Include="DBModel\TaxGroup.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
@@ -219,6 +222,7 @@
     <Compile Include="DTO\CustomerBalanceReportDTO.cs" />
     <Compile Include="DTO\CustomerInvoicePreviousTransactionDTO.cs" />
     <Compile Include="DTO\GetProductdetialsbygodownDTO.cs" />
+    <Compile Include="DTO\GetVendorInvoicesDetailDTO.cs" />
     <Compile Include="DTO\GodownProductsbyCompanyandbranchDTO.cs" />
     <Compile Include="DTO\PurchaseChartDetailsDTO.cs" />
     <Compile Include="DTO\PurchaseMonthlyCountDTO.cs" />
