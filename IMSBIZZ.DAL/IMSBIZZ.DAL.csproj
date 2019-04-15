@@ -230,6 +230,7 @@
     <Compile Include="DTO\GetProductdetialsbygodownDTO.cs" />
     <Compile Include="DTO\GetVendorInvoicesDetailDTO.cs" />
     <Compile Include="DTO\GodownProductsbyCompanyandbranchDTO.cs" />
+    <Compile Include="DTO\godownprodviewmodel.cs" />
     <Compile Include="DTO\PurchaseChartDetailsDTO.cs" />
     <Compile Include="DTO\PurchaseMonthlyCountDTO.cs" />
     <Compile Include="DTO\SaleChartDetailsDTO.cs" />
