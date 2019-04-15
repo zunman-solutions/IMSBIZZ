@@ -30,23 +30,21 @@ namespace IMSBIZZ.Controllers
         /// Constructor to inject Country Service
         /// </summary>
         /// <param name="CountryService">Country Service Instance</param>
-        //public BatchAPIController(ICountryService CountryService)
-        //{
-        //    _batchService = batchService;
-        //}
-        [InjectionConstructor]
+     
         public AccountController(ICountryService countryService)
         {
             _countryService = countryService;
         }
-        
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+
+     
+
+        //public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        //{
+        //    UserManager = userManager;
+        //    SignInManager = signInManager;
             
 
-        }
+        //}
 
         public ApplicationSignInManager SignInManager
         {
@@ -166,7 +164,7 @@ namespace IMSBIZZ.Controllers
         {
 
             #region ViewBag
-             var countrys = _countryService.GetAllCountrys().ToList();
+             var countrys = _countryService.GetAllCountrys().Select(s=> new SelectListItem {  Text=s.CountryName, Value=s.CountryId.ToString()}).ToList();
              ViewBag.Countrys = countrys;
             #endregion
             return View();

@@ -194,10 +194,19 @@
     <Compile Include="DBModel\SaleTaxgroupDetail.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sp_helpdiagrams_Result.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Stock.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\StockHistory.cs">
+      <DependentUpon>IMSBIZZModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sysdiagram.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\TaxGroup.cs">

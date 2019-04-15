@@ -112,6 +112,7 @@
         <AssociationConnector Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxGroup" />
         <AssociationConnector Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType" />
         <AssociationConnector Association="IMSBIZZModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="IMSBIZZModel.sysdiagram" Width="1.5" PointX="3.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

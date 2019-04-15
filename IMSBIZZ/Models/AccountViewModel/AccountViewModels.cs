@@ -97,7 +97,7 @@ namespace IMSBIZZ.Models
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
 
-        [Required(ErrorMessage = "Please Select the country.")]
+        //[Required(ErrorMessage = "Please Select the country.")]
         [Display(Name = "Country Id")]
         public int CountryId { get; set; }
 
@@ -106,7 +106,7 @@ namespace IMSBIZZ.Models
         [Display(Name = "Mobile No")]
         public string MobileNo { get; set; }
 
-        [Required(ErrorMessage = "Please enter the pin code.")]
+        //[Required(ErrorMessage = "Please enter the pin code.")]
         [DataType(DataType.PostalCode)]
         [Display(Name = "Pin Code")]
         public string PinCode { get; set; }
@@ -167,5 +167,7 @@ namespace IMSBIZZ.Models
         [Required]
         public string CountryName { get; set; }
     }
+
+    
 
 }
