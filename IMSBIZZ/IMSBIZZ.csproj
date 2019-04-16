@@ -231,6 +231,7 @@
     <Compile Include="Areas\AdminLTETheme\AdminLTEThemeAreaRegistration.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\CalendarController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ChartsController.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\BatchController.cs" />
     <Compile Include="Areas\MasterArea\Controllers\CategoryController.cs" />
     <Compile Include="Areas\MasterArea\Mapper\BatchMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\CategoryMapper.cs" />
@@ -311,6 +312,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\MasterArea\Scripts\Batch\Create.js" />
+    <Content Include="Areas\MasterArea\Scripts\Batch\Edit.js" />
+    <Content Include="Areas\MasterArea\Scripts\Batch\Index.js" />
     <Content Include="Areas\PurchaseArea\Scripts\purchase\Create.js" />
     <Content Include="Areas\PurchaseArea\Scripts\purchase\Edit.js" />
     <Content Include="Areas\PurchaseArea\Scripts\purchase\Index.js" />
@@ -4297,6 +4301,7 @@
     <Content Include="Scripts\adminlte\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\BlockUI\jquery.blockUI.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\adminlte\css\adminlte.css.map" />
@@ -4361,6 +4366,18 @@
     <Content Include="Areas\AdminLTETheme\Views\Charts\Morris.cshtml" />
     <Content Include="Scripts\Common\common.js" />
     <Content Include="Scripts\Common\SiteRoutes.js" />
+    <Content Include="Scripts\KOBinding\DatePickerBinding.js" />
+    <Content Include="Scripts\KOBinding\OnlyNumericBinding.js" />
+    <Content Include="Scripts\KOBinding\Select2Binding.js" />
+    <Content Include="Scripts\KOBinding\SummerNoteBinding.js" />
+    <Content Include="Scripts\sweetalert\sweetalert.css" />
+    <Content Include="Scripts\sweetalert\sweetalert.min.js" />
+    <Content Include="Scripts\sweetalert\sweetalert2.all.js" />
+    <Content Include="Scripts\sweetalert\sweetalert2.all.min.js" />
+    <Content Include="Scripts\sweetalert\sweetalert2.css" />
+    <Content Include="Scripts\sweetalert\sweetalert2.js" />
+    <Content Include="Scripts\sweetalert\sweetalert2.min.css" />
+    <Content Include="Scripts\sweetalert\sweetalert2.min.js" />
     <Content Include="Views\Dashboard\Dashboard.cshtml" />
     <Content Include="Views\Dashboard\Dashboardv2.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Examples\Blank.cshtml" />
@@ -4412,6 +4429,11 @@
     <Content Include="Areas\PurchaseArea\Views\Purchase\Index.cshtml" />
     <Content Include="Areas\PurchaseArea\Views\Purchase\Create.cshtml" />
     <Content Include="Areas\MasterArea\Views\Category\Index.cshtml" />
+    <Content Include="Areas\MasterArea\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MasterArea\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\MasterArea\Views\Batch\Index.cshtml" />
+    <Content Include="Areas\MasterArea\Views\Batch\Create.cshtml" />
+    <Content Include="Areas\MasterArea\Views\Batch\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Homeasst\css\animate.css" />
     <Content Include="Scripts\Homeasst\css\bootstrap.min.css" />
@@ -4538,7 +4560,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminLTETheme\Models\" />
-    <Folder Include="Areas\MasterArea\Views\Shared\" />
     <Folder Include="Areas\ReportArea\Models\" />
     <Folder Include="Areas\ReportArea\Views\Shared\" />
     <Folder Include="Areas\SaleArea\Controllers\" />

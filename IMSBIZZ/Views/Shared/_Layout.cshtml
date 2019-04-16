@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using IMSBIZZ.Extentions;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -31,5 +33,11 @@
     @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/bundles/common")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        var app = {
+            url: new SiteRoutes('@Url.Content("~/")', @Html.Raw(Url.GetJsonRouteData()))
+        };
+        </script>
 </body>
 </html>

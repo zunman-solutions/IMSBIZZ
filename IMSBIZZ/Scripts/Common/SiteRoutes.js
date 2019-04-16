@@ -64,22 +64,22 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
 
     //#region api Actions
 
-    this.api = function (action) {
+    this.api = function (action,prefix) {
         if (!this.defaultApiRoute.controller)
             throw "default controller is null.";
-        return this.api(action, this.defaultApiRoute.controller, this.defaultApiRoute);
+        return this.api(action,prefix, this.defaultApiRoute.controller, this.defaultApiRoute);
     };
 
-    _addOverloadMethod(this, 'api', function (action, controller) {
+    _addOverloadMethod(this, prefix, function (action, controller) {
         if (!this.defaultApiRoute)
             throw "default api route is null.";
 
-        var url = this.api(action, controller, this.defaultApiRoute);
+        var url = this.api(action, prefix, controller, this.defaultApiRoute);
 
         return url;
     });
 
-    _addOverloadMethod(this, 'api', function (action, controller, routeData) {
+    _addOverloadMethod(this, prefix, function (action, controller, routeData) {
         if (!this.defaultApiRoute && !routeData)
             throw "default api route is null.";
 

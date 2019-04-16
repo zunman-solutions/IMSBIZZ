@@ -58,7 +58,10 @@ namespace IMSBIZZ
               .Include(lteplugins + "input-mask/jquery.inputmask.extensions.js")
               .Include(lteplugins + "timepicker/bootstrap-timepicker.min.js")
               .Include(lteplugins + "iCheck/icheck.min.js")
-              .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.js"));
+              .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.js")
+              .Include("~/Scripts/sweetalert/sweetalert2.min.js")
+               .Include("~/Scripts/BlockUI/jquery.blockUI.js")
+              );
 
             bundles.Add(new ScriptBundle("~/bundles/knockout")
                    .Include(knockout + "knockout-3.5.0.js")
@@ -91,7 +94,9 @@ namespace IMSBIZZ
                .Include(lteplugins + "timepicker/bootstrap-timepicker.min.css")
                .Include(lteplugins + "iCheck/all.css")
                .Include(lteplugins + "pace/pace.min.css")
-               .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.css"));
+               .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.css")
+                .Include("~/Scripts/sweetalert/sweetalert2.min.css")
+               );
 
 
             //bundles.Add(new StyleBundle("~/Content/DashboardThemeCs").Include(

@@ -58,6 +58,54 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         }
 
         /// <summary>
+        /// Create Batch
+        /// </summary>
+        /// <param name="batchViewModel">Pass Batch Model</param>
+        /// <returns></returns>
+        [Route("CreateBatch/{batchViewModel}"), HttpPost]
+        public HttpResponseMessage CreateBatch(BatchViewModel batchViewModel)
+        {
+            var batch = Mapper.BatchMapper.Attach(batchViewModel);
+            _batchService.Add(batch);
+            _batchService.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+
+        /// <summary>
+        /// Edit Batch
+        /// </summary>
+        /// <param name="batchViewModel">Pass Batch Model</param>
+        /// <returns></returns>
+        [Route("EditBatch/{batchViewModel}"), HttpPost]
+        public HttpResponseMessage EditBatch(BatchViewModel batchViewModel)
+        {
+            //var _batch = _batchService.GetBatchById(batchViewModel.BatchId);
+            var batch = Mapper.BatchMapper.Attach(batchViewModel);
+            _batchService.Update(batch);
+            _batchService.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        /// <summary>
+        /// Delete Batch
+        /// </summary>
+        /// <param name="batchId">Batch Id</param>
+        /// <returns></returns>
+        [Route("DeleteBatch/{batchId}"), HttpPost]
+        public HttpResponseMessage DeleteBatch(int batchId)
+        {
+            //var _batch = _batchService.GetBatchById(batchViewModel.BatchId);
+            //var batch = _batchService.GetBatchById(batchId);
+            _batchService.Delete(batchId);
+            _batchService.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        /// <summary>
         /// Get Batch Details by Company and Branch
         /// </summary>
         /// <param name="companyId">Company Id Filter</param>

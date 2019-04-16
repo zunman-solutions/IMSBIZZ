@@ -1,0 +1,81 @@
+﻿
+@section header
+    {
+    <style type="text/css">
+        .validationMessage {
+            color: #f00;
+        }
+
+        .invalidRow {
+            background-color: #ffb8b5;
+        }
+    </style>
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Edit User
+        </h1>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> @Html.ActionLink("Home", "Index", "User")</li>
+            <li class="active">Edit Batch</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+
+                    </div>
+
+
+                    @Html.AntiForgeryToken()
+                    <div class="box-body">
+                        @Html.ValidationMessage("UserExist", null, new { @class = "text-danger" })
+                        <br /><br />
+
+
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                <label>Batch Name</label>
+                                <span style="color:red">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" id="txtBatchName" placeholder="Enter Batch Name" class="form-control" data-bind="value: BatchName" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="control-label col-md-3">
+                                <label>Is Active</label>
+                                <span style="color:red">*</span>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="checkbox" id="chkIsActive" data-bind="value: IsActive" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="button" value="Edit" class="btn btn-primary" data-bind="click:Edit" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts {
+    <script src="~/Areas/MasterArea/Scripts/Batch/Edit.js"></script>
+}
+
+<script type="text/javascript">
+    var dbBatch = '@Html.Raw(ViewBag.Batch)';
+</script>
