@@ -1,3 +1,4 @@
+using IMSBIZZ.Controllers;
 using IMSBIZZ.DAL.IService;
 using IMSBIZZ.DAL.Service;
 using System.Web.Mvc;
@@ -11,7 +12,7 @@ namespace IMSBIZZ
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
+            var container = new UnityContainer();
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers
@@ -25,7 +26,8 @@ namespace IMSBIZZ
             container.RegisterType<IStoredProcedureService, StoredProcedureService>();
             container.RegisterType<IRackService, RackService>();
             container.RegisterType<IPartyService, PartyService>();
-            container.RegisterType<IReportService, ReportService>();
+            container.RegisterType<ICountryService, CountryService>();
+
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

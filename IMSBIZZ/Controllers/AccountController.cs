@@ -9,34 +9,41 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IMSBIZZ.Models;
+using System.Collections.Generic;
 using IMSBIZZ.DAL.IService;
+using IMSBIZZ.Helper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Attributes;
 
 namespace IMSBIZZ.Controllers
 {
-    
-    /// <summary>
-/// Account Controller 
-/// </summary>
-    [Authorize]
+
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly IBatchService _batchService;
+        private readonly ICountryService _countryService;
 
         /// <summary>
-        /// Constructor with Service Injected
+        /// Constructor to inject Country Service
         /// </summary>
-        /// <param name="batchService"></param>
-        public AccountController(IBatchService batchService)
+        /// <param name="CountryService">Country Service Instance</param>
+     
+        public AccountController(ICountryService countryService)
         {
-            _batchService = batchService;
+            _countryService = countryService;
         }
+
+     
 
         //public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         //{
         //    UserManager = userManager;
         //    SignInManager = signInManager;
+            
+
         //}
 
         public ApplicationSignInManager SignInManager
@@ -144,12 +151,22 @@ namespace IMSBIZZ.Controllers
                     return View(model);
             }
         }
+        /// <summary>
+        ///  Get All Contrys 
+        /// </summary>
+        /// <returns></returns>
+        /// 
 
         //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
+
+            #region ViewBag
+             var countrys = _countryService.GetAllCountrys().Select(s=> new SelectListItem {  Text=s.CountryName, Value=s.CountryId.ToString()}).ToList();
+             ViewBag.Countrys = countrys;
+            #endregion
             return View();
         }
 
@@ -429,6 +446,8 @@ namespace IMSBIZZ.Controllers
                     _signInManager.Dispose();
                     _signInManager = null;
                 }
+
+            
             }
 
             base.Dispose(disposing);

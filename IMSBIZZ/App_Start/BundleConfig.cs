@@ -64,6 +64,8 @@ namespace IMSBIZZ
                    .Include(knockout + "knockout-3.5.0.js")
                    .Include(knockout + "knockout-3.5.0.debug.js")
                    .Include(knockout + "knockout.validation.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/common")
                    .Include(common + "common.js")
