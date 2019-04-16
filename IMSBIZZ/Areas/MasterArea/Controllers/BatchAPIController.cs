@@ -1,4 +1,5 @@
-﻿using IMSBIZZ.DAL.IService;
+﻿using IMSBIZZ.Areas.MasterArea.Models.MasterViewModel;
+using IMSBIZZ.DAL.IService;
 using IMSBIZZ.Helper;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,11 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetAllBatches"), HttpGet]
         public HttpResponseMessage GetAllBatches(int companyId, int branchId)
         {
-            var batches = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).ToList();
+            var batches = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).Select(s => new BatchViewModel 
+            {
+               BatchId = s.BatchId,
+                BatchName = s.BatchName
+            }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, batches);
         }
 
@@ -48,6 +53,7 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         public HttpResponseMessage GetBatchesById(int batchId)
         {
             var batch = _batchService.GetBatchById(batchId);
+           
             return Request.CreateResponse(HttpStatusCode.OK, batch);
         }
 

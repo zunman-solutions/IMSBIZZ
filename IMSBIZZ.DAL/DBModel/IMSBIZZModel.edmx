@@ -67,8 +67,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Branch">
           <Key>
@@ -104,8 +104,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -132,8 +132,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="smalldatetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="500" />
           <Property Name="CompanyAddress" Type="nvarchar" MaxLength="1000" />
           <Property Name="RefrenceMobileNo" Type="nvarchar" MaxLength="50" />
@@ -149,8 +149,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
@@ -252,8 +252,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="StateId" Type="int" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="PaymentMode">
           <Key>
@@ -289,8 +289,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="ProductTaxGroup">
           <Key>
@@ -398,8 +398,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PurchasePaymentDetialsHistory">
           <Key>
@@ -418,8 +418,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PurchaseReturn">
           <Key>
@@ -527,8 +527,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -624,8 +624,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SalePaymentDetialsHistory">
           <Key>
@@ -644,8 +644,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SaleReturn">
           <Key>
@@ -737,6 +737,27 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="TypeId" Type="int" />
           <Property Name="TaxPercentage" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DecimalPlaces" Type="int" />
+          <Property Name="CurrencyId" Type="int" />
+          <Property Name="EnableInvoiceTax" Type="bit" />
+          <Property Name="PrintTinOnInvoice" Type="bit" />
+          <Property Name="PrintAddress" Type="bit" />
+          <Property Name="InvoiceTemplateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaperSize" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="StockId" />
@@ -749,8 +770,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Quantity" Type="int" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="StockHistory">
           <Key>
@@ -765,8 +786,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Quantity" Type="int" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -812,8 +833,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="bit" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
           <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
-          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -1301,6 +1322,30 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_setting_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="setting" Type="Self.setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Stock_Batch">
           <End Role="Batch" Type="Self.Batch" Multiplicity="0..1" />
           <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
@@ -1578,6 +1623,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySet Name="SaleReturnHistory" EntityType="Self.SaleReturnHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleTaxGroup" EntityType="Self.SaleTaxGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleTaxgroupDetails" EntityType="Self.SaleTaxgroupDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setting" EntityType="Self.setting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockHistory" EntityType="Self.StockHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -1752,6 +1798,14 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <AssociationSet Name="FK_Rack_Company" Association="Self.FK_Rack_Company">
             <End Role="Company" EntitySet="Company" />
             <End Role="Rack" EntitySet="Rack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_Branch" Association="Self.FK_setting_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="setting" EntitySet="setting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_Company" Association="Self.FK_setting_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="setting" EntitySet="setting" />
           </AssociationSet>
           <AssociationSet Name="FK_Stock_Batch" Association="Self.FK_Stock_Batch">
             <End Role="Batch" EntitySet="Batch" />
@@ -2198,6 +2252,15 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="settings" EntityType="IMSBIZZModel.setting" />
+          <AssociationSet Name="FK_setting_Branch" Association="IMSBIZZModel.FK_setting_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="setting" EntitySet="settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_setting_Company" Association="IMSBIZZModel.FK_setting_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="setting" EntitySet="settings" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AspNetRole">
           <Key>
@@ -2260,14 +2323,14 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Batch_Branch" FromRole="Batch" ToRole="Branch" />
           <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Batch_Company" FromRole="Batch" ToRole="Company" />
           <NavigationProperty Name="PurchaseDetails" Relationship="IMSBIZZModel.FK_PurchaseDetails_Batch" FromRole="Batch" ToRole="PurchaseDetail" />
           <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" FromRole="Batch" ToRole="PurchaseReturnDetail" />
           <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Batch" FromRole="Batch" ToRole="PurchaseTaxGroup" />
           <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Batch" FromRole="Batch" ToRole="Stock" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Branch">
           <Key>
@@ -2306,6 +2369,7 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Branch" FromRole="Branch" ToRole="Stock" />
           <NavigationProperty Name="TaxTypes" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="Branch" ToRole="TaxType" />
           <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Branch" FromRole="Branch" ToRole="Unit" />
+          <NavigationProperty Name="settings" Relationship="IMSBIZZModel.FK_setting_Branch" FromRole="Branch" ToRole="setting" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -2318,9 +2382,9 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -2349,8 +2413,6 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="0" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Batches" Relationship="IMSBIZZModel.FK_Batch_Company" FromRole="Company" ToRole="Batch" />
           <NavigationProperty Name="Branches" Relationship="IMSBIZZModel.FK_Branch_Company" FromRole="Company" ToRole="Branch" />
           <NavigationProperty Name="FinancialYears" Relationship="IMSBIZZModel.FK_FinancialYear_Company" FromRole="Company" ToRole="FinancialYear" />
@@ -2365,6 +2427,9 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <NavigationProperty Name="Units" Relationship="IMSBIZZModel.FK_Unit_Company" FromRole="Company" ToRole="Unit" />
           <NavigationProperty Name="UserCompanies" Relationship="IMSBIZZModel.FK_UserCompany_Company" FromRole="Company" ToRole="UserCompany" />
           <Property Name="RefrenceMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="settings" Relationship="IMSBIZZModel.FK_setting_Company" FromRole="Company" ToRole="setting" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -2377,9 +2442,9 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branches" Relationship="IMSBIZZModel.FK_Branch_Country" FromRole="Country" ToRole="Branch" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
@@ -2458,12 +2523,12 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="StateId" Type="Int32" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Party_Branch" FromRole="Party" ToRole="Branch" />
           <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Party_Company" FromRole="Party" ToRole="Company" />
           <NavigationProperty Name="Purchases" Relationship="IMSBIZZModel.FK_Purchase_Party" FromRole="Party" ToRole="Purchase" />
           <NavigationProperty Name="PurchaseReturns" Relationship="IMSBIZZModel.FK_PurchaseReturn_Party" FromRole="Party" ToRole="PurchaseReturn" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="PaymentMode">
           <Key>
@@ -2499,8 +2564,6 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Product_Branch" FromRole="Product" ToRole="Branch" />
           <NavigationProperty Name="Branch1" Relationship="IMSBIZZModel.FK_Product_Godown" FromRole="Product" ToRole="Branch" />
           <NavigationProperty Name="Category" Relationship="IMSBIZZModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
@@ -2511,6 +2574,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <NavigationProperty Name="PurchaseReturnDetails" Relationship="IMSBIZZModel.FK_PurchaseReturnDetails_Product" FromRole="Product" ToRole="PurchaseReturnDetail" />
           <NavigationProperty Name="PurchaseTaxGroups" Relationship="IMSBIZZModel.FK_PurchaseTaxGroup_Product" FromRole="Product" ToRole="PurchaseTaxGroup" />
           <NavigationProperty Name="Stocks" Relationship="IMSBIZZModel.FK_Stock_Product" FromRole="Product" ToRole="Stock" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ProductTaxGroup">
           <Key>
@@ -2633,9 +2698,9 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Purchase" Relationship="IMSBIZZModel.FK_PurchasePaymentDetials_Purchase" FromRole="PurchasePaymentDetial" ToRole="Purchase" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PurchasePaymentDetialsHistory">
           <Key>
@@ -2654,8 +2719,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PurchaseReturn">
           <Key>
@@ -2777,11 +2842,11 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Rack_Branch" FromRole="Rack" ToRole="Branch" />
           <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Rack_Company" FromRole="Rack" ToRole="Company" />
           <NavigationProperty Name="Products" Relationship="IMSBIZZModel.FK_Product_Rack" FromRole="Rack" ToRole="Product" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -2877,8 +2942,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SalePaymentDetialsHistory">
           <Key>
@@ -2897,8 +2962,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="FromTable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SaleReturn">
           <Key>
@@ -3002,12 +3067,12 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Quantity" Type="Int32" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Batch" Relationship="IMSBIZZModel.FK_Stock_Batch" FromRole="Stock" ToRole="Batch" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_Stock_Branch" FromRole="Stock" ToRole="Branch" />
           <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_Stock_Company" FromRole="Stock" ToRole="Company" />
           <NavigationProperty Name="Product" Relationship="IMSBIZZModel.FK_Stock_Product" FromRole="Stock" ToRole="Product" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="StockHistory">
           <Key>
@@ -3022,8 +3087,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Quantity" Type="Int32" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="TaxGroup">
           <Key>
@@ -3065,11 +3130,11 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_TaxType_Branch" FromRole="TaxType" ToRole="Branch" />
           <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_TaxType_Company" FromRole="TaxType" ToRole="Company" />
           <NavigationProperty Name="TaxGroupWithTaxTypes" Relationship="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType" FromRole="TaxType" ToRole="TaxGroupWithTaxType" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -3826,6 +3891,53 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DecimalPlaces" Type="Int32" />
+          <Property Name="CurrencyId" Type="Int32" />
+          <Property Name="EnableInvoiceTax" Type="Boolean" />
+          <Property Name="PrintTinOnInvoice" Type="Boolean" />
+          <Property Name="PrintAddress" Type="Boolean" />
+          <Property Name="InvoiceTemplateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaperSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Branch" Relationship="IMSBIZZModel.FK_setting_Branch" FromRole="setting" ToRole="Branch" />
+          <NavigationProperty Name="Company" Relationship="IMSBIZZModel.FK_setting_Company" FromRole="setting" ToRole="Company" />
+        </EntityType>
+        <Association Name="FK_setting_Branch">
+          <End Type="IMSBIZZModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.setting" Role="setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_setting_Company">
+          <End Type="IMSBIZZModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="IMSBIZZModel.setting" Role="setting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="setting">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3880,8 +3992,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Batches">
             <EntityTypeMapping TypeName="IMSBIZZModel.Batch">
               <MappingFragment StoreEntitySet="Batch">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -3919,8 +4031,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="IMSBIZZModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -3934,9 +4046,9 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="IMSBIZZModel.Company">
               <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="RefrenceMobileNo" ColumnName="RefrenceMobileNo" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -3966,8 +4078,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Countries">
             <EntityTypeMapping TypeName="IMSBIZZModel.Country">
               <MappingFragment StoreEntitySet="Country">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -4041,8 +4153,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Parties">
             <EntityTypeMapping TypeName="IMSBIZZModel.Party">
               <MappingFragment StoreEntitySet="Party">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
@@ -4076,8 +4188,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="IMSBIZZModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -4195,8 +4307,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="PurchasePaymentDetials">
             <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetial">
               <MappingFragment StoreEntitySet="PurchasePaymentDetials">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -4215,8 +4327,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="PurchasePaymentDetialsHistories">
             <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetialsHistory">
               <MappingFragment StoreEntitySet="PurchasePaymentDetialsHistory">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -4336,8 +4448,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Racks">
             <EntityTypeMapping TypeName="IMSBIZZModel.Rack">
               <MappingFragment StoreEntitySet="Rack">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -4434,8 +4546,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="SalePaymentDetials">
             <EntityTypeMapping TypeName="IMSBIZZModel.SalePaymentDetial">
               <MappingFragment StoreEntitySet="SalePaymentDetials">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -4454,8 +4566,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="SalePaymentDetialsHistories">
             <EntityTypeMapping TypeName="IMSBIZZModel.SalePaymentDetialsHistory">
               <MappingFragment StoreEntitySet="SalePaymentDetialsHistory">
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -4571,8 +4683,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="Stocks">
             <EntityTypeMapping TypeName="IMSBIZZModel.Stock">
               <MappingFragment StoreEntitySet="Stock">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -4587,8 +4699,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="StockHistories">
             <EntityTypeMapping TypeName="IMSBIZZModel.StockHistory">
               <MappingFragment StoreEntitySet="StockHistory">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -4629,8 +4741,8 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           <EntitySetMapping Name="TaxTypes">
             <EntityTypeMapping TypeName="IMSBIZZModel.TaxType">
               <MappingFragment StoreEntitySet="TaxType">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -4742,6 +4854,28 @@ warning 6002: The table/view 'IMSBIZZ.dbo.ELMAH_Error' does not have a primary k
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="IMSBIZZModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="IMSBIZZModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="settings">
+            <EntityTypeMapping TypeName="IMSBIZZModel.setting">
+              <MappingFragment StoreEntitySet="setting">
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PaperSize" ColumnName="PaperSize" />
+                <ScalarProperty Name="InvoiceTemplateName" ColumnName="InvoiceTemplateName" />
+                <ScalarProperty Name="PrintAddress" ColumnName="PrintAddress" />
+                <ScalarProperty Name="PrintTinOnInvoice" ColumnName="PrintTinOnInvoice" />
+                <ScalarProperty Name="EnableInvoiceTax" ColumnName="EnableInvoiceTax" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

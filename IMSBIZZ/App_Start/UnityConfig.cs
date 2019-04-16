@@ -27,6 +27,7 @@ namespace IMSBIZZ
             container.RegisterType<IRackService, RackService>();
             container.RegisterType<IPartyService, PartyService>();
             container.RegisterType<ICountryService, CountryService>();
+            container.RegisterType<ICategoryService, CategoryService>();
 
 
 

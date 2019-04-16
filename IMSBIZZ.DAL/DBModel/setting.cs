@@ -12,19 +12,20 @@ namespace IMSBIZZ.DAL.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class TaxType
+    public partial class setting
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaxType()
-        {
-            this.TaxGroupWithTaxTypes = new HashSet<TaxGroupWithTaxType>();
-        }
-    
-        public int TypeId { get; set; }
-        public string TypeName { get; set; }
-        public Nullable<int> CompanyId { get; set; }
-        public Nullable<int> BranchId { get; set; }
+        public int SettingId { get; set; }
+        public Nullable<int> DecimalPlaces { get; set; }
+        public Nullable<int> CurrencyId { get; set; }
+        public Nullable<bool> EnableInvoiceTax { get; set; }
+        public Nullable<bool> PrintTinOnInvoice { get; set; }
+        public Nullable<bool> PrintAddress { get; set; }
+        public string InvoiceTemplateName { get; set; }
+        public string PaperSize { get; set; }
         public Nullable<bool> Status { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public Nullable<int> BranchId { get; set; }
+        public Nullable<int> CompanyId { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdatedBy { get; set; }
@@ -32,7 +33,5 @@ namespace IMSBIZZ.DAL.DBModel
     
         public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
     }
 }

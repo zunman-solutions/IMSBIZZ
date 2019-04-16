@@ -231,6 +231,10 @@
     <Compile Include="Areas\AdminLTETheme\AdminLTEThemeAreaRegistration.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\CalendarController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ChartsController.cs" />
+    <Compile Include="Areas\MasterArea\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\BatchMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\CategoryMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\GodownMapper.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ExamplesController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\FormsController.cs" />
@@ -4407,6 +4411,7 @@
     <Content Include="Areas\PurchaseArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\PurchaseArea\Views\Purchase\Index.cshtml" />
     <Content Include="Areas\PurchaseArea\Views\Purchase\Create.cshtml" />
+    <Content Include="Areas\MasterArea\Views\Category\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Homeasst\css\animate.css" />
     <Content Include="Scripts\Homeasst\css\bootstrap.min.css" />
