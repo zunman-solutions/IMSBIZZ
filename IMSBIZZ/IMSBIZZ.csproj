@@ -231,7 +231,7 @@
     <Compile Include="Areas\AdminLTETheme\AdminLTEThemeAreaRegistration.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\CalendarController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ChartsController.cs" />
-    <Compile Include="Areas\AdminLTETheme\Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ExamplesController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\FormsController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\HomeController.cs" />
@@ -256,6 +256,7 @@
     <Compile Include="Areas\SaleArea\SaleAreaRegistration.cs" />
     <Compile Include="Areas\SettingArea\SettingAreaRegistration.cs" />
     <Compile Include="Areas\MasterArea\Controllers\PartyAPIController.cs" />
+    <Compile Include="Extentions\UrlHelperExtensions.cs" />
     <Compile Include="Helper\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
@@ -306,6 +307,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\PurchaseArea\Scripts\purchase\Create.js" />
+    <Content Include="Areas\PurchaseArea\Scripts\purchase\Edit.js" />
+    <Content Include="Areas\PurchaseArea\Scripts\purchase\Index.js" />
     <Content Include="Content\adminlte\css\AdminLTE.css" />
     <Content Include="Content\adminlte\css\AdminLTE.min.css" />
     <Content Include="Content\adminlte\css\alt\AdminLTE-bootstrap-social.css" />
@@ -4351,8 +4355,10 @@
     <Content Include="Areas\AdminLTETheme\Views\Charts\Flot.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Charts\Inline.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Charts\Morris.cshtml" />
-    <Content Include="Areas\AdminLTETheme\Views\Dashboard\Dashboardv1.cshtml" />
-    <Content Include="Areas\AdminLTETheme\Views\Dashboard\Dashboardv2.cshtml" />
+    <Content Include="Scripts\Common\common.js" />
+    <Content Include="Scripts\Common\SiteRoutes.js" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\Dashboard\Dashboardv2.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Examples\Blank.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Examples\Invoice.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Examples\InvoicePrint.cshtml" />
@@ -4397,6 +4403,10 @@
     <Content Include="Areas\AdminLTETheme\Views\UI\Timeline.cshtml" />
     <Content Include="Areas\AdminLTETheme\Views\Widgets\Index.cshtml" />
     <Content Include="Areas\ReportArea\Views\web.config" />
+    <Content Include="Areas\PurchaseArea\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\PurchaseArea\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\PurchaseArea\Views\Purchase\Index.cshtml" />
+    <Content Include="Areas\PurchaseArea\Views\Purchase\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Homeasst\css\animate.css" />
     <Content Include="Scripts\Homeasst\css\bootstrap.min.css" />
@@ -4445,6 +4455,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Knockout\knockout-3.5.0.debug.js" />
+    <Content Include="Scripts\Knockout\knockout-3.5.0.js" />
+    <Content Include="Scripts\Knockout\knockout.validation.min.js" />
+    <Content Include="Scripts\Models\app.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\multiple-select.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -4453,7 +4467,6 @@
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Views\Shared\MailBody.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -4494,18 +4507,14 @@
     <Content Include="Views\Beneficiary\Edit.cshtml" />
     <Content Include="Views\Beneficiary\Index.cshtml" />
     <Content Include="Views\Beneficiary\UploadBeneficiayExcel.cshtml" />
-    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\1Dashboard\Dashboard.cshtml" />
     <Content Include="Views\Error\CustomErrors.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Error\ServerSideError.cshtml" />
     <Content Include="Views\Error\UnauthorizedAccess.cshtml" />
     <Content Include="Views\Home\Website.cshtml" />
-    <Content Include="Views\Shared\_Accountant.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Shared\_AdminLeftMenu.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -4514,13 +4523,17 @@
     <Content Include="Views\User\IndexOld.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\_Aside.cshtml" />
+    <Content Include="Views\Shared\_LayoutBoxed.cshtml" />
+    <Content Include="Views\Shared\_LayoutCollapse.cshtml" />
+    <Content Include="Views\Shared\_LayoutFixed.cshtml" />
+    <Content Include="Views\Shared\_LayoutTop.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminLTETheme\Models\" />
     <Folder Include="Areas\MasterArea\Views\Shared\" />
-    <Folder Include="Areas\PurchaseArea\Views\Purchase\" />
-    <Folder Include="Areas\PurchaseArea\Views\Shared\" />
     <Folder Include="Areas\ReportArea\Models\" />
     <Folder Include="Areas\ReportArea\Views\Shared\" />
     <Folder Include="Areas\SaleArea\Controllers\" />

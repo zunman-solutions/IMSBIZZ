@@ -9,24 +9,35 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IMSBIZZ.Models;
+using IMSBIZZ.DAL.IService;
 
 namespace IMSBIZZ.Controllers
 {
+    
+    /// <summary>
+/// Account Controller 
+/// </summary>
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IBatchService _batchService;
 
-        public AccountController()
+        /// <summary>
+        /// Constructor with Service Injected
+        /// </summary>
+        /// <param name="batchService"></param>
+        public AccountController(IBatchService batchService)
         {
+            _batchService = batchService;
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
+        //public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        //{
+        //    UserManager = userManager;
+        //    SignInManager = signInManager;
+        //}
 
         public ApplicationSignInManager SignInManager
         {

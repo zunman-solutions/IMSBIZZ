@@ -1,11 +1,12 @@
 using IMSBIZZ.DAL.IService;
 using IMSBIZZ.DAL.Service;
-using System.Web.Http;
+using System.Web.Mvc;
 using Unity;
-using Unity.WebApi;
+using Unity.Mvc5;
 
 namespace IMSBIZZ
 {
+
     public static class UnityConfig
     {
         public static void RegisterComponents()
@@ -26,7 +27,8 @@ namespace IMSBIZZ
             container.RegisterType<IPartyService, PartyService>();
             container.RegisterType<IReportService, ReportService>();
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
         }
     }
