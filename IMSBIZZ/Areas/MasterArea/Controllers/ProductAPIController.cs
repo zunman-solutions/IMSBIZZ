@@ -1,4 +1,5 @@
-﻿using IMSBIZZ.DAL.IService;
+﻿using IMSBIZZ.Areas.MasterArea.Models.MasterViewModel;
+using IMSBIZZ.DAL.IService;
 using IMSBIZZ.Helper;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,16 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetAllProducts"), HttpGet]
         public HttpResponseMessage GetAllProducts(int companyId, int branchId)
         {
-            var products = _productService.Get(w=>w.CompanyId==companyId && w.BranchId==branchId).ToList();
+            var products = _productService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).Select(s => new ProductViewModel 
+            {
+                ProductId = s.ProductId,
+                ProductName = s.ProductName,
+                ProductCode = s.ProductName,
+                HSNCode = s.HSNCode,
+                PurchasPrice = s.PurchasPrice,
+                SalesPrice = s.SalesPrice,
+                ReorderLevel = s.ReorderLevel
+            }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK,products);
         }
 
@@ -49,7 +59,8 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         public HttpResponseMessage GetProductById(int productId)
         {
             var product = _productService.GetProductById(productId);
-            return Request.CreateResponse(HttpStatusCode.OK, product);
+            var productviewmodel = Areas.MasterArea.Mapper.ProductMapper.Detach(product);
+            return Request.CreateResponse(HttpStatusCode.OK, productviewmodel);
         }
 
         /// <summary>
@@ -58,11 +69,11 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         /// <param name="companyId">Company Id Filter</param>
         /// <param name="branchId">Branch Id Filter</param>
         /// <returns></returns>
-        [Route("GetProductByCompanyBranch"), HttpGet]
-        public HttpResponseMessage GetProductByCompanyBranch(int companyId, int branchId)
-        {
-            var product = _productService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
-            return Request.CreateResponse(HttpStatusCode.OK, product);
-        }
+        //[Route("GetProductByCompanyBranch"), HttpGet]
+        //public HttpResponseMessage GetProductByCompanyBranch(int companyId, int branchId)
+        //{
+        //    var product = _productService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
+        //    return Request.CreateResponse(HttpStatusCode.OK, product);
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IMSBIZZ.DAL.DBModel;
+using IMSBIZZ.DAL.DTO;
 using IMSBIZZ.DAL.IService;
 using IMSBIZZ.DAL.Repository;
 using System;
@@ -65,5 +66,10 @@ namespace IMSBIZZ.DAL.Service
         {
             return batchRepository.ExecWithRowQuery(query, parameters);
         }
+
+       public IEnumerable<GetBatchByProductDTO> GetBatchByProduct(string query, params object[] parameters)
+       {
+           return _dbContext.Database.SqlQuery<GetBatchByProductDTO>(query, parameters);
+       }
     }
 }

@@ -36,7 +36,7 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetAllBatches"), HttpGet]
         public HttpResponseMessage GetAllBatches(int companyId, int branchId)
         {
-            var batches = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).Select(s => new BatchViewModel 
+            var batches = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status==true).Select(s => new BatchViewModel 
             {
                BatchId = s.BatchId,
                 BatchName = s.BatchName
@@ -53,8 +53,8 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         public HttpResponseMessage GetBatchesById(int batchId)
         {
             var batch = _batchService.GetBatchById(batchId);
-           
-            return Request.CreateResponse(HttpStatusCode.OK, batch);
+            var batchviewmodel = Areas.MasterArea.Mapper.BatchMapper.Detach(batch);
+            return Request.CreateResponse(HttpStatusCode.OK, batchviewmodel);
         }
 
         /// <summary>
@@ -111,12 +111,12 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         /// <param name="companyId">Company Id Filter</param>
         /// <param name="branchId">Branch Id Filter</param>
         /// <returns></returns>
-        [Route("GetBatchByCompanyBranch"), HttpGet]
-        public HttpResponseMessage GetBatchByCompanyBranch(int companyId, int branchId)
-        {
-            var batch = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
-            return Request.CreateResponse(HttpStatusCode.OK, batch);
-        }
+        //[Route("GetBatchByCompanyBranch"), HttpGet]
+        //public HttpResponseMessage GetBatchByCompanyBranch(int companyId, int branchId)
+        //{
+        //    var batch = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
+        //    return Request.CreateResponse(HttpStatusCode.OK, batch);
+        //}
 
 
 
@@ -131,8 +131,13 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetBatchByProduct"), HttpGet]
         public HttpResponseMessage GetBatchByProduct(int productId,int companyId, int branchId)
         {
-            var purchase = _batchService.ExecWithRowQuery(@"select pd.BatchID,b.BatchName from PurchaseDetails pd inner join Batch  b on pd.BatchId = b.BatchId 
-Where pd.ProductId={0} AND b.CompanyId={1} AND b.BranchId ={2} AND  b.status=1  ", productId, companyId, branchId).ToList();
+            var purchase = _batchService.GetBatchByProduct(@"SELECT pd.BatchID,b.BatchName 
+                                                            FROM PurchaseDetails pd 
+                                                            INNER JOIN Batch  b ON pd.BatchId = b.BatchId 
+                                                            Where pd.ProductId={0} 
+                                                            AND b.CompanyId={1} 
+                                                            AND b.BranchId ={2} 
+                                                            AND  b.status=1  ", productId, companyId, branchId).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, purchase);
         }
     }
