@@ -12,6 +12,7 @@ $(document).ready(function () {
         rowId: "Id",
         ajax: {
             "url": app.url.api("GetAllBatches", "api/Batch", { controller: "BatchAPI" }),
+            "data": { "companyId": 1, "branchId": 1},
             "type": "Get",
             "datatype": "json"
         },
@@ -34,7 +35,7 @@ $(document).ready(function () {
             {
                 "data": "Id", "autoWidth": true, "render": function (data, type, row, meta) {
                     return ('<a href="{0} " class="btn btn-info">Edit</a>').formatString(
-                        app.url.api('Edit', { controller: "Batch", area:"MasterArea", params: { Id: data } }));
+                        app.url.action('Edit', { controller: "Batch", area:"MasterArea", params: { Id: data } }));
                 }
             },
             {

@@ -15,12 +15,7 @@ ko.validation.init({
     errorsAsTitle: false
 }, true);
 
-var Item = function (Url, StatusCode) {
-    var self = this;
-    
-    self.AlternateUrl = ko.observable(Url);
-    self.StatusCode = ko.observable(StatusCode);
-};
+
 
 var EditBatchViewModel = function (batch) {
     //Make the self as 'this' reference

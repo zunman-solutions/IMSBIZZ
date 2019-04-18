@@ -11,7 +11,8 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
     if (!this.defaultMvcRoute.hasOwnProperty("mapWithDomain")) {
         $.extend(this.defaultMvcRoute, { mapWithDomain: false })
     }
-    this.defaultApiRoute = { area: 'api', mapWithDomain: false };
+    debugger;
+    this.defaultApiRoute = { area: 'api', mapWithDomain: true };
 
 
 
@@ -62,15 +63,23 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
         return href.substr(0, href.indexOf('/', 10)) + this.resolveUrl(url);
     }
 
-    //#region api Actions
 
-    this.api = function (action,prefix) {
+
+    //#region api Actions
+    this.apiAction = function (url) {
+        debugger
+        var baseUrl = this.mapWithDomain(url);
+        return baseUrl;
+    }
+
+    this.api = function (action, prefix) {
+        debugger;
         if (!this.defaultApiRoute.controller)
             throw "default controller is null.";
         return this.api(action,prefix, this.defaultApiRoute.controller, this.defaultApiRoute);
     };
 
-    _addOverloadMethod(this, prefix, function (action, controller) {
+    _addOverloadMethod(this,  function (action, controller) {
         if (!this.defaultApiRoute)
             throw "default api route is null.";
 
@@ -79,7 +88,7 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
         return url;
     });
 
-    _addOverloadMethod(this, prefix, function (action, controller, routeData) {
+    _addOverloadMethod(this,  function (action, controller, routeData) {
         if (!this.defaultApiRoute && !routeData)
             throw "default api route is null.";
 
