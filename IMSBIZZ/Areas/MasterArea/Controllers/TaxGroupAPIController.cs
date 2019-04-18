@@ -35,12 +35,12 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         /// <param name="companyId">Company Id Filter</param>
         /// <param name="branchId">Branch Id Filter</param>
         /// <returns></returns>
-        [Route("GetAllTaxGroups"), HttpGet]
-        public HttpResponseMessage GetAllTaxGroups(int companyId, int branchId)
-        {
-            var TaxGroupes = _taxGroupService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, TaxGroupes);
-        }
+        //[Route("GetAllTaxGroups"), HttpGet]
+        //public HttpResponseMessage GetAllTaxGroups(int companyId, int branchId)
+        //{
+        //    var TaxGroupes = _taxGroupService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).ToList();
+        //    return Request.CreateResponse(HttpStatusCode.OK, TaxGroupes);
+        //}
 
         /// <summary>
         /// Get TaxGroup by TaxGroup Id
@@ -51,7 +51,8 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         public HttpResponseMessage GetTaxGroupById(int taxGroupId)
         {
             var taxGroup = _taxGroupService.GetTaxGroupById(taxGroupId);
-            return Request.CreateResponse(HttpStatusCode.OK, taxGroup);
+            var taxgroupviewmodel = Areas.MasterArea.Mapper.TaxMapper.Detach(taxGroup);
+            return Request.CreateResponse(HttpStatusCode.OK, taxgroupviewmodel);
         }
 
         /// <summary>
@@ -63,7 +64,11 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetTaxGroupByCompanyBranch"), HttpGet]
         public HttpResponseMessage GetTaxGroupByCompanyBranch(int companyId, int branchId)
         {
-            var TaxGroup = _taxGroupService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
+            var TaxGroup = _taxGroupService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).Select(s => new TaxGroupViewModel 
+            {
+                GroupId = s.GroupId,
+                GroupName = s.GroupName,
+            }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, TaxGroup);
         }
         /// <summary>

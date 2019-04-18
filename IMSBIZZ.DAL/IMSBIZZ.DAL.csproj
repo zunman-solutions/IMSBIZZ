@@ -230,6 +230,7 @@
     <Compile Include="DTO\CompanyWiseVendorPaymentDetailsDTO.cs" />
     <Compile Include="DTO\CustomerBalanceReportDTO.cs" />
     <Compile Include="DTO\CustomerInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="DTO\GetBatchByProductDTO.cs" />
     <Compile Include="DTO\GetProductdetialsbygodownDTO.cs" />
     <Compile Include="DTO\GetVendorInvoicesDetailDTO.cs" />
     <Compile Include="DTO\GodownProductsbyCompanyandbranchDTO.cs" />

@@ -236,6 +236,10 @@
     <Compile Include="Areas\MasterArea\Mapper\BatchMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\CategoryMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\GodownMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\PartyMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\ProductMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\TaxMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\UnitMapper.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\ExamplesController.cs" />
     <Compile Include="Areas\AdminLTETheme\Controllers\FormsController.cs" />

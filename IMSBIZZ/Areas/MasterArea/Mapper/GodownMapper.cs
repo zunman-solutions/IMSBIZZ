@@ -23,10 +23,30 @@ namespace IMSBIZZ.Areas.MasterArea.Mapper
             godown.Status = godownviewmodel.Status;
             godown.CreatedBy = godownviewmodel.CreatedBy;
             godown.CreatedOn = godownviewmodel.CreatedOn;
-            godown.CreatedOn = godownviewmodel.CreatedOn;
-
+            godown.UpdatedBy = godownviewmodel.UpdatedBy;
+            godown.UpdatedOn = godownviewmodel.UpdatedOn;
 
             return godown;
+        }
+
+        public static GodownViewModel Detach(Godown godown)
+        {
+            GodownViewModel godownviewmodel = new GodownViewModel();
+
+            godownviewmodel.GodownId = godown.GodownId;
+            godownviewmodel.GodownName = godown.GodownName;
+            godownviewmodel.GodownAddress = godown.GodownAddress;
+            godownviewmodel.ContactNo = godown.ContactNo;
+            godownviewmodel.ContactPerson = godown.ContactPerson;
+            godownviewmodel.CompanyId = godown.CompanyId;
+            godownviewmodel.BranchId = godown.BranchId;
+            godownviewmodel.Status = godown.Status;
+            godownviewmodel.CreatedBy = godown.CreatedBy;
+            godownviewmodel.CreatedOn = godown.CreatedOn;
+            godownviewmodel.UpdatedBy = godown.UpdatedBy;
+            godownviewmodel.UpdatedOn = godown.UpdatedOn;
+
+            return godownviewmodel;
         }
     }
 }
