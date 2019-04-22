@@ -14,10 +14,11 @@ namespace IMSBIZZ.Areas.PurchaseArea.Controllers
     /// 
     /// </summary>
     [ElmahError]
+    [RoutePrefix("Purchase")]
     public class PurchaseController : Controller
     {
-        IPurchaseService _purchaseService;
-        IStockService _stockService;
+        private readonly IPurchaseService _purchaseService;
+        private readonly  IStockService _stockService;
 
         /// <summary>
         /// 
@@ -32,11 +33,19 @@ namespace IMSBIZZ.Areas.PurchaseArea.Controllers
 
         // GET: Purchase
         //[CustomAuthorize(Common.DataEntry, Common.Admin)]
+        [Route("Index")]
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET: Purchase
+        //[CustomAuthorize(Common.DataEntry, Common.Admin)]
+        [Route("Create")]
+        public ActionResult Create()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Save(PurchaseServiceViewModel purchaseServiceViewModel)

@@ -1,4 +1,5 @@
 ﻿using IMSBIZZ.DAL.DBModel;
+using IMSBIZZ.DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,7 @@ namespace IMSBIZZ.DAL.IService
         void Delete(int id);
         void SaveChanges();
         IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters);
+        IEnumerable<GetBatchByProductDTO> GetBatchByProduct(string query, params object[] parameters);
+        
     }
 }

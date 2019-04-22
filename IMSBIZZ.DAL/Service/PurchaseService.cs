@@ -62,8 +62,8 @@ namespace IMSBIZZ.DAL.Service
                 else {
                     stock = stockRepository.Get().Where(w => w.CompanyId == purchase.CompanyId && w.BranchId == purchase.BranchId && w.ProductId == purchaseDetail.ProductId && w.BatchId == purchaseDetail.BatchId).FirstOrDefault();
                     stock.Quantity = stock.Quantity + Convert.ToInt32(purchaseDetail.Quantity);
-                    stock.ModifiedBy = purchase.CreatedBy;
-                    stock.ModifiedOn = purchase.CreatedOn;
+                    stock.UpdatedBy = purchase.CreatedBy;
+                    stock.UpdatedOn = purchase.CreatedOn;
                 }
             }
             purchaseRepository.Add(purchase);

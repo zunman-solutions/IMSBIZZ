@@ -1,13 +1,13 @@
 using IMSBIZZ.Controllers;
 using IMSBIZZ.DAL.IService;
 using IMSBIZZ.DAL.Service;
-using System.Web.Http;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
 
 namespace IMSBIZZ
 {
+
     public static class UnityConfig
     {
         public static void RegisterComponents()
@@ -31,6 +31,8 @@ namespace IMSBIZZ
             container.RegisterType<IFinancialYearService, FinancialYearService>();
             container.RegisterType<IBranchService, BranchService>();
             container.RegisterType<ICompanyService, CompanyService>();
+            container.RegisterType<ICategoryService, CategoryService>();
+
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

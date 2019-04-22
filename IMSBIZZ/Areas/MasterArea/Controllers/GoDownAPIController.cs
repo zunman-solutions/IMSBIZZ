@@ -1,4 +1,5 @@
-﻿using IMSBIZZ.DAL.IService;
+﻿using IMSBIZZ.Areas.MasterArea.Models.MasterViewModel;
+using IMSBIZZ.DAL.IService;
 using IMSBIZZ.Helper;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,14 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         [Route("GetAllGodowns"), HttpGet]
         public HttpResponseMessage GetAllGodowns(int companyId, int branchId)
         {
-            var godowns = _godownService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).ToList();
+            var godowns = _godownService.Get(w => w.CompanyId == companyId && w.BranchId == branchId).Select(s => new GodownViewModel 
+            { 
+                GodownId = s.GodownId,
+                GodownName = s.GodownName,
+                GodownAddress = s.GodownAddress,
+                ContactNo = s.ContactNo,
+                ContactPerson = s.ContactPerson
+            }).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, godowns);
         }
         /// <summary>
@@ -47,7 +55,8 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         public HttpResponseMessage GetGodownById(int godownId)
         {
             var godown = _godownService.GetGodownById(godownId);
-            return Request.CreateResponse(HttpStatusCode.OK, godown);
+            var godownviewmodel = Areas.MasterArea.Mapper.GodownMapper.Detach(godown);
+            return Request.CreateResponse(HttpStatusCode.OK, godownviewmodel);
         }
 
         /// <summary>

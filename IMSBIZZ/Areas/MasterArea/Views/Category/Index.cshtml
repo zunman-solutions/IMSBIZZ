@@ -1,0 +1,111 @@
+﻿@model IEnumerable<IMSBIZZ.Areas.MasterArea.Models.MasterViewModel.CategoryViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Users
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Category Master</a></li>
+            @*<li class="active">Dashboard</li>*@
+        </ol>
+    </section>
+    <section class="content" id="Index">
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <!-- left column -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                    </div>
+                    <div class="box-body">
+
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryId)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.CompanyId)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BranchId)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryName)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.Status)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CreatedBy)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CreatedOn)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ModifiedBy)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ModifiedOn)
+                                    </th>*@
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CategoryId)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.CompanyId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BranchId)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CategoryName)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ModifiedBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ModifiedOn)
+                                    </td>*@
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>
+                            </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

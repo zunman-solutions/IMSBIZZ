@@ -11,7 +11,8 @@ namespace IMSBIZZ
             string ltecomponents = "~/Scripts/adminlte/components/";
             string lteplugins = "~/Scripts/adminlte/plugins/";
             string lte = "~/Scripts/adminlte/";
-
+            string knockout = "~/Scripts/Knockout/";
+            string common = "~/Scripts/Common/";
             //bundles.Add(new ScriptBundle("~/bundles/DashboardTheme").Include(
             //            "~/Scripts/jquery-1.10.2.min.js",
             //            "~/Scripts/Dashboard/gnmenu.js",
@@ -57,17 +58,22 @@ namespace IMSBIZZ
               .Include(lteplugins + "input-mask/jquery.inputmask.extensions.js")
               .Include(lteplugins + "timepicker/bootstrap-timepicker.min.js")
               .Include(lteplugins + "iCheck/icheck.min.js")
-              .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.js"));
+              .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.js")
+              .Include("~/Scripts/sweetalert/sweetalert2.min.js")
+               .Include("~/Scripts/BlockUI/jquery.blockUI.js")
+              );
 
+            bundles.Add(new ScriptBundle("~/bundles/knockout")
+                   .Include(knockout + "knockout-3.5.0.js")
+                   .Include(knockout + "knockout-3.5.0.debug.js")
+                   .Include(knockout + "knockout.validation.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/common")
+                   .Include(common + "common.js")
+                   .Include(common + "SiteRoutes.js"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.min.js",
-            //          "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                .Include(ltecomponents + "bootstrap/dist/css/bootstrap.min.css")
@@ -88,7 +94,9 @@ namespace IMSBIZZ
                .Include(lteplugins + "timepicker/bootstrap-timepicker.min.css")
                .Include(lteplugins + "iCheck/all.css")
                .Include(lteplugins + "pace/pace.min.css")
-               .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.css"));
+               .Include(ltecomponents + "fullcalendar/dist/fullcalendar.min.css")
+                .Include("~/Scripts/sweetalert/sweetalert2.min.css")
+               );
 
 
             //bundles.Add(new StyleBundle("~/Content/DashboardThemeCs").Include(

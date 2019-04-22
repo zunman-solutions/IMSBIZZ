@@ -49,8 +49,8 @@
     <EntitySetMapping Name="Batches">
       <EntityTypeMapping TypeName="IMSBIZZModel.Batch">
         <MappingFragment StoreEntitySet="Batch">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -88,8 +88,8 @@
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="IMSBIZZModel.Category">
         <MappingFragment StoreEntitySet="Category">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -103,8 +103,9 @@
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="IMSBIZZModel.Company">
         <MappingFragment StoreEntitySet="Company">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="RefrenceMobileNo" ColumnName="RefrenceMobileNo" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -134,8 +135,8 @@
     <EntitySetMapping Name="Countries">
       <EntityTypeMapping TypeName="IMSBIZZModel.Country">
         <MappingFragment StoreEntitySet="Country">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -209,8 +210,8 @@
     <EntitySetMapping Name="Parties">
       <EntityTypeMapping TypeName="IMSBIZZModel.Party">
         <MappingFragment StoreEntitySet="Party">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="StateId" ColumnName="StateId" />
@@ -244,8 +245,8 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="IMSBIZZModel.Product">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -363,8 +364,8 @@
     <EntitySetMapping Name="PurchasePaymentDetials">
       <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetial">
         <MappingFragment StoreEntitySet="PurchasePaymentDetials">
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -383,8 +384,8 @@
     <EntitySetMapping Name="PurchasePaymentDetialsHistories">
       <EntityTypeMapping TypeName="IMSBIZZModel.PurchasePaymentDetialsHistory">
         <MappingFragment StoreEntitySet="PurchasePaymentDetialsHistory">
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -504,8 +505,8 @@
     <EntitySetMapping Name="Racks">
       <EntityTypeMapping TypeName="IMSBIZZModel.Rack">
         <MappingFragment StoreEntitySet="Rack">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -602,8 +603,8 @@
     <EntitySetMapping Name="SalePaymentDetials">
       <EntityTypeMapping TypeName="IMSBIZZModel.SalePaymentDetial">
         <MappingFragment StoreEntitySet="SalePaymentDetials">
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -622,8 +623,8 @@
     <EntitySetMapping Name="SalePaymentDetialsHistories">
       <EntityTypeMapping TypeName="IMSBIZZModel.SalePaymentDetialsHistory">
         <MappingFragment StoreEntitySet="SalePaymentDetialsHistory">
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="FromTable" ColumnName="FromTable" />
@@ -739,8 +740,8 @@
     <EntitySetMapping Name="Stocks">
       <EntityTypeMapping TypeName="IMSBIZZModel.Stock">
         <MappingFragment StoreEntitySet="Stock">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -755,8 +756,8 @@
     <EntitySetMapping Name="StockHistories">
       <EntityTypeMapping TypeName="IMSBIZZModel.StockHistory">
         <MappingFragment StoreEntitySet="StockHistory">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -797,8 +798,8 @@
     <EntitySetMapping Name="TaxTypes">
       <EntityTypeMapping TypeName="IMSBIZZModel.TaxType">
         <MappingFragment StoreEntitySet="TaxType">
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -875,5 +876,62 @@
     <FunctionImportMapping FunctionImportName="SaleOrSaleReturnReport" FunctionName="IMSBIZZModel.Store.SaleOrSaleReturnReport" />
     <FunctionImportMapping FunctionImportName="SelectProductTaxGroup" FunctionName="IMSBIZZModel.Store.SelectProductTaxGroup" />
     <FunctionImportMapping FunctionImportName="SelectPurcahseProductTaxGroup" FunctionName="IMSBIZZModel.Store.SelectPurcahseProductTaxGroup" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IMSBIZZModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="IMSBIZZModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="IMSBIZZModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="IMSBIZZModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="IMSBIZZModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IMSBIZZModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="IMSBIZZModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IMSBIZZModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="IMSBIZZModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="IMSBIZZModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="IMSBIZZModel.setting">
+        <MappingFragment StoreEntitySet="setting">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PaperSize" ColumnName="PaperSize" />
+          <ScalarProperty Name="InvoiceTemplateName" ColumnName="InvoiceTemplateName" />
+          <ScalarProperty Name="PrintAddress" ColumnName="PrintAddress" />
+          <ScalarProperty Name="PrintTinOnInvoice" ColumnName="PrintTinOnInvoice" />
+          <ScalarProperty Name="EnableInvoiceTax" ColumnName="EnableInvoiceTax" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+          <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -230,6 +230,7 @@
     <Compile Include="DTO\CompanyWiseVendorPaymentDetailsDTO.cs" />
     <Compile Include="DTO\CustomerBalanceReportDTO.cs" />
     <Compile Include="DTO\CustomerInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="DTO\GetBatchByProductDTO.cs" />
     <Compile Include="DTO\GetProductdetialsbygodownDTO.cs" />
     <Compile Include="DTO\GetVendorInvoicesDetailDTO.cs" />
     <Compile Include="DTO\GodownProductsbyCompanyandbranchDTO.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="IService\ISettingService .cs" />
     <Compile Include="IService\IFinancialyearService.cs" />
     <Compile Include="IService\IBranchService.cs" />
+    <Compile Include="IService\ICategoryService.cs" />
     <Compile Include="IService\ICountryService.cs" />
     <Compile Include="IService\IGodownService.cs" />
     <Compile Include="IService\IMiscellaneous\IReportService.cs" />
@@ -265,6 +267,7 @@
     <Compile Include="Service\BranchService .cs" />
     <Compile Include="Service\SettingService.cs" />
     <Compile Include="Service\FinancialYearService .cs" />
+    <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\CountryService.cs" />
     <Compile Include="Service\GodownService.cs" />
     <Compile Include="Service\Miscellaneous\ReportService.cs" />

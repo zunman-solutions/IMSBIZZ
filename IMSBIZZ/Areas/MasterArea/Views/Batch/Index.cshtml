@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Users
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Users</a></li>
+            @*<li class="active">Dashboard</li>*@
+        </ol>
+    </section>
+    <section class="content" id="Index">
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <!-- left column -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                    </div>
+                    <div class="box-body">
+                        <table id="tblBatch" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="display:none;">ID</th>
+                                    <th>Batch Name</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section Scripts {
+    <script src="~/Areas/MasterArea/Scripts/Batch/Index.js"></script>
+}
+<script type="text/javascript">
+    function Delete(Id) {
+        swal({
+            title: "",
+            text: "Do you really want to delete?",
+            type: "warning",
+            showCancelButton: true,
+            showLoaderOnConfirm: true,
+            closeOnConfirm: true,
+            confirmButtonText: "ok",
+            confirmButtonColor: "#337ab7"
+        }, function () {
+            $.post(app.url.api("DeleteBatch", "api/Batch", { controller: "BatchAPI" }), { batchId: Id })
+                .done(function (data, status) {
+                    swal("Batch deleted successfully.");
+                    window.location.href = app.url.action("Index", { controller: "Batch", area:"MasterArea"});
+                })
+                .fail(function (data, status) {
+                    swal(data);
+                })
+                .always(function () {
+                    $.unblockUI();
+                });
+        });
+    }
+</script>
