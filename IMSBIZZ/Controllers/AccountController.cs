@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Attributes;
+using IMSBIZZ.DAL.Service;
 
 namespace IMSBIZZ.Controllers
 {
@@ -25,15 +26,23 @@ namespace IMSBIZZ.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private readonly ICountryService _countryService;
+        private readonly IsettingService _settingService;
+        private readonly IBranchService _branchService;
+        private readonly IFinancialYearService _financialYearService;
+        private readonly ICompanyService _companyService;
 
         /// <summary>
         /// Constructor to inject Country Service
         /// </summary>
         /// <param name="CountryService">Country Service Instance</param>
-     
-        public AccountController(ICountryService countryService)
+
+        public AccountController(ICountryService countryService,IsettingService settingService,IBranchService branchService,IFinancialYearService financialYearService, ICompanyService companyService)
         {
             _countryService = countryService;
+            _branchService = branchService;
+            _settingService = settingService;
+            _financialYearService = financialYearService;
+            _companyService = companyService;
         }
 
      
@@ -165,9 +174,12 @@ namespace IMSBIZZ.Controllers
 
             #region ViewBag
              var countrys = _countryService.GetAllCountrys().Select(s=> new SelectListItem {  Text=s.CountryName, Value=s.CountryId.ToString()}).ToList();
+            
              ViewBag.Countrys = countrys;
             #endregion
             return View();
+
+          
         }
 
         //
@@ -184,7 +196,30 @@ namespace IMSBIZZ.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    RegisterViewModel registervievmodel = new RegisterViewModel();
+                    registervievmodel.CompanyName = model.CompanyName;
+                    registervievmodel.FirstName = model.FirstName;
+                    registervievmodel.LastName = model.LastName;
+                    registervievmodel.CountryId = model.CountryId;
+                    registervievmodel.Email = model.Email;
+                    registervievmodel.MobileNo = model.MobileNo;
+                    registervievmodel.PinCode = model.PinCode;
+                    registervievmodel.StartDate = model.StartDate;
+                    registervievmodel.EndDate = model.EndDate;
+                    registervievmodel.UserId = Convert.ToInt32(user.Id);
+                    registervievmodel.ReferenceMobileNo = model.ReferenceMobileNo;
+
+                    var company = Areas.MasterArea.Mapper.CompanyMapper.Attach(registervievmodel);
+                    var branches = Areas.MasterArea.Mapper.BranchMapper.Attach(registervievmodel);
+                    var fyear = Areas.MasterArea.Mapper.FinancialYearMapper.Attach(registervievmodel);
+                    var setting = Areas.MasterArea.Mapper.SettingMapper.Attach(registervievmodel);
+                    company.Branches.Add(branches);
+                    company.FinancialYears.Add(fyear);
+                    company.settings.Add(setting);
+                   _companyService.Add(company);
+                    _companyService.SaveChanges();
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -199,6 +234,8 @@ namespace IMSBIZZ.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+       
 
         //
         // GET: /Account/ConfirmEmail

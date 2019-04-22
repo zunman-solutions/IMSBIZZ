@@ -30,6 +30,7 @@ namespace IMSBIZZ.DAL.DBModel
             this.TaxTypes = new HashSet<TaxType>();
             this.Units = new HashSet<Unit>();
             this.UserCompanies = new HashSet<UserCompany>();
+            this.settings = new HashSet<setting>();
         }
     
         public int CompanyId { get; set; }
@@ -85,5 +86,7 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<Unit> Units { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserCompany> UserCompanies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<setting> settings { get; set; }
     }
 }

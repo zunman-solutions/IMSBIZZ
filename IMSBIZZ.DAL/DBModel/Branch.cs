@@ -28,6 +28,7 @@ namespace IMSBIZZ.DAL.DBModel
             this.Stocks = new HashSet<Stock>();
             this.TaxTypes = new HashSet<TaxType>();
             this.Units = new HashSet<Unit>();
+            this.settings = new HashSet<setting>();
         }
     
         public int BranchId { get; set; }
@@ -75,5 +76,7 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<TaxType> TaxTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Unit> Units { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<setting> settings { get; set; }
     }
 }

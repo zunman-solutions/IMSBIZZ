@@ -78,6 +78,7 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<UserCompany> UserCompanies { get; set; }
         public virtual DbSet<ELMAH_Error> ELMAH_Error { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<setting> settings { get; set; }
     
         public virtual int CheckAccountValidity(Nullable<int> company_id, Nullable<int> user_id, ObjectParameter free_count, ObjectParameter subscription_count)
         {

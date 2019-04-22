@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace IMSBIZZ.Models
 {
@@ -121,13 +122,22 @@ namespace IMSBIZZ.Models
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
 
-       
+        
+        [Display(Name = "CompanyId")]
+        public int CompanyId { get; set; }
+
+        [Display(Name = "BranchId")]
+        public int BranchId { get; set; }
+
+        [Display(Name = "UserId")]
+        public int UserId { get; set; }
+
 
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Reference Mobile No")]
         public string ReferenceMobileNo { get; set; }
 
-        public List<CountryViewModel> CountryList { get; set; }
+        public List<SelectListItem> CountryList { get; set; }
     }
 
     public class ResetPasswordViewModel
