@@ -46,9 +46,9 @@ namespace IMSBIZZ.DAL.Service
             countryRepository.Add(country);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+           return unitOfWork.SaveChanges();
         }
 
         public void Update(Country country)

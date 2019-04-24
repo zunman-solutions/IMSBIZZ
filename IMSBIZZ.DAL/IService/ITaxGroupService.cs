@@ -16,6 +16,6 @@ namespace IMSBIZZ.DAL.IService
         void Add(TaxGroup taxGroup);
         void Update(TaxGroup taxGroup);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
     }
 }

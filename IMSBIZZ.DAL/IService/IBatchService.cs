@@ -17,7 +17,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Batch batch);
         void Update(Batch batch);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
         IEnumerable<Batch> ExecWithRowQuery(string query, params object[] parameters);
         IEnumerable<GetBatchByProductDTO> GetBatchByProduct(string query, params object[] parameters);
         

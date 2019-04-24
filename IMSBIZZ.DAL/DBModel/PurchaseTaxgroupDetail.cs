@@ -20,5 +20,6 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<decimal> TaxPercentage { get; set; }
     
         public virtual PurchaseTaxGroup PurchaseTaxGroup { get; set; }
+        public virtual TaxType TaxType { get; set; }
     }
 }

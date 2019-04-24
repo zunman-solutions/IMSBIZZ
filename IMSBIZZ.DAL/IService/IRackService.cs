@@ -16,6 +16,6 @@ namespace IMSBIZZ.DAL.IService
         void Add(Rack rack);
         void Update(Rack rack);
         void Delete(int id);
-        void SaveChanges();        
+        int SaveChanges();        
     }
 }

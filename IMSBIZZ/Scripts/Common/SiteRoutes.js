@@ -11,7 +11,6 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
     if (!this.defaultMvcRoute.hasOwnProperty("mapWithDomain")) {
         $.extend(this.defaultMvcRoute, { mapWithDomain: false })
     }
-    debugger;
     this.defaultApiRoute = { area: 'api', mapWithDomain: true };
 
 
@@ -67,13 +66,11 @@ var SiteRoutes = function (rootUrl, mvcRouteData) {
 
     //#region api Actions
     this.apiAction = function (url) {
-        debugger
         var baseUrl = this.mapWithDomain(url);
         return baseUrl;
     }
 
     this.api = function (action, prefix) {
-        debugger;
         if (!this.defaultApiRoute.controller)
             throw "default controller is null.";
         return this.api(action,prefix, this.defaultApiRoute.controller, this.defaultApiRoute);

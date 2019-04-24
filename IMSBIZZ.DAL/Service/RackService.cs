@@ -46,9 +46,9 @@ namespace IMSBIZZ.DAL.Service
             rackRepository.Add(rack);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+          return  unitOfWork.SaveChanges();
         }
 
         public void Update(Rack rack)

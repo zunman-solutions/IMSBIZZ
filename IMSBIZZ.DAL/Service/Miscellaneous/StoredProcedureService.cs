@@ -25,9 +25,9 @@ namespace IMSBIZZ.DAL.Service
             storedProcedureRepository = unitOfWork.GenericRepository<Batch>();
         } 
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+          return  unitOfWork.SaveChanges();
         }
 
         public IEnumerable<Batch> ExecWithStoreProcedure(string proceudureName, params object[] parameters)

@@ -16,7 +16,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Batch batch);
         void Update(Batch batch);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
         
     }
 }

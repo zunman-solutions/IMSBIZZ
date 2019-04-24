@@ -59,18 +59,7 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, godownviewmodel);
         }
 
-        /// <summary>
-        /// Get Godown Details by Company and Branch
-        /// </summary>
-        /// <param name="companyId">Company Id Filter</param>
-        /// <param name="branchId">Branch Id Filter</param>
-        /// <returns></returns>
-        [Route("GetGodownByCompanyBranch"), HttpGet]
-        public HttpResponseMessage GetGodownByCompanyBranch(int companyId, int branchId)
-        {
-            var godown = _godownService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status == true).FirstOrDefault();
-            return Request.CreateResponse(HttpStatusCode.OK, godown);
-        }
+       
 
 
 

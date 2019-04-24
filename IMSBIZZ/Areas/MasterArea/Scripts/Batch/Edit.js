@@ -36,27 +36,32 @@ var EditBatchViewModel = function (batch) {
                                 IsActive: self.IsActive()                              
             };
 
-            $.post(app.url.api("EditBatch", "api/Batch", { controller: "BatchAPI" }), { batchViewModel: batch })
-                                .done(function (data, status) {
-                                    swal({
-                                        title: "",
-                                        text: "Batch updated successfully.",
-                                        type: "info",
-                                        showCancelButton: false,
-                                        showLoaderOnConfirm: true,
-                                        closeOnConfirm: false,
-                                        confirmButtonText: "ok",
-                                        confirmButtonColor: "#337ab7"
-                                    }, function () {
-                                            window.location.href = app.url.action("Index", { controller: "Batch", area:"MasterArea"});
-                                    });
-                                })
-                                .fail(function (data, status) {
-                                    swal(data);
-                                })
-                                .always(function () {
-                                    $.unblockUI();
-                                });
+            $.ajax({
+                url: app.url.apiAction("api/Batch/EditBatch"),
+                data: JSON.stringify(batch),
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+                    swal.fire({
+                        title: "",
+                        text: "Batch updated successfully.",
+                        type: "info",
+                        showCancelButton: false,
+                        showLoaderOnConfirm: true,
+                        closeOnConfirm: false,
+                        confirmButtonText: "ok",
+                        confirmButtonColor: "#337ab7"
+                    }, function () {
+                        window.location.href = app.url.action("Index", { controller: "Batch", area: "MasterArea" });
+                    });
+                },
+                error: function (data) {
+                    swal(data);
+                }
+            }).always(function () {
+                $.unblockUI();
+            });
                       
         } else {
             swal('Please enter all required fields.');

@@ -28,5 +28,7 @@ namespace IMSBIZZ.DAL.DBModel
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
+    
+        public virtual Sale Sale { get; set; }
     }
 }

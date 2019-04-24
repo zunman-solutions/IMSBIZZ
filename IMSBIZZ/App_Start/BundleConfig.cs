@@ -20,7 +20,7 @@ namespace IMSBIZZ
             //            "~/Scripts/Dashboard/classie.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery")
-              .Include(ltecomponents + "jquery/dist/jquery.min.js"));
+              .Include(ltecomponents + "jquery/dist/jquery-3.3.1.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/lib")
               .Include(ltecomponents + "jquery-ui/jquery-ui.min.js")
@@ -65,8 +65,10 @@ namespace IMSBIZZ
 
             bundles.Add(new ScriptBundle("~/bundles/knockout")
                    .Include(knockout + "knockout-3.5.0.js")
-                   .Include(knockout + "knockout-3.5.0.debug.js")
-                   .Include(knockout + "knockout.validation.min.js"));
+                   .Include(knockout + "knockout.validation.min.js")
+                   .Include(knockout + "knockout.mapping-latest.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 

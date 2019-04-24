@@ -26,11 +26,12 @@
         immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
-
-
+    @*<script src="~/Scripts/Knockout/knockout-3.5.0.js"></script>
+    <script src="~/Scripts/Knockout/knockout.validation.min.js"></script>
+    <script src="~/Scripts/Knockout/knockout.mapping-latest.js"></script>*@
+    @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/lib")
-    @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/bundles/common")
     @RenderSection("scripts", required: false)
 
@@ -38,6 +39,6 @@
         var app = {
             url: new SiteRoutes('@Url.Content("~/")', @Html.Raw(Url.GetJsonRouteData()))
         };
-        </script>
+    </script>
 </body>
 </html>

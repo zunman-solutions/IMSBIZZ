@@ -17,6 +17,8 @@ namespace IMSBIZZ.DAL.DBModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TaxType()
         {
+            this.PurchaseTaxgroupDetails = new HashSet<PurchaseTaxgroupDetail>();
+            this.SaleTaxgroupDetails = new HashSet<SaleTaxgroupDetail>();
             this.TaxGroupWithTaxTypes = new HashSet<TaxGroupWithTaxType>();
         }
     
@@ -30,8 +32,11 @@ namespace IMSBIZZ.DAL.DBModel
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     
-        public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseTaxgroupDetail> PurchaseTaxgroupDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleTaxgroupDetail> SaleTaxgroupDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
     }

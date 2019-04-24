@@ -21,6 +21,8 @@ namespace IMSBIZZ.DAL.DBModel
             this.PurchaseDetails = new HashSet<PurchaseDetail>();
             this.PurchaseReturnDetails = new HashSet<PurchaseReturnDetail>();
             this.PurchaseTaxGroups = new HashSet<PurchaseTaxGroup>();
+            this.SaleReturnDetails = new HashSet<SaleReturnDetail>();
+            this.SaleTaxGroups = new HashSet<SaleTaxGroup>();
             this.Stocks = new HashSet<Stock>();
         }
     
@@ -44,7 +46,6 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     
         public virtual Branch Branch { get; set; }
-        public virtual Branch Branch1 { get; set; }
         public virtual Category Category { get; set; }
         public virtual Company Company { get; set; }
         public virtual Rack Rack { get; set; }
@@ -56,6 +57,10 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<PurchaseReturnDetail> PurchaseReturnDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseTaxGroup> PurchaseTaxGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleReturnDetail> SaleReturnDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleTaxGroup> SaleTaxGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock> Stocks { get; set; }
     }

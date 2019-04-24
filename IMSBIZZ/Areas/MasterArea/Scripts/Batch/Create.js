@@ -1,5 +1,5 @@
 ﻿$(function () {
-    ko.applyBindings(new BatchCreateViewModel());   
+    ko.applyBindings(new BatchCreateViewModel(), document.getElementById('CreateBatch'));   
 });
 
 ko.validation.init({
@@ -22,7 +22,6 @@ var BatchCreateViewModel = function () {
    
     self.BatchName = ko.observable().extend({ required: true });
     self.IsActive = ko.observable(true).extend({ required: true });
-    self.SelectedStatusCode = ko.observable();   
     
        
     self.Create = function () {
@@ -31,24 +30,31 @@ var BatchCreateViewModel = function () {
            
             var batch = {
                 BatchName: self.BatchName(),
-                IsActive: self.IsActive()             
-            };           
+                Status: self.IsActive()             
+            };    
 
-            $.post(app.url.api("CreateBatch", "api/Batch", { controller: "BatchAPI" }), { batchViewModel: batch })
-                                .done(function (data, status) {
-                                    swal("Batch saved successully.");
-                                    document.location.reload(true);
-                                })
-                                .fail(function (data, status) {
-                                    swal(data);
-                                })
-                                .always(function () {
-                                    $.unblockUI();
-                                });
-                       
-           
+            $.ajax({
+                url: app.url.apiAction("api/Batch/CreateBatch"),
+                data: JSON.stringify(batch),
+                type: 'post',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+                    debugger;
+                    swal.fire("Batch saved successully.");
+                    document.location.reload(true);
+                },
+                error: function (data) {
+                    debugger;
+                    swal.fire(data);                   
+                }
+            }).always(function () {
+                debugger;
+                $.unblockUI();
+            });
+
         } else {
-            swal('Please enter all required fields.');
+            swal.fire('Please enter all required fields.');
             self.errors.showAllMessages();
         }
     };

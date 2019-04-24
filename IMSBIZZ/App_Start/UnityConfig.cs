@@ -18,9 +18,13 @@ namespace IMSBIZZ
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IMiscellaneousService, MiscellaneosService>();
+            container.RegisterType<IReportService, ReportService>();
+            container.RegisterType<IStoredProcedureService, StoredProcedureService>();
             container.RegisterType<IPurchaseService, PurchaseService>();
             container.RegisterType<IStockService, StockService>();
             container.RegisterType<IBatchService, BatchService>();
+            container.RegisterType<IGodownService, GodownService>();
             container.RegisterType<IProductService, ProductService>();
             container.RegisterType<ITaxGroupService, TaxGroupService>();
             container.RegisterType<IStoredProcedureService, StoredProcedureService>();
@@ -28,6 +32,7 @@ namespace IMSBIZZ
             container.RegisterType<IPartyService, PartyService>();
             container.RegisterType<ICountryService, CountryService>();
             container.RegisterType<ICategoryService, CategoryService>();
+            container.RegisterType<ICompanyService, CompanyService>();
 
 
 

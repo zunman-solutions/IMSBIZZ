@@ -48,9 +48,9 @@ namespace IMSBIZZ.DAL.Service
             godownRepository.Add(godown);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+         return   unitOfWork.SaveChanges();
         }
 
         public void Update(Godown godown)

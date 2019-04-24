@@ -8,6 +8,6 @@ namespace IMSBIZZ.DAL.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
-        void SaveChanges();
+        int SaveChanges();
     }
 }

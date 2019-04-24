@@ -28,5 +28,11 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
+    
+        public virtual Branch Branch { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual FinancialYear FinancialYear { get; set; }
+        public virtual Party Party { get; set; }
+        public virtual PaymentMode PaymentMode { get; set; }
     }
 }

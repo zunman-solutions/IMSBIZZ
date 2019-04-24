@@ -14,6 +14,14 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class Sale
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sale()
+        {
+            this.SaleDetails = new HashSet<SaleDetail>();
+            this.SalePaymentDetials = new HashSet<SalePaymentDetial>();
+            this.SaleTaxGroups = new HashSet<SaleTaxGroup>();
+        }
+    
         public long SaleId { get; set; }
         public Nullable<int> PartyId { get; set; }
         public Nullable<int> FinancialyearId { get; set; }
@@ -29,5 +37,16 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
+    
+        public virtual Branch Branch { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual FinancialYear FinancialYear { get; set; }
+        public virtual Party Party { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalePaymentDetial> SalePaymentDetials { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleTaxGroup> SaleTaxGroups { get; set; }
     }
 }

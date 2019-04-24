@@ -20,6 +20,8 @@ namespace IMSBIZZ.DAL.DBModel
             this.ProductTaxGroups = new HashSet<ProductTaxGroup>();
             this.PurchaseDetails = new HashSet<PurchaseDetail>();
             this.PurchaseTaxGroups = new HashSet<PurchaseTaxGroup>();
+            this.SaleDetails = new HashSet<SaleDetail>();
+            this.SaleTaxGroups = new HashSet<SaleTaxGroup>();
             this.TaxGroupWithTaxTypes = new HashSet<TaxGroupWithTaxType>();
         }
     
@@ -39,6 +41,10 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseTaxGroup> PurchaseTaxGroups { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleTaxGroup> SaleTaxGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
     }

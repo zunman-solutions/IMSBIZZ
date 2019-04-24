@@ -46,9 +46,9 @@ namespace IMSBIZZ.DAL.Service
             companyRepository.Add(company);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+           return unitOfWork.SaveChanges();
         }
 
         public void Update(Company company)

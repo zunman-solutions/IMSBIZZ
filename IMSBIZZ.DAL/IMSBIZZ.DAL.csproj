@@ -194,7 +194,7 @@
     <Compile Include="DBModel\SaleTaxgroupDetail.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\setting.cs">
+    <Compile Include="DBModel\Setting.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs">

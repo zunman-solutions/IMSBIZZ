@@ -8,7 +8,7 @@ namespace IMSBIZZ.DAL.IService
 {
     public interface IStoredProcedureService
     {
-        void SaveChanges();
+        int SaveChanges();
         IEnumerable<Batch> ExecWithStoreProcedure(string proceudureName, params object[] parameters);
         
     }

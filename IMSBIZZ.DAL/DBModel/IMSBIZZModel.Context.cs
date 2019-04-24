@@ -69,15 +69,16 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual DbSet<SaleReturnHistory> SaleReturnHistories { get; set; }
         public virtual DbSet<SaleTaxGroup> SaleTaxGroups { get; set; }
         public virtual DbSet<SaleTaxgroupDetail> SaleTaxgroupDetails { get; set; }
+        public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StockHistory> StockHistories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaxGroup> TaxGroups { get; set; }
         public virtual DbSet<TaxGroupWithTaxType> TaxGroupWithTaxTypes { get; set; }
         public virtual DbSet<TaxType> TaxTypes { get; set; }
         public virtual DbSet<Unit> Units { get; set; }
         public virtual DbSet<UserCompany> UserCompanies { get; set; }
         public virtual DbSet<ELMAH_Error> ELMAH_Error { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int CheckAccountValidity(Nullable<int> company_id, Nullable<int> user_id, ObjectParameter free_count, ObjectParameter subscription_count)
         {

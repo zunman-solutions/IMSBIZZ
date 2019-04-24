@@ -1,5 +1,5 @@
 ﻿
-@section header
+@*@section header
     {
     <style type="text/css">
         .validationMessage {
@@ -10,8 +10,8 @@
             background-color: #ffb8b5;
         }
     </style>
-}
-<div class="content-wrapper">
+}*@
+<div id="CreateBatch" class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -27,7 +27,7 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        Create User
+                        Create Batch
                     </div>
 
                     @Html.AntiForgeryToken()
@@ -40,7 +40,7 @@
                                 <span style="color:red">*</span>
                             </div>
                             <div class="col-md-9">
-                                <input type="text" id="txtBatchName" placeholder="Enter Batch Name" class="form-control" data-bind="value: BatchName" />
+                                <input  type="text" id="txtBatchName" placeholder="Enter Batch Name" class="form-control" data-bind="value: BatchName" />
                             </div>
                         </div>
 
@@ -51,13 +51,14 @@
                                 <span style="color:red">*</span>
                             </div>
                             <div class="col-md-9">
-                                <input type="checkbox" id="chkIsActive" data-bind="value: IsActive" />
+                                <input type="checkbox" id="chkIsActive"  data-bind="checked: IsActive" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="button" value="Save" class="btn btn-primary" id="btnSave" data-bind="click:Create" />
+                           
+                            <div class="col-md-offset-3 col-md-10">
+                                <input type="button" value="Save" class="btn btn-primary" id="btnSave" data-bind="click:Create"  />
                                 <input type="button" value="Reset" class="btn btn-danger" data-bind="click: Reset" />
                             </div>
                         </div>
@@ -74,7 +75,5 @@
 @section Scripts {
     <script src="~/Areas/MasterArea/Scripts/Batch/Create.js"></script>
 }
-<script>
 
-</script>
 

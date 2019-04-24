@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace IMSBIZZ.Areas.MasterArea.Controllers
 {
@@ -39,9 +40,11 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
             var batches = _batchService.Get(w => w.CompanyId == companyId && w.BranchId == branchId && w.Status==true).Select(s => new BatchViewModel 
             {
                BatchId = s.BatchId,
-                BatchName = s.BatchName
+                BatchName = s.BatchName,
+                Status=s.Status
             }).ToList();
-            return Request.CreateResponse(HttpStatusCode.OK, batches);
+            return Request.CreateResponse(new { status = "OK", recordsTotal = batches.Count(), data = batches, recordsFiltered = batches.Count() });
+            //return JsonResult(new { status = "OK", recordsTotal = urlDetails.Count(), data = urlDetails, recordsFiltered = urlDetails.Count() });
         }
 
         /// <summary>
@@ -62,7 +65,7 @@ namespace IMSBIZZ.Areas.MasterArea.Controllers
         /// </summary>
         /// <param name="batchViewModel">Pass Batch Model</param>
         /// <returns></returns>
-        [Route("CreateBatch/{batchViewModel}"), HttpPost]
+        [Route("CreateBatch"), HttpPost]
         public HttpResponseMessage CreateBatch(BatchViewModel batchViewModel)
         {
             var batch = Mapper.BatchMapper.Attach(batchViewModel);

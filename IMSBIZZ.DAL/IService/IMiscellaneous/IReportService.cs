@@ -9,7 +9,7 @@ namespace IMSBIZZ.DAL.IService
 {
     public interface IReportService
     {
-        void SaveChanges();
+        int SaveChanges();
         IEnumerable<dynamic> ExecWithStoreProcedure(string proceudureName, params object[] parameters);
         IEnumerable<dynamic> ExecWithRowQuery(string query, params object[] parameters);
         IEnumerable<GetProductdetialsbygodownDTO> GetProductDetialsByGodown(string query, params object[] parameters);

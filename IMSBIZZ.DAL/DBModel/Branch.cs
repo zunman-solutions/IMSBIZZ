@@ -17,16 +17,16 @@ namespace IMSBIZZ.DAL.DBModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Branch()
         {
-            this.Batches = new HashSet<Batch>();
-            this.FinancialYears = new HashSet<FinancialYear>();
+            this.Godowns = new HashSet<Godown>();
             this.Parties = new HashSet<Party>();
+            this.PaymentModes = new HashSet<PaymentMode>();
             this.Products = new HashSet<Product>();
-            this.Products1 = new HashSet<Product>();
             this.Purchases = new HashSet<Purchase>();
             this.PurchaseReturns = new HashSet<PurchaseReturn>();
             this.Racks = new HashSet<Rack>();
-            this.Stocks = new HashSet<Stock>();
-            this.TaxTypes = new HashSet<TaxType>();
+            this.Sales = new HashSet<Sale>();
+            this.SaleReturns = new HashSet<SaleReturn>();
+            this.Settings = new HashSet<Setting>();
             this.Units = new HashSet<Unit>();
         }
     
@@ -49,20 +49,15 @@ namespace IMSBIZZ.DAL.DBModel
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Batch> Batches { get; set; }
-        public virtual Branch Branch1 { get; set; }
-        public virtual Branch Branch2 { get; set; }
         public virtual Company Company { get; set; }
-        public virtual Country Country { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FinancialYear> FinancialYears { get; set; }
+        public virtual ICollection<Godown> Godowns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Party> Parties { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<PaymentMode> PaymentModes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products1 { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchases { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -70,9 +65,11 @@ namespace IMSBIZZ.DAL.DBModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rack> Racks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock> Stocks { get; set; }
+        public virtual ICollection<Sale> Sales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaxType> TaxTypes { get; set; }
+        public virtual ICollection<SaleReturn> SaleReturns { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Setting> Settings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Unit> Units { get; set; }
     }

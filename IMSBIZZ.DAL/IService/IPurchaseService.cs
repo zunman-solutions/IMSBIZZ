@@ -16,7 +16,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Purchase purchase);
         void Update(Purchase purchase);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
         bool IsProductExist(int productId, int batchId, decimal saleRate, decimal purchaseRate, int taxGroupId);
     }
 }

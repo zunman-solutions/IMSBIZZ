@@ -46,9 +46,9 @@ namespace IMSBIZZ.DAL.Service
             productRepository.Add(product);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+          return  unitOfWork.SaveChanges();
         }
 
         public void Update(Product product)

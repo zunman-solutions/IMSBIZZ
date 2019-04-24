@@ -46,9 +46,9 @@ namespace IMSBIZZ.DAL.Service
             partyRepository.Add(party);
         }
 
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            unitOfWork.SaveChanges();
+         return   unitOfWork.SaveChanges();
         }
 
         public void Update(Party party)

@@ -18,16 +18,16 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<int> BatchId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> UnitId { get; set; }
-        public Nullable<decimal> PurchaseRate { get; set; }
-        public Nullable<decimal> SaleRate { get; set; }
         public Nullable<decimal> TaxAmnt { get; set; }
-        public Nullable<decimal> TaxPercent { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public Nullable<long> PurchaseReturnId { get; set; }
         public Nullable<decimal> DiscountAmnt { get; set; }
-        public Nullable<decimal> DiscountPercent { get; set; }
         public Nullable<int> PurchaseTaxGroupId { get; set; }
+        public Nullable<decimal> PurchaseRate { get; set; }
+        public Nullable<decimal> SaleRate { get; set; }
+        public Nullable<decimal> TaxPercent { get; set; }
+        public Nullable<decimal> DiscountPercent { get; set; }
     
         public virtual Batch Batch { get; set; }
         public virtual Product Product { get; set; }

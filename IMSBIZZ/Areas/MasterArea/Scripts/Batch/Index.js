@@ -6,12 +6,12 @@ $(document).ready(function () {
         pageLength: 25,
         responsive: true,
         processing: true,
-        serverSide: false,
+        serverSide: true,
         orderMulti: false,
         filter: true,
-        rowId: "Id",
+        rowId: "BatchId",
         ajax: {
-            "url": app.url.api("GetAllBatches", "api/Batch", { controller: "BatchAPI" }),
+            "url": app.url.apiAction("api/Batch/GetAllBatches"),
             "data": { "companyId": 1, "branchId": 1},
             "type": "Get",
             "datatype": "json"
@@ -29,17 +29,17 @@ $(document).ready(function () {
             selector: 'td:first-child'
         },
         columns: [
-            { "data": "SequenceNo", "name": "SequenceNo", "autoWidth": true},
+            { "data": "BatchId", "name": "BatchId", "autoWidth": true},
             { "data": "BatchName", "name": "BatchName", "autoWidth": true },         
-            { "data": "IsActive", "name": "IsActive", "autoWidth": true }, 
+            { "data": "Status", "name": "Status", "autoWidth": true }, 
             {
-                "data": "Id", "autoWidth": true, "render": function (data, type, row, meta) {
+                "data": "BatchId", "autoWidth": true, "render": function (data, type, row, meta) {
                     return ('<a href="{0} " class="btn btn-info">Edit</a>').formatString(
                         app.url.action('Edit', { controller: "Batch", area:"MasterArea", params: { Id: data } }));
                 }
             },
             {
-                "data": "Id", "autoWidth": true, "render": function (data, type, row, meta) {
+                "data": "BatchId", "autoWidth": true, "render": function (data, type, row, meta) {
                     return ('<input type="button" value="Delete" class="btn btn-danger" name=' + data + ' id=' + data + ' onclick=Delete(' + data + ')>');
                 }
             }    

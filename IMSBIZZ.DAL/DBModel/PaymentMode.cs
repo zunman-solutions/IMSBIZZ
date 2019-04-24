@@ -14,6 +14,12 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class PaymentMode
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PaymentMode()
+        {
+            this.SaleReturns = new HashSet<SaleReturn>();
+        }
+    
         public int PaymentModeId { get; set; }
         public Nullable<int> CompanyId { get; set; }
         public Nullable<int> BranchId { get; set; }
@@ -23,5 +29,9 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdateBy { get; set; }
         public Nullable<System.DateTime> UpdateOn { get; set; }
+    
+        public virtual Branch Branch { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleReturn> SaleReturns { get; set; }
     }
 }

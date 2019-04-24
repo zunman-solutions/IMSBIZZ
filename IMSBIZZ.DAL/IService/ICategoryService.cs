@@ -18,7 +18,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Category category);
         void Update(Category category);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
         IEnumerable<Category> ExecWithRowQuery(string query, params object[] parameters);
     }
 }

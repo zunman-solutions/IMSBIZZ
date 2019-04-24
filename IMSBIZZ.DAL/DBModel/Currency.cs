@@ -14,9 +14,18 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class Currency
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Currency()
+        {
+            this.Settings = new HashSet<Setting>();
+        }
+    
         public int CurrencyId { get; set; }
         public string CountryName { get; set; }
         public string CurrencyCode { get; set; }
         public string CurrencySymbol { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Setting> Settings { get; set; }
     }
 }

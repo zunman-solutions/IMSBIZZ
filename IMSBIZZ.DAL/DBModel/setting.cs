@@ -12,7 +12,7 @@ namespace IMSBIZZ.DAL.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class setting
+    public partial class Setting
     {
         public int SettingId { get; set; }
         public Nullable<int> DecimalPlaces { get; set; }
@@ -33,5 +33,6 @@ namespace IMSBIZZ.DAL.DBModel
     
         public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
+        public virtual Currency Currency { get; set; }
     }
 }

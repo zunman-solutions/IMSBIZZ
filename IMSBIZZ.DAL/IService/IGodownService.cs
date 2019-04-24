@@ -18,7 +18,7 @@ namespace IMSBIZZ.DAL.IService
         void Add(Godown godown);
         void Update(Godown godown);
         void Delete(int id);
-        void SaveChanges();
+        int SaveChanges();
         IEnumerable<Godown> ExecWithRowQuery(string query, params object[] parameters);
     }
 }

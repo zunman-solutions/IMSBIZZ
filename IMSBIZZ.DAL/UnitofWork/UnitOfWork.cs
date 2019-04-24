@@ -43,9 +43,9 @@ namespace IMSBIZZ.DAL.Repository
 
             _disposed = true;
         }
-        public void SaveChanges()
+        public int SaveChanges()
         {
-            ((IObjectContextAdapter)_dbContext).ObjectContext.SaveChanges();
+            return ((IObjectContextAdapter)_dbContext).ObjectContext.SaveChanges();
         }
 
         public GenericRepository<TEntity> GenericRepository<TEntity>() where TEntity: class

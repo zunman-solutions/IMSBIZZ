@@ -16,6 +16,6 @@ namespace IMSBIZZ.DAL.IService
         void Add(Party party);
         void Update(Party party);
         void Delete(int id);
-        void SaveChanges();        
+        int SaveChanges();        
     }
 }
