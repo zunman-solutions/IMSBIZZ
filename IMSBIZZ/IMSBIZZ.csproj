@@ -235,6 +235,7 @@
     <Compile Include="Areas\MasterArea\Controllers\CategoryController.cs" />
     <Compile Include="Areas\MasterArea\Mapper\BatchMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\CategoryMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\UserCompanyMapper .cs" />
     <Compile Include="Areas\MasterArea\Mapper\GodownMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\PartyMapper.cs" />
     <Compile Include="Areas\MasterArea\Mapper\ProductMapper.cs" />

@@ -217,10 +217,11 @@ namespace IMSBIZZ.Controllers
                     var branches = Areas.MasterArea.Mapper.BranchMapper.Attach(registervievmodel);
                     var fyear = Areas.MasterArea.Mapper.FinancialYearMapper.Attach(registervievmodel);
                     var setting = Areas.MasterArea.Mapper.SettingMapper.Attach(registervievmodel);
+                    var userCompany = Areas.MasterArea.Mapper.UserCompanyMapper.Attach(registervievmodel);
                     company.Branches.Add(branches);
                     company.FinancialYears.Add(fyear);
                     company.Settings.Add(setting);
-                    company.UserCompanies.Add(company);
+                    company.UserCompanies.Add(userCompany);
                    _companyService.Add(company);
                     _companyService.SaveChanges();
 
