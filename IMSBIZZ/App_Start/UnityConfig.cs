@@ -32,7 +32,7 @@ namespace IMSBIZZ
             container.RegisterType<IBranchService, BranchService>();
             container.RegisterType<ICompanyService, CompanyService>();
             container.RegisterType<ICategoryService, CategoryService>();
-
+            container.RegisterType<IUserCompanyService, UserCompanyService>();
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
