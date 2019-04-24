@@ -253,6 +253,10 @@
     <Compile Include="Areas\MasterArea\Controllers\TaxGroupAPIController.cs" />
     <Compile Include="Areas\MasterArea\Controllers\BatchAPIController.cs" />
     <Compile Include="Areas\MasterArea\Controllers\ProductAPIController.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\FinancialYearMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\SettingMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\BranchMapper.cs" />
+    <Compile Include="Areas\MasterArea\Mapper\CompanyMapper.cs" />
     <Compile Include="Areas\MasterArea\MasterAreaRegistration.cs" />
     <Compile Include="Areas\MasterArea\Models\StockViewModels\StockViewModel.cs" />
     <Compile Include="Areas\PurchaseArea\Controllers\PurchaseAPIController.cs" />
@@ -4439,6 +4443,8 @@
     <Content Include="Areas\MasterArea\Views\Batch\Index.cshtml" />
     <Content Include="Areas\MasterArea\Views\Batch\Create.cshtml" />
     <Content Include="Areas\MasterArea\Views\Batch\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\adminlte\components\jquery\dist\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Homeasst\css\animate.css" />
     <Content Include="Scripts\Homeasst\css\bootstrap.min.css" />

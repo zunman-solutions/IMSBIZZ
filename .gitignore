@@ -5,4 +5,9 @@
 /IMSBIZZ.Tests/bin/Debug
 /IMSBIZZ.Tests/obj/Debug
 /IMSBIZZ/obj/Debug
+/IMSBIZZ.DAL/bin/Release
+/IMSBIZZ.DAL/obj/Release
+/IMSBIZZ.Tests/obj/Release
+/IMSBIZZ/obj/Release
+/IMSBIZZ/Properties/PublishProfiles
 /.vs/IMSBIZZ/v16

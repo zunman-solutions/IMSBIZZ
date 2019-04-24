@@ -241,6 +241,9 @@
     <Compile Include="DTO\SaleMonthlyCountDTO.cs" />
     <Compile Include="DTO\VendorBalanceReportDTO.cs" />
     <Compile Include="DTO\VendorInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="IService\ISettingService .cs" />
+    <Compile Include="IService\IFinancialyearService.cs" />
+    <Compile Include="IService\IBranchService.cs" />
     <Compile Include="IService\ICategoryService.cs" />
     <Compile Include="IService\ICountryService.cs" />
     <Compile Include="IService\IGodownService.cs" />
@@ -261,6 +264,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericReporsitory.cs" />
+    <Compile Include="Service\BranchService .cs" />
+    <Compile Include="Service\SettingService.cs" />
+    <Compile Include="Service\FinancialYearService .cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\CountryService.cs" />
     <Compile Include="Service\GodownService.cs" />
