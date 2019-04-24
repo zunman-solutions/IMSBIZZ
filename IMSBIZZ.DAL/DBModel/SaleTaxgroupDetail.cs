@@ -18,5 +18,8 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<long> SaleTaxGroupId { get; set; }
         public Nullable<int> TypeId { get; set; }
         public Nullable<decimal> TaxPercentage { get; set; }
+    
+        public virtual SaleTaxGroup SaleTaxGroup { get; set; }
+        public virtual TaxType TaxType { get; set; }
     }
 }

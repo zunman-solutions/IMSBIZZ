@@ -27,6 +27,7 @@ namespace IMSBIZZ.DAL.DBModel
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
     
+        public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
     }
 }

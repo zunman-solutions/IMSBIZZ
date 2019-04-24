@@ -194,7 +194,7 @@
     <Compile Include="DBModel\SaleTaxgroupDetail.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\setting.cs">
+    <Compile Include="DBModel\Setting.cs">
       <DependentUpon>IMSBIZZModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\sp_helpdiagramdefinition_Result.cs">
@@ -241,6 +241,7 @@
     <Compile Include="DTO\SaleMonthlyCountDTO.cs" />
     <Compile Include="DTO\VendorBalanceReportDTO.cs" />
     <Compile Include="DTO\VendorInvoicePreviousTransactionDTO.cs" />
+    <Compile Include="IService\IUserCompanyService .cs" />
     <Compile Include="IService\ISettingService .cs" />
     <Compile Include="IService\IFinancialyearService.cs" />
     <Compile Include="IService\IBranchService.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericReporsitory.cs" />
     <Compile Include="Service\BranchService .cs" />
+    <Compile Include="Service\UserCompanyService .cs" />
     <Compile Include="Service\SettingService.cs" />
     <Compile Include="Service\FinancialYearService .cs" />
     <Compile Include="Service\CategoryService.cs" />

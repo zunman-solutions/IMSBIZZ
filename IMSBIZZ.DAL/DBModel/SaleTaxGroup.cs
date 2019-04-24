@@ -14,11 +14,23 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class SaleTaxGroup
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SaleTaxGroup()
+        {
+            this.SaleTaxgroupDetails = new HashSet<SaleTaxgroupDetail>();
+        }
+    
         public long SaleTaxGroupId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> TaxGroupId { get; set; }
         public Nullable<long> SaleId { get; set; }
         public Nullable<decimal> TotalTaxPercentage { get; set; }
         public Nullable<int> BatchId { get; set; }
+    
+        public virtual Product Product { get; set; }
+        public virtual Sale Sale { get; set; }
+        public virtual TaxGroup TaxGroup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleTaxgroupDetail> SaleTaxgroupDetails { get; set; }
     }
 }

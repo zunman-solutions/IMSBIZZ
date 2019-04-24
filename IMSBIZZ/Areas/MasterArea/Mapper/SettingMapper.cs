@@ -11,21 +11,21 @@ namespace IMSBIZZ.Areas.MasterArea.Mapper
 {
     public static class SettingMapper
     {
-        public static setting Attach(RegisterViewModel registerViewModel)
+        public static Setting Attach(RegisterViewModel registerViewModel)
         {
-            setting Setting = new setting();
-            Setting.company_id = registerViewModel.CompanyId;
-            Setting.branch_id = registerViewModel.BranchId;
-            Setting.user_id = registerViewModel.UserId;
-            Setting.created_by = registerViewModel.FirstName;
-            Setting.created_date = DateTime.Now;
-            Setting.InvoiceTemplateName = "PurchaseSaleReturnReport1.rdlc";
+            Setting setting = new Setting();
+            setting.CompanyId = registerViewModel.CompanyId;
+            setting.BranchId = registerViewModel.BranchId;
+            setting.UserId = registerViewModel.UserId;
+            setting.CreatedBy = registerViewModel.FirstName;
+            setting.CreatedOn = DateTime.Now;
+            setting.InvoiceTemplateName = "PurchaseSaleReturnReport1.rdlc";
 
-            return Setting;
+            return setting;
         }
 
 
-        public static RegisterViewModel Detach(setting Setting)
+        public static RegisterViewModel Detach(Setting Setting)
         {
             RegisterViewModel registerViewModel = new RegisterViewModel();
 

@@ -14,12 +14,6 @@ namespace IMSBIZZ.DAL.DBModel
     
     public partial class Country
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Country()
-        {
-            this.Branches = new HashSet<Branch>();
-        }
-    
         public int CountryId { get; set; }
         public string CountryName { get; set; }
         public string CurrencyName { get; set; }
@@ -29,8 +23,5 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Branch> Branches { get; set; }
     }
 }

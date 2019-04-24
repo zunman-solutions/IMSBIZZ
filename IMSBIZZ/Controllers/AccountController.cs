@@ -26,23 +26,26 @@ namespace IMSBIZZ.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private readonly ICountryService _countryService;
-        private readonly IsettingService _settingService;
+        private readonly ISettingService _settingService;
         private readonly IBranchService _branchService;
         private readonly IFinancialYearService _financialYearService;
         private readonly ICompanyService _companyService;
+        private readonly IUserCompanyService _userCompanyService;
+
 
         /// <summary>
         /// Constructor to inject Country Service
         /// </summary>
         /// <param name="CountryService">Country Service Instance</param>
 
-        public AccountController(ICountryService countryService,IsettingService settingService,IBranchService branchService,IFinancialYearService financialYearService, ICompanyService companyService)
+        public AccountController(ICountryService countryService,ISettingService settingService,IBranchService branchService,IFinancialYearService financialYearService, ICompanyService companyService, IUserCompanyService userCompanyService)
         {
             _countryService = countryService;
             _branchService = branchService;
             _settingService = settingService;
             _financialYearService = financialYearService;
             _companyService = companyService;
+            _userCompanyService = userCompanyService;
         }
 
      
@@ -171,11 +174,11 @@ namespace IMSBIZZ.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-
+           // RegisterViewModel registerViewModel = new RegisterViewModel();
             #region ViewBag
              var countrys = _countryService.GetAllCountrys().Select(s=> new SelectListItem {  Text=s.CountryName, Value=s.CountryId.ToString()}).ToList();
-            
-             ViewBag.Countrys = countrys;
+            ViewBag.CountryList = countrys.ToList();
+
             #endregion
             return View();
 
@@ -207,7 +210,7 @@ namespace IMSBIZZ.Controllers
                     registervievmodel.PinCode = model.PinCode;
                     registervievmodel.StartDate = model.StartDate;
                     registervievmodel.EndDate = model.EndDate;
-                    registervievmodel.UserId = Convert.ToInt32(user.Id);
+                    registervievmodel.UserId = user.Id;
                     registervievmodel.ReferenceMobileNo = model.ReferenceMobileNo;
 
                     var company = Areas.MasterArea.Mapper.CompanyMapper.Attach(registervievmodel);
@@ -216,7 +219,8 @@ namespace IMSBIZZ.Controllers
                     var setting = Areas.MasterArea.Mapper.SettingMapper.Attach(registervievmodel);
                     company.Branches.Add(branches);
                     company.FinancialYears.Add(fyear);
-                    company.settings.Add(setting);
+                    company.Settings.Add(setting);
+                    company.UserCompanies.Add(company);
                    _companyService.Add(company);
                     _companyService.SaveChanges();
 
@@ -226,7 +230,7 @@ namespace IMSBIZZ.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 AddErrors(result);
             }

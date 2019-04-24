@@ -24,5 +24,9 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<long> SaleReturnId { get; set; }
         public Nullable<decimal> DiscountAmnt { get; set; }
         public Nullable<int> SaleTaxGroupId { get; set; }
+    
+        public virtual Batch Batch { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Unit Unit { get; set; }
     }
 }

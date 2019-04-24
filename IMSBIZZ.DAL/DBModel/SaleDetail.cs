@@ -27,5 +27,10 @@ namespace IMSBIZZ.DAL.DBModel
         public Nullable<decimal> DiscountPercent { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<decimal> Amount { get; set; }
+    
+        public virtual Batch Batch { get; set; }
+        public virtual Sale Sale { get; set; }
+        public virtual TaxGroup TaxGroup { get; set; }
+        public virtual Unit Unit { get; set; }
     }
 }

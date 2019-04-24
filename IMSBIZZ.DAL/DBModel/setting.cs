@@ -12,26 +12,27 @@ namespace IMSBIZZ.DAL.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class setting
+    public partial class Setting
     {
-        public int settingId { get; set; }
-        public Nullable<int> Decimal_Places { get; set; }
-        public Nullable<int> currency_id { get; set; }
-        public Nullable<bool> Enable_Invoice_Tax { get; set; }
-        public Nullable<bool> Print_Tin_on_Invoice { get; set; }
-        public Nullable<bool> Print_address { get; set; }
+        public int SettingId { get; set; }
+        public Nullable<int> DecimalPlaces { get; set; }
+        public Nullable<int> CurrencyId { get; set; }
+        public Nullable<bool> EnableInvoiceTax { get; set; }
+        public Nullable<bool> PrintTinOnInvoice { get; set; }
+        public Nullable<bool> PrintAddress { get; set; }
         public string InvoiceTemplateName { get; set; }
         public string PaperSize { get; set; }
-        public Nullable<bool> status { get; set; }
-        public Nullable<int> user_id { get; set; }
-        public Nullable<int> branch_id { get; set; }
-        public Nullable<int> company_id { get; set; }
-        public string created_by { get; set; }
-        public Nullable<System.DateTime> created_date { get; set; }
-        public string modify_by { get; set; }
-        public Nullable<System.DateTime> modifydate { get; set; }
+        public Nullable<bool> Status { get; set; }
+        public string UserId { get; set; }
+        public Nullable<int> BranchId { get; set; }
+        public Nullable<int> CompanyId { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
+        public string UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedOn { get; set; }
     
         public virtual Branch Branch { get; set; }
         public virtual Company Company { get; set; }
+        public virtual Currency Currency { get; set; }
     }
 }

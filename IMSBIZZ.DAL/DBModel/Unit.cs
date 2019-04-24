@@ -19,6 +19,8 @@ namespace IMSBIZZ.DAL.DBModel
         {
             this.PurchaseDetails = new HashSet<PurchaseDetail>();
             this.PurchaseReturnDetails = new HashSet<PurchaseReturnDetail>();
+            this.SaleDetails = new HashSet<SaleDetail>();
+            this.SaleReturnDetails = new HashSet<SaleReturnDetail>();
         }
     
         public int UnitId { get; set; }
@@ -37,5 +39,9 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseReturnDetail> PurchaseReturnDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleDetail> SaleDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SaleReturnDetail> SaleReturnDetails { get; set; }
     }
 }

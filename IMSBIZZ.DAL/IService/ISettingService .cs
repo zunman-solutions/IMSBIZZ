@@ -6,18 +6,18 @@ using System.Linq.Expressions;
 
 namespace IMSBIZZ.DAL.Service
 {
-    public interface IsettingService
+    public interface ISettingService
     {
 
-        IEnumerable<setting> Get(Expression<Func<setting, bool>> filter = null,
-         Func<IQueryable<setting>, IOrderedQueryable<setting>> orderBy = null,
+        IEnumerable<Setting> Get(Expression<Func<Setting, bool>> filter = null,
+         Func<IQueryable<Setting>, IOrderedQueryable<Setting>> orderBy = null,
          string includeProperties = "");
-        IEnumerable<setting> GetAllSettings();
-        setting GetSettingsById(int id);
-        void Add(setting batch);
-        void Update(setting batch);
+        IEnumerable<Setting> GetAllSettings();
+        Setting GetSettingsById(int id);
+        void Add(Setting batch);
+        void Update(Setting batch);
         void Delete(int id);
         void SaveChanges();
-        IEnumerable<setting> ExecWithRowQuery(string query, params object[] parameters);
+        IEnumerable<Setting> ExecWithRowQuery(string query, params object[] parameters);
     }
 }
