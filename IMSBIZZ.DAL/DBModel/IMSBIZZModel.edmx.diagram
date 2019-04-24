@@ -5,99 +5,119 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="98304b0fea6b493991a5647507a787c1" Name="Diagram1">
-        <EntityTypeShape EntityType="IMSBIZZModel.AspNetRole" Width="1.5" PointX="1.5" PointY="22.125" />
-        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="19.125" />
-        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="24.625" />
-        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUser" Width="1.5" PointX="0.75" PointY="24.875" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Batch" Width="1.5" PointX="8.25" PointY="32" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Branch" Width="1.5" PointX="6" PointY="30.25" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Category" Width="1.5" PointX="16.25" PointY="28.375" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Company" Width="1.5" PointX="0.75" PointY="29.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Country" Width="1.5" PointX="3.75" PointY="28.375" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Currency" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Batch_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Branch_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Branch_Country" />
+        <AssociationConnector Association="IMSBIZZModel.FK_FinancialYear_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Party_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Product_Godown" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Stock_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_TaxType_Branch" />
+        <EntityTypeShape EntityType="IMSBIZZModel.AspNetRole" Width="1.5" PointX="1.5" PointY="67.125" />
+        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUserClaim" Width="1.5" PointX="6" PointY="76.25" />
+        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUserLogin" Width="1.5" PointX="6" PointY="73.625" />
+        <EntityTypeShape EntityType="IMSBIZZModel.AspNetUser" Width="1.5" PointX="3.75" PointY="65.875" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Batch" Width="1.5" PointX="3" PointY="40.625" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Branch" Width="1.5" PointX="3" PointY="58.25" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Category" Width="1.5" PointX="8.25" PointY="35.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Company" Width="1.5" PointX="0.75" PointY="47.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Country" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Currency" Width="1.5" PointX="6" PointY="63.25" />
         <EntityTypeShape EntityType="IMSBIZZModel.ErrorLog" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.FinancialYear" Width="1.5" PointX="8.25" PointY="37" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Godown" Width="1.5" PointX="3" PointY="47.625" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Party" Width="1.5" PointX="13.25" PointY="37.625" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PaymentMode" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Product" Width="1.5" PointX="18.5" PointY="30.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.ProductTaxGroup" Width="1.5" PointX="20.75" PointY="32.875" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Purchase" Width="1.5" PointX="15.5" PointY="37.125" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseDetail" Width="1.5" PointX="10.5" PointY="31.5" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseDetailsHistory" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseHistory" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchasePaymentDetial" Width="1.5" PointX="17.75" PointY="38" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchasePaymentDetialsHistory" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturn" Width="1.5" PointX="20.75" PointY="35.875" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnDetail" Width="1.5" PointX="13.5" PointY="31.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnDetailsHistory" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnHistory" Width="1.5" PointX="6.75" PointY="4.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseTaxGroup" Width="1.5" PointX="10.5" PointY="27.375" />
-        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseTaxgroupDetail" Width="1.5" PointX="12.75" PointY="23.875" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Rack" Width="1.5" PointX="16.25" PointY="32.125" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Sale" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleDetail" Width="1.5" PointX="8.75" PointY="5.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleDetailsHistory" Width="1.5" PointX="4.75" PointY="9.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleHistory" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SalePaymentDetial" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SalePaymentDetialsHistory" Width="1.5" PointX="10.75" PointY="5.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturn" Width="1.5" PointX="6.75" PointY="10.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnDetail" Width="1.5" PointX="8.75" PointY="10.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnDetailsHistory" Width="1.5" PointX="10.75" PointY="10.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnHistory" Width="1.5" PointX="12.75" PointY="0.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleTaxGroup" Width="1.5" PointX="12.75" PointY="5.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.SaleTaxgroupDetail" Width="1.5" PointX="12.75" PointY="8.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Stock" Width="1.5" PointX="10.5" PointY="37" />
-        <EntityTypeShape EntityType="IMSBIZZModel.StockHistory" Width="1.5" PointX="12.75" PointY="11.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.TaxGroup" Width="1.5" PointX="8.25" PointY="22.25" />
-        <EntityTypeShape EntityType="IMSBIZZModel.TaxGroupWithTaxType" Width="1.5" PointX="10.5" PointY="23.75" />
-        <EntityTypeShape EntityType="IMSBIZZModel.TaxType" Width="1.5" PointX="8.25" PointY="27.25" />
-        <EntityTypeShape EntityType="IMSBIZZModel.Unit" Width="1.5" PointX="13.25" PointY="27.125" />
-        <EntityTypeShape EntityType="IMSBIZZModel.UserCompany" Width="1.5" PointX="3" PointY="32.875" />
-        <EntityTypeShape EntityType="IMSBIZZModel.ELMAH_Error" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.FinancialYear" Width="1.5" PointX="3" PointY="52.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Godown" Width="1.5" PointX="11.25" PointY="60.375" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Party" Width="1.5" PointX="5.25" PointY="87.375" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PaymentMode" Width="1.5" PointX="5.25" PointY="79" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Product" Width="1.5" PointX="10.5" PointY="53" />
+        <EntityTypeShape EntityType="IMSBIZZModel.ProductTaxGroup" Width="1.5" PointX="12.75" PointY="55.25" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Purchase" Width="1.5" PointX="7.5" PointY="67" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseDetail" Width="1.5" PointX="8.25" PointY="40.375" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseDetailsHistory" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseHistory" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchasePaymentDetial" Width="1.5" PointX="9.75" PointY="78.25" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchasePaymentDetialsHistory" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturn" Width="1.5" PointX="12.75" PointY="65.375" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnDetail" Width="1.5" PointX="5.25" PointY="35.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnDetailsHistory" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseReturnHistory" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseTaxGroup" Width="1.5" PointX="5.25" PointY="41.125" />
+        <EntityTypeShape EntityType="IMSBIZZModel.PurchaseTaxgroupDetail" Width="1.5" PointX="10.5" PointY="46" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Rack" Width="1.5" PointX="8.25" PointY="54.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Sale" Width="1.5" PointX="10.5" PointY="72.125" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleDetail" Width="1.5" PointX="11.25" PointY="40.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleDetailsHistory" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleHistory" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SalePaymentDetial" Width="1.5" PointX="12.75" PointY="76.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SalePaymentDetialsHistory" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturn" Width="1.5" PointX="10.5" PointY="66.375" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnDetail" Width="1.5" PointX="5.25" PointY="46" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnDetailsHistory" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleReturnHistory" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleTaxGroup" Width="1.5" PointX="13.75" PointY="61.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.SaleTaxgroupDetail" Width="1.5" PointX="16" PointY="54" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Setting" Width="1.5" PointX="8.25" PointY="58.875" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Stock" Width="1.5" PointX="8.25" PointY="46.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.StockHistory" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.sysdiagram" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.TaxGroup" Width="1.5" PointX="6" PointY="30.75" />
+        <EntityTypeShape EntityType="IMSBIZZModel.TaxGroupWithTaxType" Width="1.5" PointX="5.25" PointY="51.125" />
+        <EntityTypeShape EntityType="IMSBIZZModel.TaxType" Width="1.5" PointX="3" PointY="45.5" />
+        <EntityTypeShape EntityType="IMSBIZZModel.Unit" Width="1.5" PointX="5.25" PointY="58.25" />
+        <EntityTypeShape EntityType="IMSBIZZModel.UserCompany" Width="1.5" PointX="6" PointY="54.875" />
+        <EntityTypeShape EntityType="IMSBIZZModel.ELMAH_Error" Width="1.5" PointX="4.75" PointY="10.75" />
         <AssociationConnector Association="IMSBIZZModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="IMSBIZZModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="IMSBIZZModel.FK_UserCompany_AspNetUsers" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Batch_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Batch_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseDetails_Batch" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturnDetails_Batch" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseTaxGroup_Batch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleDetails_Batch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturnDetails_Batch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Stock_Batch" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Branch_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Branch_Company" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Branch_Country" />
-        <AssociationConnector Association="IMSBIZZModel.FK_FinancialYear_Branch" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Party_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Godown_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Party_Company" />
+        <AssociationConnector Association="IMSBIZZModel.FK_PaymentMode_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Product_Branch" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Product_Godown" />
         <AssociationConnector Association="IMSBIZZModel.FK_Purchase_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturn_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Rack_Branch" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Stock_Branch" />
-        <AssociationConnector Association="IMSBIZZModel.FK_TaxType_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Sale_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturn_Branch" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Setting_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Unit_Branch" />
         <AssociationConnector Association="IMSBIZZModel.FK_Product_Category" />
         <AssociationConnector Association="IMSBIZZModel.FK_FinancialYear_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Godown_Company" />
-        <AssociationConnector Association="IMSBIZZModel.FK_Party_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Product_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Purchase_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturn_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Rack_Company" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Sale_Company" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturn_Company" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Setting_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Stock_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_TaxType_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_Unit_Company" />
         <AssociationConnector Association="IMSBIZZModel.FK_UserCompany_Company" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Setting_Currency" />
         <AssociationConnector Association="IMSBIZZModel.FK_Purchase_FinancialYear" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturn_FinancialYear" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Sale_FinancialYear" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturn_FinancialYear" />
         <AssociationConnector Association="IMSBIZZModel.FK_Purchase_Party" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturn_Party" />
+        <AssociationConnector Association="IMSBIZZModel.FK_Sale_Party" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturn_Party" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturn_PaymentMode" />
         <AssociationConnector Association="IMSBIZZModel.FK_Product_Rack" />
         <AssociationConnector Association="IMSBIZZModel.FK_ProductTaxGroup_Product" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseDetails_Product" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturnDetails_Product" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseTaxGroup_Product" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturnDetails_Product" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleTaxGroup_Product" />
         <AssociationConnector Association="IMSBIZZModel.FK_Stock_Product" />
         <AssociationConnector Association="IMSBIZZModel.FK_ProductTaxGroup_TaxGroup" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseDetails_Purchase" />
@@ -109,11 +129,20 @@
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseReturnDetails_Unit" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseTaxGroup_TaxGroup" />
         <AssociationConnector Association="IMSBIZZModel.FK_PurchaseTaxgroupDetails_PurchaseTaxGroup" />
+        <AssociationConnector Association="IMSBIZZModel.FK_PurchaseTaxgroupDetails_TaxType" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleDetails_Sale" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SalePaymentDetials_Sale" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleTaxGroup_Sale" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleDetails_TaxGroup" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleDetails_Unit" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleReturnDetails_Unit" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleTaxGroup_TaxGroup" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleTaxgroupDetails_SaleTaxGroup" />
+        <AssociationConnector Association="IMSBIZZModel.FK_SaleTaxgroupDetails_TaxType" />
         <AssociationConnector Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxGroup" />
         <AssociationConnector Association="IMSBIZZModel.FK_TaxGroupWithTaxType_TaxType" />
         <AssociationConnector Association="IMSBIZZModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="IMSBIZZModel.sysdiagram" Width="1.5" PointX="3.375" PointY="14.75" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
