@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+
 
 namespace IMSBIZZ.Models
 {
@@ -130,14 +130,14 @@ namespace IMSBIZZ.Models
         public int BranchId { get; set; }
 
         [Display(Name = "UserId")]
-        public int UserId { get; set; }
+        public String UserId { get; set; }
 
 
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Reference Mobile No")]
         public string ReferenceMobileNo { get; set; }
 
-        public List<SelectListItem> CountryList { get; set; }
+        public List<System.Web.Mvc.SelectListItem> CountryList { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -178,6 +178,7 @@ namespace IMSBIZZ.Models
         public string CountryName { get; set; }
     }
 
-    
+
+   
 
 }

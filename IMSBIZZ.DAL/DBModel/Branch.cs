@@ -28,7 +28,6 @@ namespace IMSBIZZ.DAL.DBModel
             this.SaleReturns = new HashSet<SaleReturn>();
             this.Settings = new HashSet<Setting>();
             this.Units = new HashSet<Unit>();
-            this.settings = new HashSet<setting>();
         }
     
         public int BranchId { get; set; }
@@ -73,7 +72,5 @@ namespace IMSBIZZ.DAL.DBModel
         public virtual ICollection<Setting> Settings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Unit> Units { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<setting> settings { get; set; }
     }
 }

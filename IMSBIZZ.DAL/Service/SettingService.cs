@@ -8,42 +8,42 @@ using System.Linq.Expressions;
 
 namespace IMSBIZZ.DAL.Service
 {
-    public class SettingService : IsettingService
+    public class SettingService : ISettingService
     {
         private readonly IMSBIZZEntities _dbContext;
         private UnitOfWork unitOfWork;
-        private GenericRepository<setting> settingRepository;
+        private GenericRepository<Setting> SettingRepository;
 
         public SettingService()
         {
             _dbContext = new IMSBIZZEntities();
             unitOfWork = new UnitOfWork(_dbContext);
-            settingRepository = unitOfWork.GenericRepository<setting>();
+            SettingRepository = unitOfWork.GenericRepository<Setting>();
         }
-        public IEnumerable<setting> Get(Expression<Func<setting, bool>> filter = null,
-          Func<IQueryable<setting>, IOrderedQueryable<setting>> orderBy = null,
+        public IEnumerable<Setting> Get(Expression<Func<Setting, bool>> filter = null,
+          Func<IQueryable<Setting>, IOrderedQueryable<Setting>> orderBy = null,
           string includeProperties = "")
         {
-            IEnumerable<setting> settings = settingRepository.Get(filter, orderBy, includeProperties).ToList();
-            return settings;
+            IEnumerable<Setting> Settings = SettingRepository.Get(filter, orderBy, includeProperties).ToList();
+            return Settings;
         }
 
-        public IEnumerable<setting> GetAllSettings()
+        public IEnumerable<Setting> GetAllSettings()
         {
-            IEnumerable<setting> settings = settingRepository.GetAll().ToList();
-            return settings;
+            IEnumerable<Setting> Settings = SettingRepository.GetAll().ToList();
+            return Settings;
         }
 
-        public setting GetSettingsById(int id)
+        public Setting GetSettingsById(int id)
         {
-            setting setting = settingRepository.GetById(id);
-            return setting;
+            Setting Setting = SettingRepository.GetById(id);
+            return Setting;
         }
 
-        public void Add(setting setting)
+        public void Add(Setting Setting)
         {
 
-            settingRepository.Add(setting);
+            SettingRepository.Add(Setting);
         }
 
         public void SaveChanges()
@@ -51,19 +51,19 @@ namespace IMSBIZZ.DAL.Service
             unitOfWork.SaveChanges();
         }
 
-        public void Update(setting setting)
+        public void Update(Setting Setting)
         {
-            settingRepository.Update(setting);
+            SettingRepository.Update(Setting);
         }
 
         public void Delete(int id)
         {
-            settingRepository.Delete(id);
+            SettingRepository.Delete(id);
         }
 
-       public IEnumerable<setting> ExecWithRowQuery(string query, params object[] parameters)
+       public IEnumerable<Setting> ExecWithRowQuery(string query, params object[] parameters)
         {
-            return settingRepository.ExecWithRowQuery(query, parameters);
+            return SettingRepository.ExecWithRowQuery(query, parameters);
         }
     }
 }

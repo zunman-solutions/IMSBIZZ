@@ -31,13 +31,14 @@ namespace IMSBIZZ
             container.RegisterType<IRackService, RackService>();
             container.RegisterType<IPartyService, PartyService>();
             container.RegisterType<ICountryService, CountryService>();
-            container.RegisterType<IsettingService, SettingService>();
+            container.RegisterType<ISettingService, SettingService>();
             container.RegisterType<IFinancialYearService, FinancialYearService>();
             container.RegisterType<IBranchService, BranchService>();
             container.RegisterType<ICompanyService, CompanyService>();
             container.RegisterType<ICategoryService, CategoryService>();
             container.RegisterType<ICompanyService, CompanyService>();
 
+            container.RegisterType<IUserCompanyService, UserCompanyService>();
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
